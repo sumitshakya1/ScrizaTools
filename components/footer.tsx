@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, Sparkles } from "lucide-react";
+import { MapPin, Phone, Mail, Sparkles, CheckCircle2 } from "lucide-react";
 
 export function Footer() {
   return (
@@ -38,58 +38,70 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Image Tools */}
+          {/* Col 2: Live Image Tools */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
-              Live Image Tools
-            </h4>
+            <div className="flex items-center gap-1.5">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
+                Live Image Tools
+              </h4>
+              <span className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Live
+              </span>
+            </div>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
                 <Link
                   href="/image-resizer"
-                  className="text-tertiary hover:text-primary transition-colors"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
                 >
-                  Image Resizer
+                  <span className="group-hover:text-primary transition-colors">Image Resizer</span>
+                  <span className="text-[10px] bg-emerald-50 text-emerald-700 font-medium px-1.5 py-0.5 rounded border border-emerald-100">Popular</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/image-compressor"
-                  className="text-tertiary hover:text-primary transition-colors"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
                 >
-                  Image Compressor
+                  <span className="group-hover:text-primary transition-colors">Image Compressor</span>
+                  <span className="text-[10px] bg-emerald-50 text-emerald-700 font-medium px-1.5 py-0.5 rounded border border-emerald-100">Lossless</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/bulk-image-resizer"
-                  className="text-tertiary hover:text-primary transition-colors"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
                 >
-                  Bulk Image Resizer
+                  <span className="group-hover:text-primary transition-colors">Bulk Image Resizer</span>
+                  <span className="text-[10px] bg-blue-50 text-blue-700 font-medium px-1.5 py-0.5 rounded border border-blue-100">Bulk</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/image-converter"
-                  className="text-tertiary hover:text-primary transition-colors"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
                 >
-                  Image Converter
+                  <span className="group-hover:text-primary transition-colors">Image Converter</span>
+                  <span className="text-[10px] bg-slate-100 text-slate-600 font-medium px-1.5 py-0.5 rounded">Convert</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/image-cropper"
-                  className="text-tertiary hover:text-primary transition-colors"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
                 >
-                  Image Cropper
+                  <span className="group-hover:text-primary transition-colors">Image Cropper</span>
+                  <span className="text-[10px] bg-slate-100 text-slate-600 font-medium px-1.5 py-0.5 rounded">Crop</span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/image-format-converter"
-                  className="text-tertiary hover:text-primary transition-colors"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
                 >
-                  Format Converter
+                  <span className="group-hover:text-primary transition-colors">Format Converter</span>
+                  <span className="text-[10px] bg-slate-100 text-slate-600 font-medium px-1.5 py-0.5 rounded">Formats</span>
                 </Link>
               </li>
             </ul>
