@@ -1,13 +1,5 @@
 import React from "react";
-import { notFound } from "next/navigation";
-import { ImageResizerTool } from "@/components/tools/image-resizer";
-import { ImageCompressorTool } from "@/components/tools/image-compressor";
-import { ImageConverterTool } from "@/components/tools/image-converter";
-import { ImageCropperTool } from "@/components/tools/image-cropper";
-import { BulkImageResizerTool } from "@/components/tools/bulk-image-resizer";
-import { ImageFormatConverterTool } from "@/components/tools/image-format-converter";
-import { ImagesToPdfTool } from "@/components/tools/images-to-pdf";
-import { GoogleVignetteModal } from "@/components/google-vignette-modal";
+import { ToolRenderer } from "@/components/tool-renderer";
 
 interface ToolPageProps {
   params: Promise<{
@@ -37,43 +29,5 @@ export async function generateMetadata({ params }: ToolPageProps) {
 
 export default async function ToolDynamicPage({ params }: ToolPageProps) {
   const { slug } = await params;
-
-  // Render dedicated interactive tool component
-  let ToolComponent: React.ReactNode;
-
-  switch (slug) {
-    case "images-to-pdf":
-      ToolComponent = <ImagesToPdfTool />;
-      break;
-    case "image-resizer":
-      ToolComponent = <ImageResizerTool />;
-      break;
-    case "image-compressor":
-      ToolComponent = <ImageCompressorTool />;
-      break;
-    case "image-converter":
-      ToolComponent = <ImageConverterTool />;
-      break;
-    case "image-cropper":
-      ToolComponent = <ImageCropperTool />;
-      break;
-    case "bulk-image-resizer":
-      ToolComponent = <BulkImageResizerTool />;
-      break;
-    case "image-format-converter":
-      ToolComponent = <ImageFormatConverterTool />;
-      break;
-    default:
-      // Default to Image Resizer for any related route
-      ToolComponent = <ImageResizerTool />;
-      break;
-  }
-
-  return (
-    <>
-      {ToolComponent}
-      {/* Google Vignette Modal Popup */}
-      <GoogleVignetteModal />
-    </>
-  );
+  return <ToolRenderer slug={slug} />;
 }

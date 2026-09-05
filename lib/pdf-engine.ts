@@ -1,5 +1,3 @@
-import { PDFDocument, PageSizes } from "pdf-lib";
-
 export interface PDFImageItem {
   id: string;
   name: string;
@@ -40,6 +38,11 @@ async function prepareImageBytes(
   grayscale: boolean = false
 ): Promise<{ bytes: Uint8Array; format: "jpg" | "png" }> {
   return new Promise((resolve, reject) => {
+    if (typeof window === "undefined") {
+      reject(new Error("Canvas processing must run on client"));
+      return;
+    }
+
     const img = new Image();
     img.crossOrigin = "anonymous";
     img.onload = () => {
@@ -97,6 +100,9 @@ export async function generatePdfFromImages(
     throw new Error("No images provided to generate PDF");
   }
 
+  // Dynamic import of pdf-lib to prevent SSR node issues
+  const { PDFDocument, PageSizes } = await import("pdf-lib");
+
   const pdfDoc = await PDFDocument.create();
   const margin = getMarginPoints(options.margin);
 
@@ -113,7 +119,6 @@ export async function generatePdfFromImages(
     if (options.pageSize === "fit") {
       // Page matches image dimensions + margin
       if (options.orientation === "landscape" && imgHeight > imgWidth) {
-        // Force rotate
         pageWidth = imgHeight + margin * 2;
         pageHeight = imgWidth + margin * 2;
       } else if (options.orientation === "portrait" && imgWidth > imgHeight) {
