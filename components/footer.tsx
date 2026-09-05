@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -127,53 +128,49 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Company & Legal */}
+          {/* Col 4: India Office */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
-              Company
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#e11d48] sm:text-primary">
+              INDIA OFFICE:
             </h4>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-tertiary hover:text-on-surface transition-colors"
+            <div className="mt-4 space-y-3.5 text-sm">
+              <div className="flex items-start gap-2.5 text-tertiary">
+                <MapPin className="h-5 w-5 shrink-0 text-[#e11d48] mt-0.5" />
+                <span className="leading-relaxed">
+                  NX One, T1 - 507, Tech Zone IV, Amrapali Dream Valley, Greater Noida, Uttar Pradesh 201318
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Phone className="h-4 w-4 shrink-0 text-[#e11d48]" />
+                <a
+                  href="tel:+919116011899"
+                  className="text-tertiary hover:text-primary font-medium transition-colors"
                 >
-                  About Scriza
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pricing"
-                  className="text-tertiary hover:text-on-surface transition-colors"
+                  +91 9116011899
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Phone className="h-4 w-4 shrink-0 text-[#e11d48]" />
+                <a
+                  href="tel:+919599287094"
+                  className="text-tertiary hover:text-primary font-medium transition-colors"
                 >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-tertiary hover:text-on-surface transition-colors"
+                  +91 9599287094
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Mail className="h-4 w-4 shrink-0 text-[#e11d48]" />
+                <a
+                  href="mailto:sales@scriza.in"
+                  className="text-tertiary hover:text-primary font-medium transition-colors"
                 >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-tertiary hover:text-on-surface transition-colors"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="text-tertiary hover:text-on-surface transition-colors"
-                >
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
+                  sales@scriza.in
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
