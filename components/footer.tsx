@@ -126,21 +126,41 @@ export function Footer() {
                   <span className="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-1.5 py-0.5 rounded border border-emerald-100">Live</span>
                 </Link>
               </li>
-              <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">PDF to JPG / PNG</span>
-                <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+              <li>
+                <Link
+                  href="/pdf-to-image"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
+                >
+                  <span className="group-hover:text-primary transition-colors">PDF to JPG / PNG</span>
+                  <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+                </Link>
               </li>
-              <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">PDF Merger &amp; Splitter</span>
-                <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+              <li>
+                <Link
+                  href="/pdf-merger"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
+                >
+                  <span className="group-hover:text-primary transition-colors">PDF Merger &amp; Splitter</span>
+                  <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+                </Link>
               </li>
-              <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">PDF Compressor</span>
-                <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+              <li>
+                <Link
+                  href="/pdf-compressor"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
+                >
+                  <span className="group-hover:text-primary transition-colors">PDF Compressor</span>
+                  <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+                </Link>
               </li>
-              <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">PDF Password Protect</span>
-                <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+              <li>
+                <Link
+                  href="/pdf-protect"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
+                >
+                  <span className="group-hover:text-primary transition-colors">PDF Password Protect</span>
+                  <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+                </Link>
               </li>
             </ul>
           </div>

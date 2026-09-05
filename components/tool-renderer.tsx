@@ -8,6 +8,7 @@ import { ImageCropperTool } from "@/components/tools/image-cropper";
 import { BulkImageResizerTool } from "@/components/tools/bulk-image-resizer";
 import { ImageFormatConverterTool } from "@/components/tools/image-format-converter";
 import { ImagesToPdfTool } from "@/components/tools/images-to-pdf";
+import { ComingSoonTool } from "@/components/tools/coming-soon-tool";
 import { GoogleVignetteModal } from "@/components/google-vignette-modal";
 
 interface ToolRendererProps {
@@ -39,8 +40,12 @@ export function ToolRenderer({ slug }: ToolRendererProps) {
     case "image-format-converter":
       ToolComponent = <ImageFormatConverterTool />;
       break;
+    case "pdf-to-image":
+    case "pdf-merger":
+    case "pdf-compressor":
+    case "pdf-protect":
     default:
-      ToolComponent = <ImageResizerTool />;
+      ToolComponent = <ComingSoonTool toolId={slug} />;
       break;
   }
 

@@ -120,7 +120,7 @@ export const imageTools: Tool[] = [
   },
 ];
 
-// Browser-based PDF Tools
+// Browser-based PDF Tools with dedicated distinct routes
 export const pdfTools: Tool[] = [
   {
     id: "images-to-pdf",
@@ -142,7 +142,7 @@ export const pdfTools: Tool[] = [
     id: "pdf-to-image",
     name: "PDF to JPG / PNG",
     description: "Extract high-resolution image pages from any PDF document.",
-    href: "/images-to-pdf",
+    href: "/pdf-to-image",
     iconName: "FileImage",
     badge: "Soon",
     actionLabel: "Open Tool",
@@ -157,7 +157,7 @@ export const pdfTools: Tool[] = [
     id: "pdf-merger",
     name: "PDF Merger & Splitter",
     description: "Combine multiple PDF files into one or extract specific page ranges.",
-    href: "/images-to-pdf",
+    href: "/pdf-merger",
     iconName: "Layers",
     badge: "Soon",
     actionLabel: "Open Tool",
@@ -172,7 +172,7 @@ export const pdfTools: Tool[] = [
     id: "pdf-compressor",
     name: "PDF Compressor",
     description: "Reduce PDF document file size while preserving sharp text and images.",
-    href: "/images-to-pdf",
+    href: "/pdf-compressor",
     iconName: "Wand2",
     badge: "Soon",
     actionLabel: "Open Tool",
@@ -187,7 +187,7 @@ export const pdfTools: Tool[] = [
     id: "pdf-protect",
     name: "PDF Password Protect",
     description: "Encrypt and protect sensitive PDF files with standard AES encryption.",
-    href: "/images-to-pdf",
+    href: "/pdf-protect",
     iconName: "ShieldCheck",
     badge: "Soon",
     actionLabel: "Open Tool",
