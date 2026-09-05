@@ -2,11 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { ChevronRight, ShieldCheck, Zap, Sparkles, ArrowRight } from "lucide-react";
+import { ChevronRight, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { AdSlot } from "@/components/ad-slot";
-import { imageTools } from "@/data/tools";
+import { imageTools, pdfTools, allTools } from "@/data/tools";
 
 interface ToolPageLayoutProps {
   toolId: string;
@@ -23,7 +23,8 @@ export function ToolPageLayout({
   children,
   faqComponent,
 }: ToolPageLayoutProps) {
-  const otherTools = imageTools.filter((t) => t.id !== toolId);
+  const isPdfTool = pdfTools.some((t) => t.id === toolId);
+  const otherTools = allTools.filter((t) => t.id !== toolId);
 
   return (
     <div className="min-h-screen bg-[#f4f6fa] text-on-surface flex flex-col">
@@ -37,8 +38,11 @@ export function ToolPageLayout({
               Home
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-surface-dim" />
-            <Link href="/#image-tools" className="hover:text-primary transition-colors">
-              Image Tools
+            <Link
+              href={isPdfTool ? "/#pdf-tools" : "/#image-tools"}
+              className="hover:text-primary transition-colors"
+            >
+              {isPdfTool ? "PDF Tools" : "Image Tools"}
             </Link>
             <ChevronRight className="h-3.5 w-3.5 text-surface-dim" />
             <span className="font-semibold text-on-surface">{title}</span>
@@ -82,7 +86,7 @@ export function ToolPageLayout({
             <div className="rounded-xl border border-surface-dim bg-white p-5 sm:p-6 shadow-card mt-8">
               <h3 className="text-sm font-bold text-on-surface mb-3 flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-primary" />
-                Explore Other Free Image Tools
+                Explore Other Free Tools
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {otherTools.slice(0, 4).map((tool) => (
@@ -120,14 +124,39 @@ export function ToolPageLayout({
               <h3 className="text-xs font-bold text-on-surface uppercase tracking-wider mb-3">
                 Quick Tool Switcher
               </h3>
-              <div className="space-y-1.5">
+              
+              {/* Image Tools group */}
+              <p className="text-[10px] font-bold text-tertiary uppercase tracking-wider px-2 mb-1">Image Tools</p>
+              <div className="space-y-1 mb-4">
                 {imageTools.map((tool) => {
                   const isActive = tool.id === toolId;
                   return (
                     <Link
                       key={tool.id}
                       href={tool.href}
-                      className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+                      className={`flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                        isActive
+                          ? "bg-primary text-white font-bold"
+                          : "text-tertiary hover:bg-surface-low hover:text-on-surface"
+                      }`}
+                    >
+                      <span>{tool.name}</span>
+                      {isActive && <span className="h-1.5 w-1.5 rounded-full bg-white" />}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* PDF Tools group */}
+              <p className="text-[10px] font-bold text-tertiary uppercase tracking-wider px-2 mb-1">PDF Tools</p>
+              <div className="space-y-1">
+                {pdfTools.map((tool) => {
+                  const isActive = tool.id === toolId;
+                  return (
+                    <Link
+                      key={tool.id}
+                      href={tool.href}
+                      className={`flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                         isActive
                           ? "bg-primary text-white font-bold"
                           : "text-tertiary hover:bg-surface-low hover:text-on-surface"

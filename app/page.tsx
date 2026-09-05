@@ -3,7 +3,7 @@ import { ToolSection } from "@/components/tool-section";
 import { Footer } from "@/components/footer";
 import { AdSlot } from "@/components/ad-slot";
 import { GoogleVignetteModal } from "@/components/google-vignette-modal";
-import { imageTools } from "@/data/tools";
+import { imageTools, pdfTools } from "@/data/tools";
 
 export default function Home() {
   return (
@@ -12,20 +12,26 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-1">
-        {/* Main Content Area with Right-Side Sticky Ad Rail (Matching RedKetchup IA + Lector Design) */}
+        {/* Main Content Area with Right-Side Sticky Ad Rail (Matching RedKetchup IA) */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:pt-8 sm:pb-16">
           <div className="flex flex-col lg:flex-row gap-8 xl:gap-10 items-stretch">
             
             {/* Left Primary Tool Directory Column */}
-            <div className="flex-1 min-w-0 w-full space-y-12">
+            <div className="flex-1 min-w-0 w-full space-y-10">
               
-              {/* Image Tools */}
+              {/* Image Tools Section */}
               <ToolSection
                 id="image-tools"
                 title="Image Tools"
-                description="Quickly resize, compress, convert and optimize your images with simple browser-based tools. Zero desktop installation needed."
-                badgeText="Category 01"
                 tools={imageTools}
+                accentColor="primary"
+              />
+
+              {/* PDF Tools Section */}
+              <ToolSection
+                id="pdf-tools"
+                title="PDF Tools"
+                tools={pdfTools}
                 accentColor="primary"
               />
 

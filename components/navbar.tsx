@@ -35,6 +35,12 @@ export function Navbar() {
             >
               Image Tools
             </Link>
+            <Link
+              href="/#pdf-tools"
+              className="px-3 py-1.5 text-sm font-medium text-tertiary hover:text-on-surface hover:bg-surface-low rounded-button transition-colors"
+            >
+              PDF Tools
+            </Link>
           </nav>
         </div>
 
@@ -55,7 +61,7 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* CSS-Only Mobile Navigation (Zero 'use client') */}
+        {/* CSS-Only Mobile Navigation */}
         <div className="flex md:hidden items-center">
           <details className="group relative">
             <summary
@@ -71,6 +77,13 @@ export function Navbar() {
                   className="flex items-center justify-between px-3 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-low rounded-lg transition-colors"
                 >
                   <span>Image Tools</span>
+                  <ChevronRight className="h-4 w-4 text-tertiary" />
+                </Link>
+                <Link
+                  href="/#pdf-tools"
+                  className="flex items-center justify-between px-3 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-low rounded-lg transition-colors"
+                >
+                  <span>PDF Tools</span>
                   <ChevronRight className="h-4 w-4 text-tertiary" />
                 </Link>
               </div>

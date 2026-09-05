@@ -31,22 +31,6 @@ export interface FutureCategory {
 // Browser-based Image Tools
 export const imageTools: Tool[] = [
   {
-    id: "images-to-pdf",
-    name: "Images to PDF",
-    description: "Convert and merge multiple JPG, PNG, WEBP, and BMP images into a single PDF document.",
-    href: "/images-to-pdf",
-    iconName: "FileText",
-    badge: "New",
-    isPopular: true,
-    actionLabel: "Open Tool",
-    features: ["A4 & Letter Presets", "Drag Reorder", "Quality Optimization"],
-    bulletPoints: [
-      "Convert multiple JPG, PNG, WEBP, and BMP images into a single PDF.",
-      "Custom page sizes (A4, US Letter, Fit Image) and custom margins.",
-      "100% client-side privacy with zero server uploads.",
-    ],
-  },
-  {
     id: "image-resizer",
     name: "Image Resizer",
     description: "Resize images by pixels, percentage or ratio with high-fidelity resampling.",
@@ -136,23 +120,89 @@ export const imageTools: Tool[] = [
   },
 ];
 
-export const futureCategories: FutureCategory[] = [
+// Browser-based PDF Tools
+export const pdfTools: Tool[] = [
   {
-    id: "pdf-tools",
-    title: "PDF Tools",
-    description: "Merge, split, compress, protect, and OCR PDF documents right inside your browser.",
+    id: "images-to-pdf",
+    name: "Images to PDF",
+    description: "Convert and merge multiple JPG, PNG, WEBP, and BMP images into a single PDF document.",
+    href: "/images-to-pdf",
     iconName: "FileText",
-    toolCount: 8,
-    previewTools: ["PDF to JPG", "PDF Merger", "PDF Compressor", "PDF Signer"],
+    badge: "Live",
+    isPopular: true,
+    actionLabel: "Open Tool",
+    features: ["A4 & Letter Presets", "Drag Reorder", "Quality Optimization"],
+    bulletPoints: [
+      "Convert multiple JPG, PNG, WEBP, and BMP images into a single PDF.",
+      "Custom page sizes (A4, US Letter, Fit Image) and custom margins.",
+      "100% client-side privacy with zero server uploads.",
+    ],
   },
   {
-    id: "document-tools",
-    title: "Document Tools",
-    description: "Transform DOCX, XLSX, TXT, and Markdown files with clean formatting and bulk edits.",
-    iconName: "FileCode2",
-    toolCount: 6,
-    previewTools: ["Doc Converter", "Markdown Editor", "Table Extractor", "Diff Checker"],
+    id: "pdf-to-image",
+    name: "PDF to JPG / PNG",
+    description: "Extract high-resolution image pages from any PDF document.",
+    href: "/images-to-pdf",
+    iconName: "FileImage",
+    badge: "Soon",
+    actionLabel: "Open Tool",
+    features: ["High-DPI Render", "Export Single or All", "ZIP Download"],
+    bulletPoints: [
+      "Convert every page of a PDF document into high-resolution JPG or PNG images.",
+      "Select custom DPI rendering (150, 300, 600 DPI) for print-ready clarity.",
+      "Download individual page images or all pages bundled in a ZIP archive.",
+    ],
   },
+  {
+    id: "pdf-merger",
+    name: "PDF Merger & Splitter",
+    description: "Combine multiple PDF files into one or extract specific page ranges.",
+    href: "/images-to-pdf",
+    iconName: "Layers",
+    badge: "Soon",
+    actionLabel: "Open Tool",
+    features: ["Drag Reorder", "Selective Page Extract", "Instant Merge"],
+    bulletPoints: [
+      "Merge multiple PDF documents together in any custom order.",
+      "Extract or delete unwanted pages from existing PDF files.",
+      "Client-side processing preserves all document metadata and hyperlinks.",
+    ],
+  },
+  {
+    id: "pdf-compressor",
+    name: "PDF Compressor",
+    description: "Reduce PDF document file size while preserving sharp text and images.",
+    href: "/images-to-pdf",
+    iconName: "Wand2",
+    badge: "Soon",
+    actionLabel: "Open Tool",
+    features: ["DPI Downscale", "Remove Duplicate Streams", "Email Ready"],
+    bulletPoints: [
+      "Compress large PDF documents for email attachments and web uploads.",
+      "Optimize embedded images and vector graphics without quality degradation.",
+      "View before-and-after file size comparisons before downloading.",
+    ],
+  },
+  {
+    id: "pdf-protect",
+    name: "PDF Password Protect",
+    description: "Encrypt and protect sensitive PDF files with standard AES encryption.",
+    href: "/images-to-pdf",
+    iconName: "ShieldCheck",
+    badge: "Soon",
+    actionLabel: "Open Tool",
+    features: ["AES-256 Encryption", "Permission Restrictions", "Zero Uploads"],
+    bulletPoints: [
+      "Add password protection to secure invoices, statements, and contracts.",
+      "Restrict printing, copying, and editing permissions.",
+      "100% browser-based encryption ensures passwords never touch the cloud.",
+    ],
+  },
+];
+
+export const allTools: Tool[] = [...imageTools, ...pdfTools];
+
+export const futureCategories: FutureCategory[] = [
   {
     id: "developer-tools",
     title: "Developer Tools",

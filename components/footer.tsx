@@ -27,7 +27,7 @@ export function Footer() {
             </Link>
 
             <p className="mt-4 text-sm text-tertiary max-w-sm leading-relaxed">
-              Free online image and document tools for modern digital workflows. Resize, compress, convert, and create PDFs directly in your browser — fast, private, and zero installs.
+              Free online image and PDF utilities for modern digital workflows. Resize, compress, convert, and manage documents directly in your browser — fast, private, and zero installs.
             </p>
 
             <div className="mt-6 flex items-center gap-3 text-xs text-tertiary">
@@ -38,11 +38,11 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Live Tools */}
+          {/* Col 2: Image Tools */}
           <div>
             <div className="flex items-center gap-1.5">
               <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
-                Live Tools
+                Image Tools
               </h4>
               <span className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -50,15 +50,6 @@ export function Footer() {
               </span>
             </div>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="/images-to-pdf"
-                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
-                >
-                  <span className="group-hover:text-primary transition-colors font-medium">Images to PDF</span>
-                  <span className="text-[10px] bg-rose-50 text-rose-700 font-semibold px-1.5 py-0.5 rounded border border-rose-100">PDF</span>
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/image-resizer"
@@ -70,20 +61,20 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/image-compressor"
-                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
-                >
-                  <span className="group-hover:text-primary transition-colors">Image Compressor</span>
-                  <span className="text-[10px] bg-emerald-50 text-emerald-700 font-medium px-1.5 py-0.5 rounded border border-emerald-100">Lossless</span>
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/bulk-image-resizer"
                   className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
                 >
                   <span className="group-hover:text-primary transition-colors">Bulk Image Resizer</span>
                   <span className="text-[10px] bg-blue-50 text-blue-700 font-medium px-1.5 py-0.5 rounded border border-blue-100">Bulk</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/image-compressor"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
+                >
+                  <span className="group-hover:text-primary transition-colors">Image Compressor</span>
+                  <span className="text-[10px] bg-emerald-50 text-emerald-700 font-medium px-1.5 py-0.5 rounded border border-emerald-100">Lossless</span>
                 </Link>
               </li>
               <li>
@@ -104,43 +95,53 @@ export function Footer() {
                   <span className="text-[10px] bg-slate-100 text-slate-600 font-medium px-1.5 py-0.5 rounded">Crop</span>
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/image-format-converter"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
+                >
+                  <span className="group-hover:text-primary transition-colors">Format Converter</span>
+                  <span className="text-[10px] bg-slate-100 text-slate-600 font-medium px-1.5 py-0.5 rounded">Formats</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Col 3: Upcoming Tools */}
+          {/* Col 3: PDF Tools */}
           <div>
             <div className="flex items-center gap-1.5">
               <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
-                Upcoming Tools
+                PDF Tools
               </h4>
-              <span className="inline-flex items-center gap-0.5 rounded px-1.5 py-0.5 text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
-                <Sparkles className="h-2.5 w-2.5" /> Soon
+              <span className="inline-flex items-center gap-0.5 rounded px-1.5 py-0.5 text-[10px] font-semibold bg-rose-50 text-rose-700 border border-rose-200">
+                <Sparkles className="h-2.5 w-2.5" /> PDF
               </span>
             </div>
             <ul className="mt-4 space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/images-to-pdf"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
+                >
+                  <span className="group-hover:text-primary transition-colors font-medium">Images to PDF</span>
+                  <span className="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-1.5 py-0.5 rounded border border-emerald-100">Live</span>
+                </Link>
+              </li>
               <li className="flex items-center justify-between text-tertiary group">
                 <span className="group-hover:text-primary transition-colors">PDF to JPG / PNG</span>
-                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">PDF</span>
-              </li>
-              <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">AI Background Remover</span>
-                <span className="text-[10px] bg-purple-50 text-purple-600 font-medium px-1.5 py-0.5 rounded border border-purple-100">AI</span>
-              </li>
-              <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">Image Watermark &amp; Logo</span>
-                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">Design</span>
-              </li>
-              <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">Video to GIF Maker</span>
-                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">Video</span>
-              </li>
-              <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">Favicon Generator</span>
-                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">Web</span>
+                <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
               </li>
               <li className="flex items-center justify-between text-tertiary group">
                 <span className="group-hover:text-primary transition-colors">PDF Merger &amp; Splitter</span>
-                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">PDF</span>
+                <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+              </li>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">PDF Compressor</span>
+                <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
+              </li>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">PDF Password Protect</span>
+                <span className="text-[10px] bg-amber-50 text-amber-700 font-medium px-1.5 py-0.5 rounded border border-amber-200">Soon</span>
               </li>
             </ul>
           </div>
