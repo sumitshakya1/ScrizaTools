@@ -16,14 +16,13 @@ export function Footer() {
               className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
               aria-label="Scriza Homepage"
             >
-              <div className="relative h-10 w-36 sm:w-40">
-                <Image
-                  src="/scriza-logo-full.png"
-                  alt="SCRIZA"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
+              <Image
+                src="/scriza-logo-full.png"
+                alt="SCRIZA"
+                width={140}
+                height={36}
+                className="h-8 sm:h-9 w-auto object-contain object-left"
+              />
             </Link>
 
             <p className="mt-4 text-sm text-tertiary max-w-sm leading-relaxed">

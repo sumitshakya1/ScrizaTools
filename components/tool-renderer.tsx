@@ -1,43 +1,14 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
+import { ImageResizerTool } from "@/components/tools/image-resizer";
+import { ImageCompressorTool } from "@/components/tools/image-compressor";
+import { ImageConverterTool } from "@/components/tools/image-converter";
+import { ImageCropperTool } from "@/components/tools/image-cropper";
+import { BulkImageResizerTool } from "@/components/tools/bulk-image-resizer";
+import { ImageFormatConverterTool } from "@/components/tools/image-format-converter";
+import { ImagesToPdfTool } from "@/components/tools/images-to-pdf";
 import { GoogleVignetteModal } from "@/components/google-vignette-modal";
-
-const ImageResizerTool = dynamic(
-  () => import("@/components/tools/image-resizer").then((m) => m.ImageResizerTool),
-  { ssr: false }
-);
-
-const ImageCompressorTool = dynamic(
-  () => import("@/components/tools/image-compressor").then((m) => m.ImageCompressorTool),
-  { ssr: false }
-);
-
-const ImageConverterTool = dynamic(
-  () => import("@/components/tools/image-converter").then((m) => m.ImageConverterTool),
-  { ssr: false }
-);
-
-const ImageCropperTool = dynamic(
-  () => import("@/components/tools/image-cropper").then((m) => m.ImageCropperTool),
-  { ssr: false }
-);
-
-const BulkImageResizerTool = dynamic(
-  () => import("@/components/tools/bulk-image-resizer").then((m) => m.BulkImageResizerTool),
-  { ssr: false }
-);
-
-const ImageFormatConverterTool = dynamic(
-  () => import("@/components/tools/image-format-converter").then((m) => m.ImageFormatConverterTool),
-  { ssr: false }
-);
-
-const ImagesToPdfTool = dynamic(
-  () => import("@/components/tools/images-to-pdf").then((m) => m.ImagesToPdfTool),
-  { ssr: false }
-);
 
 interface ToolRendererProps {
   slug: string;

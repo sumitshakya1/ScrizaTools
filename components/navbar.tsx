@@ -13,15 +13,14 @@ export function Navbar() {
             className="group flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg py-1"
             aria-label="Scriza Homepage"
           >
-            <div className="relative h-9 w-32 sm:w-36 transition-transform duration-200 group-hover:scale-105">
-              <Image
-                src="/scriza-logo-full.png"
-                alt="SCRIZA - YOUR TECH PARTNER"
-                fill
-                priority
-                className="object-contain object-left"
-              />
-            </div>
+            <Image
+              src="/scriza-logo-full.png"
+              alt="SCRIZA - YOUR TECH PARTNER"
+              width={140}
+              height={36}
+              priority
+              className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation Links */}

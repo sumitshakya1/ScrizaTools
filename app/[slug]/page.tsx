@@ -29,5 +29,6 @@ export async function generateMetadata({ params }: ToolPageProps) {
 
 export default async function ToolDynamicPage({ params }: ToolPageProps) {
   const { slug } = await params;
+
   return <ToolRenderer slug={slug} />;
 }
