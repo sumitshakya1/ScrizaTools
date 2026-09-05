@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
@@ -41,7 +41,7 @@ export function Footer() {
           {/* Col 2: Image Tools */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
-              Image Tools
+              Live Image Tools
             </h4>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
@@ -95,35 +95,40 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Resources */}
+          {/* Col 3: Upcoming Tools */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
-              Resources
-            </h4>
+            <div className="flex items-center gap-1.5">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
+                Upcoming Tools
+              </h4>
+              <span className="inline-flex items-center gap-0.5 rounded px-1.5 py-0.5 text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                <Sparkles className="h-2.5 w-2.5" /> Soon
+              </span>
+            </div>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="#categories"
-                  className="text-tertiary hover:text-on-surface transition-colors"
-                >
-                  PDF &amp; Doc Tools
-                </Link>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">Images to PDF</span>
+                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">PDF</span>
               </li>
-              <li>
-                <Link
-                  href="#categories"
-                  className="text-tertiary hover:text-on-surface transition-colors"
-                >
-                  Developer Tools
-                </Link>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">PDF to JPG / PNG</span>
+                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">PDF</span>
               </li>
-              <li>
-                <Link
-                  href="#categories"
-                  className="text-tertiary hover:text-on-surface transition-colors"
-                >
-                  Utility Tools
-                </Link>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">AI Background Remover</span>
+                <span className="text-[10px] bg-purple-50 text-purple-600 font-medium px-1.5 py-0.5 rounded border border-purple-100">AI</span>
+              </li>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">Image Watermark</span>
+                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">Design</span>
+              </li>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">Video to GIF Maker</span>
+                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">Video</span>
+              </li>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">Favicon Generator</span>
+                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">Web</span>
               </li>
             </ul>
           </div>
