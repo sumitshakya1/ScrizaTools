@@ -28,8 +28,24 @@ export interface FutureCategory {
   previewTools: string[];
 }
 
-// Browser-based Image Tools (Matching RedKetchup IA & exact table copy)
+// Browser-based Image Tools
 export const imageTools: Tool[] = [
+  {
+    id: "images-to-pdf",
+    name: "Images to PDF",
+    description: "Convert and merge multiple JPG, PNG, WEBP, and BMP images into a single PDF document.",
+    href: "/images-to-pdf",
+    iconName: "FileText",
+    badge: "New",
+    isPopular: true,
+    actionLabel: "Open Tool",
+    features: ["A4 & Letter Presets", "Drag Reorder", "Quality Optimization"],
+    bulletPoints: [
+      "Convert multiple JPG, PNG, WEBP, and BMP images into a single PDF.",
+      "Custom page sizes (A4, US Letter, Fit Image) and custom margins.",
+      "100% client-side privacy with zero server uploads.",
+    ],
+  },
   {
     id: "image-resizer",
     name: "Image Resizer",
@@ -127,7 +143,7 @@ export const futureCategories: FutureCategory[] = [
     description: "Merge, split, compress, protect, and OCR PDF documents right inside your browser.",
     iconName: "FileText",
     toolCount: 8,
-    previewTools: ["PDF Merger", "PDF Compressor", "PDF to Word", "PDF Signer"],
+    previewTools: ["PDF to JPG", "PDF Merger", "PDF Compressor", "PDF Signer"],
   },
   {
     id: "document-tools",

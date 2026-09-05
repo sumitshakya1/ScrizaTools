@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, Sparkles, CheckCircle2 } from "lucide-react";
+import { MapPin, Phone, Mail, Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
@@ -27,7 +27,7 @@ export function Footer() {
             </Link>
 
             <p className="mt-4 text-sm text-tertiary max-w-sm leading-relaxed">
-              Free online image tools for modern digital workflows. Resize, compress, convert, and crop images directly in your browser — fast, private, and zero installs.
+              Free online image and document tools for modern digital workflows. Resize, compress, convert, and create PDFs directly in your browser — fast, private, and zero installs.
             </p>
 
             <div className="mt-6 flex items-center gap-3 text-xs text-tertiary">
@@ -38,11 +38,11 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Live Image Tools */}
+          {/* Col 2: Live Tools */}
           <div>
             <div className="flex items-center gap-1.5">
               <h4 className="text-xs font-bold uppercase tracking-wider text-navy">
-                Live Image Tools
+                Live Tools
               </h4>
               <span className="inline-flex items-center gap-1 rounded px-1.5 py-0.5 text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -50,6 +50,15 @@ export function Footer() {
               </span>
             </div>
             <ul className="mt-4 space-y-2.5 text-sm">
+              <li>
+                <Link
+                  href="/images-to-pdf"
+                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
+                >
+                  <span className="group-hover:text-primary transition-colors font-medium">Images to PDF</span>
+                  <span className="text-[10px] bg-rose-50 text-rose-700 font-semibold px-1.5 py-0.5 rounded border border-rose-100">PDF</span>
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/image-resizer"
@@ -95,15 +104,6 @@ export function Footer() {
                   <span className="text-[10px] bg-slate-100 text-slate-600 font-medium px-1.5 py-0.5 rounded">Crop</span>
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/image-format-converter"
-                  className="flex items-center justify-between text-tertiary hover:text-primary transition-colors group"
-                >
-                  <span className="group-hover:text-primary transition-colors">Format Converter</span>
-                  <span className="text-[10px] bg-slate-100 text-slate-600 font-medium px-1.5 py-0.5 rounded">Formats</span>
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -119,10 +119,6 @@ export function Footer() {
             </div>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">Images to PDF</span>
-                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">PDF</span>
-              </li>
-              <li className="flex items-center justify-between text-tertiary group">
                 <span className="group-hover:text-primary transition-colors">PDF to JPG / PNG</span>
                 <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">PDF</span>
               </li>
@@ -131,7 +127,7 @@ export function Footer() {
                 <span className="text-[10px] bg-purple-50 text-purple-600 font-medium px-1.5 py-0.5 rounded border border-purple-100">AI</span>
               </li>
               <li className="flex items-center justify-between text-tertiary group">
-                <span className="group-hover:text-primary transition-colors">Image Watermark</span>
+                <span className="group-hover:text-primary transition-colors">Image Watermark &amp; Logo</span>
                 <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">Design</span>
               </li>
               <li className="flex items-center justify-between text-tertiary group">
@@ -141,6 +137,10 @@ export function Footer() {
               <li className="flex items-center justify-between text-tertiary group">
                 <span className="group-hover:text-primary transition-colors">Favicon Generator</span>
                 <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">Web</span>
+              </li>
+              <li className="flex items-center justify-between text-tertiary group">
+                <span className="group-hover:text-primary transition-colors">PDF Merger &amp; Splitter</span>
+                <span className="text-[10px] bg-slate-100 text-slate-500 font-medium px-1.5 py-0.5 rounded">PDF</span>
               </li>
             </ul>
           </div>
