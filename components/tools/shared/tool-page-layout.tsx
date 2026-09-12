@@ -6,7 +6,7 @@ import { ChevronRight, ShieldCheck, Sparkles, ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { AdSlot } from "@/components/ad-slot";
-import { imageTools, pdfTools, allTools } from "@/data/tools";
+import { imageTools, convertToPdfTools, convertFromPdfTools, pdfUtilityTools, pdfTools, allTools } from "@/data/tools";
 
 interface ToolPageLayoutProps {
   toolId: string;
@@ -73,13 +73,12 @@ export function ToolPageLayout({
           </div>
         </div>
 
-        {/* 2-Column Grid: Left Tool Content (approx 70-75%) + Right Sticky Ad Rail (approx 25-30%) */}
+        {/* 2-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* Main Controls & Processing Column */}
+          {/* Main Controls */}
           <div className="lg:col-span-8 space-y-6">
             {children}
 
-            {/* Bottom FAQ Section */}
             {faqComponent}
 
             {/* Related Tools Grid */}
@@ -110,22 +109,21 @@ export function ToolPageLayout({
             </div>
           </div>
 
-          {/* Right Rail: Sticky Ads and Quick Utility Box */}
+          {/* Right Rail */}
           <aside className="lg:col-span-4 space-y-6 sticky top-20">
-            {/* Top Ad in Right Rail */}
             <AdSlot
               placement="sticky-rail"
               format="skyscraper"
               adUnitId="tool-sidebar-skyscraper-1"
             />
 
-            {/* Quick Tool Navigation Box */}
+            {/* Quick Tool Navigation */}
             <div className="rounded-xl border border-surface-dim bg-white p-4 shadow-card">
               <h3 className="text-xs font-bold text-on-surface uppercase tracking-wider mb-3">
                 Quick Tool Switcher
               </h3>
               
-              {/* Image Tools group */}
+              {/* Image Tools */}
               <p className="text-[10px] font-bold text-tertiary uppercase tracking-wider px-2 mb-1">Image Tools</p>
               <div className="space-y-1 mb-4">
                 {imageTools.map((tool) => {
@@ -147,10 +145,56 @@ export function ToolPageLayout({
                 })}
               </div>
 
-              {/* PDF Tools group */}
-              <p className="text-[10px] font-bold text-tertiary uppercase tracking-wider px-2 mb-1">PDF Tools</p>
+              {/* Convert to PDF */}
+              <p className="text-[10px] font-bold text-tertiary uppercase tracking-wider px-2 mb-1">Convert to PDF</p>
+              <div className="space-y-1 mb-3">
+                {convertToPdfTools.map((tool) => {
+                  const isActive = tool.id === toolId;
+                  return (
+                    <Link
+                      key={tool.id}
+                      href={tool.href}
+                      className={`flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                        isActive
+                          ? "bg-primary text-white font-bold"
+                          : "text-tertiary hover:bg-surface-low hover:text-on-surface"
+                      }`}
+                    >
+                      <span>{tool.name}</span>
+                      {isActive && <span className="h-1.5 w-1.5 rounded-full bg-white" />}
+                      {!isActive && tool.badge === "Soon" && <span className="text-[9px] text-amber-600 font-bold">Soon</span>}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* Convert from PDF */}
+              <p className="text-[10px] font-bold text-tertiary uppercase tracking-wider px-2 mb-1">Convert from PDF</p>
+              <div className="space-y-1 mb-3">
+                {convertFromPdfTools.map((tool) => {
+                  const isActive = tool.id === toolId;
+                  return (
+                    <Link
+                      key={tool.id}
+                      href={tool.href}
+                      className={`flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                        isActive
+                          ? "bg-primary text-white font-bold"
+                          : "text-tertiary hover:bg-surface-low hover:text-on-surface"
+                      }`}
+                    >
+                      <span>{tool.name}</span>
+                      {isActive && <span className="h-1.5 w-1.5 rounded-full bg-white" />}
+                      {!isActive && tool.badge === "Soon" && <span className="text-[9px] text-amber-600 font-bold">Soon</span>}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* PDF Utilities */}
+              <p className="text-[10px] font-bold text-tertiary uppercase tracking-wider px-2 mb-1">PDF Utilities</p>
               <div className="space-y-1">
-                {pdfTools.map((tool) => {
+                {pdfUtilityTools.map((tool) => {
                   const isActive = tool.id === toolId;
                   return (
                     <Link
@@ -172,7 +216,7 @@ export function ToolPageLayout({
           </aside>
         </div>
 
-        {/* Full-width Horizontal Bottom Ad */}
+        {/* Bottom Ad */}
         <div className="mt-10">
           <AdSlot
             placement="hero-bottom"

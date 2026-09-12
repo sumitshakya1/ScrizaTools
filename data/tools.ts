@@ -28,36 +28,40 @@ export interface FutureCategory {
   previewTools: string[];
 }
 
-// Browser-based Image Tools
+// ═══════════════════════════════════════════════════════════
+// IMAGE TOOLS
+// ═══════════════════════════════════════════════════════════
+
 export const imageTools: Tool[] = [
   {
     id: "image-resizer",
     name: "Image Resizer",
-    description: "Resize images by pixels, percentage or ratio with high-fidelity resampling.",
+    description: "Resize any image to exact pixel dimensions or scale by percentage.",
     href: "/image-resizer",
-    iconName: "Scan",
+    iconName: "Maximize2",
     badge: "Popular",
     isPopular: true,
     actionLabel: "Open Tool",
-    features: ["Custom Dimensions", "Aspect Ratio Lock", "Bulk Export"],
+    features: ["Exact Pixel Dimensions", "Scale by Percentage", "Maintain Aspect Ratio"],
     bulletPoints: [
-      "Resize an image in pixels, percentage, or ratio online.",
-      "Downscale or upscale using filters and sharpening.",
-      "Supports the PNG, JPEG, WEBP, HEIC, GIF, ICO, TIFF, BMP, and SVG formats.",
+      "Resize a PNG, JPEG, WEBP, or HEIC image to exact dimensions.",
+      "Set a new height, width, or percentage scale for the image.",
+      "Convert multiple images to the PNG, JPEG, WEBP, HEIC, GIF, ICO, TIFF, or BMP formats.",
     ],
   },
   {
     id: "bulk-image-resizer",
     name: "Bulk Image Resizer",
-    description: "Resize and process multiple images quickly in batch mode.",
+    description: "Resize up to 50 images simultaneously with batch processing.",
     href: "/bulk-image-resizer",
-    iconName: "ImageIcon",
+    iconName: "Layers",
+    badge: "Bulk",
     actionLabel: "Open Tool",
-    features: ["Batch Processing", "ZIP Download", "Zero Upload Wait"],
+    features: ["Up to 50 Images", "ZIP Download", "Consistent Dimensions"],
     bulletPoints: [
-      "Resize, convert, or compress multiple images quickly.",
-      "Compress PNG, JPEG, WEBP, or HEIC images in batch.",
-      "Convert multiple images to the PNG, JPEG, WEBP, HEIC, GIF, ICO, TIFF, or BMP formats.",
+      "Resize up to 50 images simultaneously with batch processing.",
+      "Maintain consistent dimensions across all images in the batch.",
+      "Download all resized images as a single ZIP archive.",
     ],
   },
   {
@@ -120,8 +124,12 @@ export const imageTools: Tool[] = [
   },
 ];
 
-// Browser-based PDF Tools with dedicated distinct routes
-export const pdfTools: Tool[] = [
+// ═══════════════════════════════════════════════════════════
+// PDF TOOLS — Organized into Subcategories
+// ═══════════════════════════════════════════════════════════
+
+// ── Convert TO PDF ─────────────────────────────────────────
+export const convertToPdfTools: Tool[] = [
   {
     id: "images-to-pdf",
     name: "Images to PDF",
@@ -139,27 +147,155 @@ export const pdfTools: Tool[] = [
     ],
   },
   {
+    id: "jpg-to-pdf",
+    name: "JPG to PDF",
+    description: "Convert JPG and JPEG photos into a clean, single-page or multi-page PDF document.",
+    href: "/jpg-to-pdf",
+    iconName: "FileImage",
+    badge: "Live",
+    actionLabel: "Open Tool",
+    features: ["Auto Page Fit", "Batch Convert", "High Quality"],
+    bulletPoints: [
+      "Drag and drop JPG or JPEG photos to create a PDF instantly.",
+      "Automatically fits images to A4 or Letter page sizes.",
+      "100% browser-based — your photos never leave your device.",
+    ],
+  },
+  {
+    id: "html-to-pdf",
+    name: "HTML to PDF",
+    description: "Convert HTML content or web page markup into a downloadable PDF document.",
+    href: "/html-to-pdf",
+    iconName: "Globe",
+    badge: "Live",
+    actionLabel: "Open Tool",
+    features: ["Live Preview", "A4 & Letter", "Custom Styling"],
+    bulletPoints: [
+      "Paste HTML code and instantly convert to a clean PDF document.",
+      "Live preview panel shows exactly how the PDF will render.",
+      "Supports CSS styling, images, tables, and formatted text.",
+    ],
+  },
+  {
+    id: "word-to-pdf",
+    name: "Word to PDF",
+    description: "Convert Microsoft Word documents (.docx, .doc) to PDF format preserving formatting.",
+    href: "/word-to-pdf",
+    iconName: "FileText",
+    badge: "Live",
+    actionLabel: "Open Tool",
+    features: ["DOCX & DOC Support", "Preserve Formatting", "Batch Convert"],
+    bulletPoints: [
+      "Upload .docx or .doc files and convert to PDF with original formatting.",
+      "Preserves fonts, images, tables, and page layouts.",
+      "100% secure — documents processed entirely in your browser.",
+    ],
+  },
+  {
+    id: "pptx-to-pdf",
+    name: "PowerPoint to PDF",
+    description: "Convert PowerPoint presentations (.pptx) to high-quality PDF documents.",
+    href: "/pptx-to-pdf",
+    iconName: "Presentation",
+    badge: "Live",
+    actionLabel: "Open Tool",
+    features: ["Slide Layouts", "Animations Flatten", "Speaker Notes"],
+    bulletPoints: [
+      "Convert .pptx presentations into print-ready PDF documents.",
+      "Each slide becomes a full-page PDF with preserved graphics.",
+      "Optionally include speaker notes in the PDF output.",
+    ],
+  },
+  {
+    id: "excel-to-pdf",
+    name: "Excel to PDF",
+    description: "Convert Excel spreadsheets (.xlsx) to formatted PDF documents with table layouts.",
+    href: "/excel-to-pdf",
+    iconName: "FileSpreadsheet",
+    badge: "Live",
+    actionLabel: "Open Tool",
+    features: ["Table Formatting", "Multi-Sheet Support", "Print-Ready"],
+    bulletPoints: [
+      "Convert .xlsx spreadsheets to PDF with proper table formatting.",
+      "Handles multiple sheets, merged cells, and conditional formatting.",
+      "Choose landscape or portrait orientation for wide spreadsheets.",
+    ],
+  },
+];
+
+// ── Convert FROM PDF ───────────────────────────────────────
+export const convertFromPdfTools: Tool[] = [
+  {
     id: "pdf-to-image",
     name: "PDF to JPG / PNG",
     description: "Extract high-resolution image pages from any PDF document.",
     href: "/pdf-to-image",
-    iconName: "FileImage",
-    badge: "Soon",
+    iconName: "ImageIcon",
+    badge: "Live",
     actionLabel: "Open Tool",
     features: ["High-DPI Render", "Export Single or All", "ZIP Download"],
     bulletPoints: [
       "Convert every page of a PDF document into high-resolution JPG or PNG images.",
-      "Select custom DPI rendering (150, 300, 600 DPI) for print-ready clarity.",
+      "Select custom DPI rendering (72, 150, 300 DPI) for print-ready clarity.",
       "Download individual page images or all pages bundled in a ZIP archive.",
     ],
   },
+  {
+    id: "pdf-to-word",
+    name: "PDF to Word",
+    description: "Convert PDF documents back to editable Microsoft Word (.docx) files.",
+    href: "/pdf-to-word",
+    iconName: "FileText",
+    badge: "Live",
+    actionLabel: "Open Tool",
+    features: ["Text Extraction", "Layout Preserve", "Editable Output"],
+    bulletPoints: [
+      "Extract text, images, and tables from PDF and reconstruct as DOCX.",
+      "Maintains paragraph structure, headings, and basic formatting.",
+      "Ideal for editing scanned documents and archived PDFs.",
+    ],
+  },
+  {
+    id: "pdf-to-pptx",
+    name: "PDF to PowerPoint",
+    description: "Convert PDF pages into editable PowerPoint presentation slides.",
+    href: "/pdf-to-pptx",
+    iconName: "Presentation",
+    badge: "Live",
+    actionLabel: "Open Tool",
+    features: ["Slide Reconstruction", "Image Extraction", "Editable Text"],
+    bulletPoints: [
+      "Each PDF page becomes an editable PowerPoint slide.",
+      "Extracts text blocks and images for easy slide editing.",
+      "Perfect for repurposing PDF reports into presentation decks.",
+    ],
+  },
+  {
+    id: "pdf-to-excel",
+    name: "PDF to Excel",
+    description: "Extract tables and data from PDF documents into Excel spreadsheet format.",
+    href: "/pdf-to-excel",
+    iconName: "FileSpreadsheet",
+    badge: "Live",
+    actionLabel: "Open Tool",
+    features: ["Table Detection", "Multi-Page Support", "CSV Alternative"],
+    bulletPoints: [
+      "Automatically detect and extract tables from PDF documents.",
+      "Convert extracted data into .xlsx spreadsheets with proper columns.",
+      "Also supports CSV export for simple tabular data.",
+    ],
+  },
+];
+
+// ── PDF Utilities ──────────────────────────────────────────
+export const pdfUtilityTools: Tool[] = [
   {
     id: "pdf-merger",
     name: "PDF Merger & Splitter",
     description: "Combine multiple PDF files into one or extract specific page ranges.",
     href: "/pdf-merger",
     iconName: "Layers",
-    badge: "Soon",
+    badge: "Live",
     actionLabel: "Open Tool",
     features: ["Drag Reorder", "Selective Page Extract", "Instant Merge"],
     bulletPoints: [
@@ -174,24 +310,24 @@ export const pdfTools: Tool[] = [
     description: "Reduce PDF document file size while preserving sharp text and images.",
     href: "/pdf-compressor",
     iconName: "Wand2",
-    badge: "Soon",
+    badge: "Live",
     actionLabel: "Open Tool",
-    features: ["DPI Downscale", "Remove Duplicate Streams", "Email Ready"],
+    features: ["Object Stream Compression", "Remove Duplicates", "Email Ready"],
     bulletPoints: [
       "Compress large PDF documents for email attachments and web uploads.",
-      "Optimize embedded images and vector graphics without quality degradation.",
+      "Optimize by removing unused objects and compressing streams.",
       "View before-and-after file size comparisons before downloading.",
     ],
   },
   {
     id: "pdf-protect",
     name: "PDF Password Protect",
-    description: "Encrypt and protect sensitive PDF files with standard AES encryption.",
+    description: "Encrypt and protect sensitive PDF files with password protection.",
     href: "/pdf-protect",
     iconName: "ShieldCheck",
-    badge: "Soon",
+    badge: "Live",
     actionLabel: "Open Tool",
-    features: ["AES-256 Encryption", "Permission Restrictions", "Zero Uploads"],
+    features: ["Password Encryption", "Permission Restrictions", "Zero Uploads"],
     bulletPoints: [
       "Add password protection to secure invoices, statements, and contracts.",
       "Restrict printing, copying, and editing permissions.",
@@ -200,7 +336,19 @@ export const pdfTools: Tool[] = [
   },
 ];
 
+// Combined PDF tools array for routing and navigation
+export const pdfTools: Tool[] = [
+  ...convertToPdfTools,
+  ...convertFromPdfTools,
+  ...pdfUtilityTools,
+];
+
+// All tools combined
 export const allTools: Tool[] = [...imageTools, ...pdfTools];
+
+// ═══════════════════════════════════════════════════════════
+// FUTURE CATEGORIES
+// ═══════════════════════════════════════════════════════════
 
 export const futureCategories: FutureCategory[] = [
   {

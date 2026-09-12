@@ -38,6 +38,12 @@ import {
   Images,
   Scan,
   Wand2,
+  Globe,
+  FileSpreadsheet,
+  Presentation,
+  FileOutput,
+  FileInput,
+  FileType,
 } from "lucide-react";
 
 export interface IconProps extends LucideProps {
@@ -121,6 +127,18 @@ export function DynamicIcon({ name, ...props }: IconProps) {
       return <Scan {...props} />;
     case "Wand2":
       return <Wand2 {...props} />;
+    case "Globe":
+      return <Globe {...props} />;
+    case "FileSpreadsheet":
+      return <FileSpreadsheet {...props} />;
+    case "Presentation":
+      return <Presentation {...props} />;
+    case "FileOutput":
+      return <FileOutput {...props} />;
+    case "FileInput":
+      return <FileInput {...props} />;
+    case "FileType":
+      return <FileType {...props} />;
     default:
       return <Sparkles {...props} />;
   }

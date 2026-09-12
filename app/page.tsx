@@ -1,9 +1,9 @@
 import { Navbar } from "@/components/navbar";
-import { ToolSection } from "@/components/tool-section";
+import { ToolSection, PdfToolSection } from "@/components/tool-section";
 import { Footer } from "@/components/footer";
 import { AdSlot } from "@/components/ad-slot";
 import { GoogleVignetteModal } from "@/components/google-vignette-modal";
-import { imageTools, pdfTools } from "@/data/tools";
+import { imageTools, convertToPdfTools, convertFromPdfTools, pdfUtilityTools } from "@/data/tools";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-1">
-        {/* Main Content Area with Right-Side Sticky Ad Rail (Matching RedKetchup IA) */}
+        {/* Main Content Area with Right-Side Sticky Ad Rail */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:pt-8 sm:pb-16">
           <div className="flex flex-col lg:flex-row gap-8 xl:gap-10 items-stretch">
             
@@ -27,17 +27,17 @@ export default function Home() {
                 accentColor="primary"
               />
 
-              {/* PDF Tools Section */}
-              <ToolSection
+              {/* PDF Tools Section — Subcategorized */}
+              <PdfToolSection
                 id="pdf-tools"
-                title="PDF Tools"
-                tools={pdfTools}
-                accentColor="primary"
+                convertToPdf={convertToPdfTools}
+                convertFromPdf={convertFromPdfTools}
+                utilities={pdfUtilityTools}
               />
 
             </div>
 
-            {/* Right-Hand Sticky Ad Slot (Skyscraper 300x600 & Native Display) */}
+            {/* Right-Hand Sticky Ad Slot */}
             <AdSlot placement="sticky-rail" format="skyscraper" enabled={true} className="hidden lg:flex" />
 
           </div>
@@ -47,7 +47,7 @@ export default function Home() {
       {/* Global Footer */}
       <Footer />
 
-      {/* Google Vignette Interstitial Ad Modal (#google_vignette) */}
+      {/* Google Vignette Interstitial Ad Modal */}
       <GoogleVignetteModal />
     </div>
   );

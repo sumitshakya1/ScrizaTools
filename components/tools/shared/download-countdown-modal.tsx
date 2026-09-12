@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { X, Sparkles, Download, CheckCircle2, ShieldCheck, Clock, ArrowRight } from "lucide-react";
+import { X, Download, Clock } from "lucide-react";
 
 interface DownloadCountdownModalProps {
   isOpen: boolean;
@@ -14,13 +14,30 @@ interface DownloadCountdownModalProps {
 
 export function DownloadCountdownModal({
   isOpen,
-  durationSeconds = 30,
+  durationSeconds = 5,
   fileName,
   onComplete,
   onClose,
 }: DownloadCountdownModalProps) {
   const [secondsRemaining, setSecondsRemaining] = useState<number>(durationSeconds);
   const [isFinished, setIsFinished] = useState<boolean>(false);
+
+  // Keep a stable ref to onComplete so interval changes don't recreate effects or use stale closures
+  const onCompleteRef = useRef(onComplete);
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  // Handle direct download trigger
+  const handleDownloadNow = () => {
+    try {
+      if (onCompleteRef.current) {
+        onCompleteRef.current();
+      }
+    } catch (e) {
+      console.error("Download trigger error:", e);
+    }
+  };
 
   useEffect(() => {
     if (!isOpen) {
@@ -32,12 +49,20 @@ export function DownloadCountdownModal({
     setSecondsRemaining(durationSeconds);
     setIsFinished(false);
 
+    let completed = false;
     const interval = setInterval(() => {
       setSecondsRemaining((prev) => {
         if (prev <= 1) {
           clearInterval(interval);
-          setIsFinished(true);
-          onComplete();
+          if (!completed) {
+            completed = true;
+            setIsFinished(true);
+            setTimeout(() => {
+              if (onCompleteRef.current) {
+                onCompleteRef.current();
+              }
+            }, 100);
+          }
           return 0;
         }
         return prev - 1;
@@ -45,17 +70,14 @@ export function DownloadCountdownModal({
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isOpen, durationSeconds, onComplete]);
+  }, [isOpen, durationSeconds]);
 
   if (!isOpen) return null;
 
   const progressPercent = Math.round(((durationSeconds - secondsRemaining) / durationSeconds) * 100);
 
-  // Dynamic status messages throughout the 30s countdown
   const getStatusText = () => {
-    if (secondsRemaining > 22) return "Processing image resolution and fine details...";
-    if (secondsRemaining > 15) return "Applying high-fidelity compression & filters...";
-    if (secondsRemaining > 8) return "Generating valid file headers and metadata...";
+    if (secondsRemaining > 3) return "Generating and assembling document bytes...";
     if (secondsRemaining > 0) return "Finalizing download stream...";
     return "Your file is ready! Download started.";
   };
@@ -66,7 +88,7 @@ export function DownloadCountdownModal({
         {/* Top Header */}
         <div className="flex items-center justify-between pb-3 border-b border-surface-dim">
           <div className="flex items-center gap-2">
-            <span className="flex h-2.5 w-2.5 rounded-full bg-primary animate-ping" />
+            <span className={`flex h-2.5 w-2.5 rounded-full ${isFinished ? "bg-green-500" : "bg-primary animate-ping"}`} />
             <h3 className="text-base font-extrabold text-on-surface">
               {isFinished ? "Download Ready!" : "Preparing Your Download"}
             </h3>
@@ -74,7 +96,7 @@ export function DownloadCountdownModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-1.5 text-tertiary hover:bg-surface-low hover:text-on-surface transition-colors"
+            className="rounded-lg p-1.5 text-tertiary hover:bg-surface-low hover:text-on-surface transition-colors cursor-pointer"
             aria-label="Cancel download"
           >
             <X className="h-5 w-5" />
@@ -87,7 +109,11 @@ export function DownloadCountdownModal({
             <span className="font-mono font-semibold text-on-surface truncate max-w-[280px]">
               {fileName}
             </span>
-            <span className="font-mono font-bold text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-md border border-primary/20">
+            <span className={`font-mono font-bold px-2 py-0.5 rounded-md border ${
+              isFinished 
+                ? "text-green-600 bg-green-50 border-green-200" 
+                : "text-primary bg-primary-fixed/40 border-primary/20"
+            }`}>
               {isFinished ? "Ready" : `${secondsRemaining}s remaining`}
             </span>
           </div>
@@ -105,7 +131,7 @@ export function DownloadCountdownModal({
           </p>
         </div>
 
-        {/* High-Impact 300x250 Sponsored Ad Unit for AdSense Revenue */}
+        {/* Sponsored Ad Unit */}
         <div className="mt-4 rounded-xl border border-surface-dim bg-surface-low/60 p-3 text-center">
           <div className="flex items-center justify-between text-[10px] uppercase font-bold tracking-wider text-tertiary mb-2 px-1">
             <span>Sponsored Advertisement</span>
@@ -114,7 +140,6 @@ export function DownloadCountdownModal({
             </span>
           </div>
 
-          {/* GoDaddy 300x250 Medium Rectangle Ad */}
           <div className="mx-auto w-[300px] h-[200px] sm:h-[220px] relative rounded-lg border border-surface-dim bg-white shadow-xs overflow-hidden">
             <a
               href="https://www.godaddy.com"
@@ -140,7 +165,7 @@ export function DownloadCountdownModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl border border-surface-dim px-4 py-2.5 text-xs font-semibold text-tertiary hover:bg-surface-low hover:text-on-surface transition-colors"
+            className="rounded-xl border border-surface-dim px-4 py-2.5 text-xs font-semibold text-tertiary hover:bg-surface-low hover:text-on-surface transition-colors cursor-pointer"
           >
             Cancel
           </button>
@@ -148,8 +173,8 @@ export function DownloadCountdownModal({
           {isFinished ? (
             <button
               type="button"
-              onClick={onComplete}
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-xs font-bold text-white hover:bg-primary-hover shadow-md shadow-primary/20 transition-all"
+              onClick={handleDownloadNow}
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-xs font-bold text-white hover:bg-primary/90 shadow-md shadow-primary/20 transition-all cursor-pointer"
             >
               <Download className="h-4 w-4" />
               <span>Download Again</span>
