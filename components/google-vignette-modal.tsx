@@ -40,20 +40,9 @@ export function GoogleVignetteModal() {
       window.addEventListener("hashchange", handleHashChange);
       window.addEventListener("keydown", handleKeyDown);
 
-      // Automatic trigger demonstration for user testing (fires once after 4 seconds on first session)
-      const hasShown = sessionStorage.getItem("scriza_vignette_shown");
-      let timer: NodeJS.Timeout;
-      if (!hasShown) {
-        timer = setTimeout(() => {
-          setIsOpen(true);
-          sessionStorage.setItem("scriza_vignette_shown", "true");
-        }, 4000);
-      }
-
       return () => {
         window.removeEventListener("hashchange", handleHashChange);
         window.removeEventListener("keydown", handleKeyDown);
-        if (timer) clearTimeout(timer);
       };
     }
   }, [handleClose]);

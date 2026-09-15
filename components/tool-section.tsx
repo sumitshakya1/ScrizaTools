@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
 import { Tool } from "@/data/tools";
 import { DynamicIcon } from "@/components/icons";
@@ -120,13 +123,13 @@ export function PdfToolSection({
 
 function ToolItem({ tool }: { tool: Tool }) {
   return (
-    <div className="group flex flex-col justify-start">
+    <Link
+      href={tool.href}
+      className="group block p-3.5 -m-3.5 rounded-lg transition-colors hover:bg-[#f6f8fa] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0969da]"
+    >
       {/* Tool Header: Icon + Name + Badge */}
       <div className="flex items-center gap-2.5">
-        <Link
-          href={tool.href}
-          className="inline-flex items-center gap-2.5 text-lg font-semibold text-[#24292f] hover:text-[#0969da] transition-colors focus:outline-none group"
-        >
+        <div className="inline-flex items-center gap-2.5 text-lg font-semibold text-[#24292f] group-hover:text-[#0969da] transition-colors">
           <span className="flex h-6 w-6 items-center justify-center text-[#57606a] group-hover:text-[#0969da] transition-colors">
             <DynamicIcon
               name={tool.iconName}
@@ -136,7 +139,7 @@ function ToolItem({ tool }: { tool: Tool }) {
           <span className="group-hover:underline underline-offset-2">
             {tool.name}
           </span>
-        </Link>
+        </div>
         {tool.badge === "Soon" && (
           <span className="inline-flex items-center rounded-full bg-amber-50 border border-amber-200 px-2 py-0.5 text-[10px] font-bold text-amber-700">
             Coming Soon
@@ -145,7 +148,7 @@ function ToolItem({ tool }: { tool: Tool }) {
       </div>
 
       {/* Bullet Points List */}
-      <ul className="mt-2 space-y-1 list-disc list-outside ml-6 text-[0.875rem] text-[#424a53] leading-relaxed">
+      <ul className="mt-2 space-y-1 list-disc list-outside ml-6 text-[0.875rem] text-[#424a53] leading-relaxed group-hover:text-[#24292f]">
         {tool.bulletPoints && tool.bulletPoints.length > 0 ? (
           tool.bulletPoints.map((bullet, idx) => (
             <li key={idx} className="pl-0.5">
@@ -163,6 +166,6 @@ function ToolItem({ tool }: { tool: Tool }) {
           </>
         )}
       </ul>
-    </div>
+    </Link>
   );
 }

@@ -27,9 +27,9 @@ export function ToolSectionCard({
   const [isOpen, setIsOpen] = React.useState(defaultOpen);
 
   return (
-    <section className={`rounded-xl border border-surface-dim bg-white shadow-card overflow-hidden transition-all duration-200 ${className}`}>
+    <section className={`rounded-xl border border-surface-dim bg-white shadow-card transition-all duration-200 ${className}`}>
       {/* Card Header matching RedKetchup style */}
-      <div className="flex items-center justify-between border-b border-surface-dim/60 bg-surface-low/60 px-5 py-3.5 sm:px-6">
+      <div className="flex items-center justify-between border-b border-surface-dim/60 bg-surface-low/60 px-5 py-3.5 sm:px-6 rounded-t-xl">
         <div className="flex items-center gap-2.5">
           <h2 className="text-base sm:text-lg font-bold text-on-surface tracking-tight flex items-center gap-2">
             {title}
@@ -40,11 +40,11 @@ export function ToolSectionCard({
             )}
           </h2>
           {infoTooltip && (
-            <div className="group relative flex cursor-help items-center text-tertiary hover:text-primary">
-              <HelpCircle className="h-4 w-4" />
-              <div className="absolute left-1/2 -top-2 -translate-x-1/2 -translate-y-full hidden group-hover:block z-30 w-64 rounded-lg bg-navy px-3 py-2 text-xs text-white shadow-xl">
+            <div className="group relative inline-flex cursor-help items-center text-tertiary hover:text-primary">
+              <HelpCircle className="h-4 w-4 transition-colors" />
+              <div className="pointer-events-none absolute left-0 top-full mt-2 hidden group-hover:block z-50 w-72 rounded-lg bg-[#1f2937] p-3 text-xs leading-relaxed text-white shadow-2xl border border-gray-700 animate-in fade-in zoom-in-95 duration-150">
                 {infoTooltip}
-                <div className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-navy" />
+                <div className="absolute -top-1.5 left-2 h-3 w-3 rotate-45 bg-[#1f2937] border-l border-t border-gray-700" />
               </div>
             </div>
           )}
