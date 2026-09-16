@@ -990,9 +990,9 @@ export async function convertPdfToWord(file: File): Promise<Blob> {
   }
 
   const doc = new Document({
-    creator: "Scriza Tools",
+    creator: "ToolOn Tools",
     title: file.name.replace(/.pdf$/i, ""),
-    description: "Converted from PDF using Scriza Tools",
+    description: "Converted from PDF using ToolOn.in",
     sections: [
       {
         properties: {

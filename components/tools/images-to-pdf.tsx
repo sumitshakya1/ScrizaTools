@@ -38,7 +38,7 @@ const PDF_FAQS: FAQItem[] = [
   {
     question: "Are my photos uploaded to any external server?",
     answer:
-      "No! Scriza's Images to PDF converter is 100% client-side. The entire PDF compilation runs locally in your web browser via WebAssembly and HTML5 Canvas. Your sensitive documents, receipts, and personal photos never leave your device.",
+      "No! ToolOn's Images to PDF converter is 100% client-side. The entire PDF compilation runs locally in your web browser via WebAssembly and HTML5 Canvas. Your sensitive documents, receipts, and personal photos never leave your device.",
   },
   {
     question: "Which image formats are supported?",
@@ -56,7 +56,7 @@ export function ImagesToPdfTool() {
   const [items, setItems] = useState<PDFImageItem[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
-  const [outputFileName, setOutputFileName] = useState("scriza-document.pdf");
+  const [outputFileName, setOutputFileName] = useState("toolon-document.pdf");
   
   // PDF Options
   const [pageSize, setPageSize] = useState<PDFExportOptions["pageSize"]>("a4");
@@ -488,7 +488,7 @@ export function ImagesToPdfTool() {
                   type="text"
                   value={outputFileName}
                   onChange={(e) => setOutputFileName(e.target.value)}
-                  placeholder="scriza-document.pdf"
+                  placeholder="toolon-document.pdf"
                   className="w-full rounded-xl border border-surface-dim bg-white px-4 py-3 text-sm font-medium text-navy focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                 />
                 <span className="absolute right-4 top-3.5 text-xs text-tertiary font-mono">

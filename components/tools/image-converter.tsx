@@ -24,12 +24,12 @@ const CONVERTER_FAQS: FAQItem[] = [
   {
     question: "Can I convert transparent PNG or WEBP to JPEG without getting a black background?",
     answer:
-      "Yes! When converting an image with transparent areas to JPEG, Scriza allows you to choose a custom solid background color (defaulting to pure white #FFFFFF), so transparent pixels turn cleanly into white instead of unsightly black blocks.",
+      "Yes! When converting an image with transparent areas to JPEG, ToolOn allows you to choose a custom solid background color (defaulting to pure white #FFFFFF), so transparent pixels turn cleanly into white instead of unsightly black blocks.",
   },
   {
-    question: "How do I convert HEIC iPhone photos to standard JPG/PNG?",
+    question: "Can I convert Apple HEIC photos directly?",
     answer:
-      "Simply upload your .heic or .heif photos from your iPhone or Mac. Scriza decodes HEIC client-side inside your browser and lets you download standard JPG or PNG files immediately.",
+      "Simply upload your .heic or .heif photos from your iPhone or Mac. ToolOn decodes HEIC client-side inside your browser and lets you download standard JPG or PNG files immediately.",
   },
   {
     question: "Does converting an image reduce its quality?",

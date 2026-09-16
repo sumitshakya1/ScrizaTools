@@ -17,7 +17,7 @@ const FAQS: FAQItem[] = [
   { question: "Are my documents uploaded?", answer: "No. The HTML is rendered inside your browser using canvas technology and converted to PDF entirely client-side. Nothing leaves your device." },
 ];
 
-const SAMPLE_HTML = `<h1 style="color: #1a1a2e; font-family: Arial;">Welcome to Scriza Tools</h1>
+const SAMPLE_HTML = `<h1 style="color: #1a1a2e; font-family: Arial;">Welcome to ToolOn Tools</h1>
 <p style="font-size: 16px; line-height: 1.6; color: #444;">
   This is a <strong>sample HTML document</strong> that demonstrates the HTML to PDF converter.
 </p>
@@ -65,7 +65,7 @@ export function HtmlToPdfTool() {
     if (!pendingUrl) return;
     const a = document.createElement("a");
     a.href = pendingUrl;
-    a.download = "scriza-html-to-pdf.pdf";
+    a.download = "toolon-html-to-pdf.pdf";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -155,7 +155,7 @@ export function HtmlToPdfTool() {
         <FAQSection toolName="HTML to PDF" items={FAQS} />
       </div>
 
-      <DownloadCountdownModal isOpen={showCountdown} fileName="scriza-html-to-pdf.pdf" onComplete={triggerDownload} onClose={() => setShowCountdown(false)} />
+      <DownloadCountdownModal isOpen={showCountdown} fileName="toolon-html-to-pdf.pdf" onComplete={triggerDownload} onClose={() => setShowCountdown(false)} />
     </ToolPageLayout>
   );
 }

@@ -38,7 +38,7 @@ export function PdfToWordTool() {
     try {
       const blob = await convertPdfToWord(file);
       const url = URL.createObjectURL(blob);
-      const name = `scriza-${file.name.replace(/\.pdf$/i, "")}.docx`;
+      const name = `toolon-${file.name.replace(/\.pdf$/i, "")}.docx`;
       setPendingDownload({ url, name });
       setShowCountdown(true);
     } catch (err: any) {

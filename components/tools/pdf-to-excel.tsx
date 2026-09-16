@@ -38,7 +38,7 @@ export function PdfToExcelTool() {
     try {
       const blob = await convertPdfToExcel(file);
       const url = URL.createObjectURL(blob);
-      const name = `scriza-${file.name.replace(/\.pdf$/i, "")}.xlsx`;
+      const name = `toolon-${file.name.replace(/\.pdf$/i, "")}.xlsx`;
       setPendingDownload({ url, name });
       setShowCountdown(true);
     } catch (err: any) {

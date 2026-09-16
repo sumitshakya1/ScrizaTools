@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles, Zap, ShieldCheck } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/config";
 
 export function CtaSection() {
   return (
@@ -28,7 +29,7 @@ export function CtaSection() {
 
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-              Work smarter with Scriza.
+              Work smarter with ToolOn.
             </h2>
 
             {/* Description */}
@@ -38,13 +39,13 @@ export function CtaSection() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto">
-              <Link
-                href="http://localhost:3000/signup"
+              <a
+                href={SITE_CONFIG.links.signUp}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-bold text-primary bg-white hover:bg-surface-low rounded-button shadow-lg transition-all duration-200 active:scale-[0.98] w-full sm:w-auto text-center"
               >
                 <span>Get Started Free</span>
                 <ArrowRight className="h-4 w-4 text-primary" />
-              </Link>
+              </a>
               <Link
                 href="#image-tools"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold text-white bg-white/15 hover:bg-white/25 border border-white/30 rounded-button backdrop-blur-sm transition-all duration-200 w-full sm:w-auto text-center"

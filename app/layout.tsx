@@ -1,36 +1,54 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 
 export const metadata: Metadata = {
-  title: "Scriza — Free Online Image Tools | Resize, Compress, Convert",
+  title: "ToolOn — Free Online Image & PDF Tools | Resize, Compress, Convert",
   description:
-    "Free browser-based image tools by Scriza. Resize, compress, crop, and convert images online — 100% client-side, fast, and private. No uploads required.",
+    "Free browser-based tools by ToolOn.in. Resize, compress, crop, and convert images & PDFs online — fast, private, and zero installs. Core browser tools process files locally where stated. Operated by Scriza Private Limited.",
   keywords: [
-    "Scriza",
+    "ToolOn",
+    "toolon.in",
+    "Scriza Private Limited",
     "online tools",
     "image resizer",
     "image compressor",
     "image converter",
-    "image cropper",
-    "bulk image resizer",
-    "free online image tools",
-    "client-side image processing",
+    "pdf tools",
+    "pdf compressor",
+    "pdf to word",
+    "images to pdf",
+    "free online tools",
+    "browser image processing",
+    "bulk email marketing platform",
   ],
-  authors: [{ name: "Scriza Team" }],
+  authors: [{ name: "Scriza Private Limited" }],
+  metadataBase: new URL("https://www.toolon.in"),
+  alternates: {
+    canonical: "https://www.toolon.in",
+  },
   openGraph: {
-    title: "Scriza — Free Online Image Tools | Resize, Compress, Convert",
+    title: "ToolOn — Free Online Image & PDF Tools | Resize, Compress, Convert",
     description:
-      "Free browser-based image tools by Scriza. Resize, compress, crop, and convert images online — fast, private, and zero installs.",
-    url: "https://scriza.com",
-    siteName: "Scriza",
+      "Free browser-based tools by ToolOn.in. Resize, compress, crop, and convert images & PDFs online. Operated by Scriza Private Limited (CIN: U74999RJ2022PTC082624).",
+    url: "https://www.toolon.in",
+    siteName: "ToolOn.in",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Scriza — Free Online Image Tools",
+    title: "ToolOn.in — Free Online Tools for Everyday Tasks",
     description:
-      "Resize, compress, crop, and convert images directly in your browser. 100% free and private.",
+      "Resize, compress, crop, and convert images & PDFs directly in your browser. Operated by Scriza Private Limited.",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
   robots: {
     index: true,
@@ -39,7 +57,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#b50a53",
+  themeColor: "#0070f3",
   width: "device-width",
   initialScale: 1,
 };
@@ -52,6 +70,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="alternate icon" href="/icon.svg" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -61,6 +82,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background text-on-surface antialiased flex flex-col justify-between font-sans">
         {children}
+        <CookieConsentBanner />
       </body>
     </html>
   );

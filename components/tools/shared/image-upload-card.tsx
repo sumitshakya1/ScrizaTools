@@ -119,7 +119,7 @@ export function ImageUploadCard({
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 52px system-ui, sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText("Scriza High-Res Sample", 600, 380);
+      ctx.fillText("ToolOn High-Res Sample", 600, 380);
 
       ctx.font = "28px system-ui, sans-serif";
       ctx.fillStyle = "rgba(255,255,255,0.85)";

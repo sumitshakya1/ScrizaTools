@@ -43,7 +43,7 @@ export function Hero() {
 
             {/* Supporting Subheadline */}
             <p className="mt-6 text-lg sm:text-xl text-tertiary max-w-2xl leading-relaxed">
-              Everything you need to simplify everyday work, automate repetitive tasks, and get more done with Scriza. High-speed browser tools and automated workflow pipelines in one unified platform.
+              Everything you need to simplify everyday work, automate repetitive tasks, and get more done with ToolOn.in. High-speed browser tools and automated workflow pipelines in one unified platform.
             </p>
 
             {/* Primary & Secondary CTAs */}
@@ -101,8 +101,8 @@ export function Hero() {
                   <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-primary/30 via-secondary/30 to-primary/30 -z-10 blur-sm group-hover:blur-md transition-all duration-500" />
                   
                   <Image
-                    src="/scriza-dashboard-laptop.jpg"
-                    alt="Scriza Dashboard - Email Campaign Analytics, Automation Workflows, and Performance Metrics displayed on a laptop"
+                    src="/toolon-dashboard-laptop.jpg"
+                    alt="ToolOn Dashboard - Free Online Image & PDF Tools displayed on a laptop"
                     width={800}
                     height={533}
                     priority
@@ -140,7 +140,7 @@ export function Hero() {
                   <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 border border-white/10">
                     <Cpu className="h-3.5 w-3.5 text-primary-fixed" />
                   </div>
-                  <span className="text-xs font-medium">Scriza Edge Processing</span>
+                  <span className="text-xs font-medium">ToolOn Edge Processing</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Zap className="h-3.5 w-3.5 text-amber-400" />

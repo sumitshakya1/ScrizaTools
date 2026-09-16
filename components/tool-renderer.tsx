@@ -21,7 +21,6 @@ import { PdfToWordTool } from "@/components/tools/pdf-to-word";
 import { PdfToPptxTool } from "@/components/tools/pdf-to-pptx";
 import { PdfToExcelTool } from "@/components/tools/pdf-to-excel";
 import { ComingSoonTool } from "@/components/tools/coming-soon-tool";
-import { GoogleVignetteModal } from "@/components/google-vignette-modal";
 
 interface ToolRendererProps {
   slug: string;
@@ -102,10 +101,5 @@ export function ToolRenderer({ slug }: ToolRendererProps) {
       break;
   }
 
-  return (
-    <>
-      {ToolComponent}
-      <GoogleVignetteModal />
-    </>
-  );
+  return <>{ToolComponent}</>;
 }

@@ -106,7 +106,7 @@ export function PdfMergerTool() {
       const result = await mergePdfs(files.map((f) => f.file));
       const blob = new Blob([new Uint8Array(result) as BlobPart], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
-      const downloadName = `scriza-merged-${Date.now()}.pdf`;
+      const downloadName = `toolon-merged-${Date.now()}.pdf`;
       setPendingDownload({ url, name: downloadName });
       setShowCountdown(true);
     } catch (err: any) {
@@ -133,7 +133,7 @@ export function PdfMergerTool() {
       const result = await splitPdf(splitFile.file, ranges);
       const blob = new Blob([new Uint8Array(result) as BlobPart], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
-      const downloadName = `scriza-split-${splitFile.name.replace(/\.pdf$/i, "")}-pages.pdf`;
+      const downloadName = `toolon-split-${splitFile.name.replace(/\.pdf$/i, "")}-pages.pdf`;
       setPendingDownload({ url, name: downloadName });
       setShowCountdown(true);
     } catch (err: any) {
@@ -247,7 +247,7 @@ export function PdfMergerTool() {
 
       <DownloadCountdownModal
         isOpen={showCountdown}
-        fileName={pendingDownload?.name || "scriza-document.pdf"}
+        fileName={pendingDownload?.name || "toolon-document.pdf"}
         onComplete={triggerDownload}
         onClose={() => {
           setShowCountdown(false);

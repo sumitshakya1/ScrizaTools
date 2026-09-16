@@ -100,7 +100,7 @@ export function SaveImageCard({
     };
 
     // Always trigger 30s Countdown Interstitial for AdSense monetization (bypassed only for Pro subscribers)
-    const isPro = typeof window !== "undefined" && localStorage.getItem("scriza_pro_active") === "true";
+    const isPro = typeof window !== "undefined" && localStorage.getItem("toolon_pro_active") === "true";
     if (isPro) {
       onDownload(opts);
     } else {

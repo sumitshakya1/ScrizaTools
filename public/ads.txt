@@ -1,0 +1,5 @@
+# https://www.toolon.in/ads.txt
+# Authorized Digital Sellers (ads.txt) for ToolOn (Scriza Private Limited)
+# IMPORTANT: Insert the verified Google AdSense Publisher ID before ad serving is enabled in production.
+# Example format:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

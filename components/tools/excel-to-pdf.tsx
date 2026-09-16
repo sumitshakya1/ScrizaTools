@@ -33,7 +33,7 @@ export function ExcelToPdfTool() {
       const result = await convertExcelToPdf(file, orientation);
       const blob = new Blob([result as any], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
-      const name = `scriza-${file.name.replace(/\.(xlsx?|csv)$/i, "")}.pdf`;
+      const name = `toolon-${file.name.replace(/\.(xlsx?|csv)$/i, "")}.pdf`;
       setPendingDownload({ url, name });
       setShowCountdown(true);
     } catch (err: any) {

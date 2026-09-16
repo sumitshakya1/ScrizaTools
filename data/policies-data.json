@@ -1,0 +1,711 @@
+[
+  {
+    "id": "company",
+    "title": "Corporate Information and Contact",
+    "route": "/company",
+    "start": 63313,
+    "end": 65201,
+    "headings": [
+      {
+        "title": "Legal Entity",
+        "anchor": "legal-entity",
+        "level": 2
+      },
+      {
+        "title": "Customer and Business Contact",
+        "anchor": "customer-and-business-contact",
+        "level": 2
+      },
+      {
+        "title": "Service Description",
+        "anchor": "service-description",
+        "level": 2
+      }
+    ],
+    "html": "<p>ToolOn is a digital tools and software service operated by Scriza Private Limited. This page identifies the entity responsible for the website and provides the contact routes required for customers payment partners service providers regulators and recipients of emails sent through the platform.</p><h2 id=\"legal-entity\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">Legal Entity</h2><p><strong>Legal name  </strong>Scriza Private Limited</p><p><strong>Corporate Identification Number  </strong>U74999RJ2022PTC082624</p><p><strong>Brand  </strong>ToolOn</p><p><strong>Website  </strong>https://www.toolon.in</p><p><strong>Country of establishment  </strong>India</p><p><strong>Registered office  </strong>Udaipur Rajasthan India  The complete MCA registered address must be inserted here before publication</p><p><strong>Corporate office  </strong>NX One T1 507 Tech Zone IV Amrapali Dream Valley Greater Noida Uttar Pradesh 201318 India</p><h2 id=\"customer-and-business-contact\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">Customer and Business Contact</h2><p><strong>General enquiries and customer support  </strong>sales@scriza.in</p><p><strong>Telephone  </strong>+91 9116011899</p><p><strong>Privacy grievances and legal notices  </strong>admin@scriza.in</p><p><strong>Business hours  </strong>Monday to Saturday 10:00 AM to 6:00 PM Indian Standard Time excluding public holidays</p><h2 id=\"service-description\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">Service Description</h2><p>ToolOn provides browser based utilities for images documents PDFs text and calculations where available. Some tools process files only in the user browser. ToolOn may also provide paid account based services including permission based marketing email transactional email templates contact management campaign reporting API access and related digital credits. The applicable product page pricing page order summary and policies describe the feature availability limits and charges for each service.</p>"
+  },
+  {
+    "id": "terms",
+    "title": "Terms of Service",
+    "route": "/terms",
+    "start": 65201,
+    "end": 76626,
+    "headings": [
+      {
+        "title": "1 Definitions",
+        "anchor": "1-definitions",
+        "level": 2
+      },
+      {
+        "title": "2 Eligibility and Authority",
+        "anchor": "2-eligibility-and-authority",
+        "level": 2
+      },
+      {
+        "title": "3 Accounts and Security",
+        "anchor": "3-accounts-and-security",
+        "level": 2
+      },
+      {
+        "title": "4 Browser Tools",
+        "anchor": "4-browser-tools",
+        "level": 2
+      },
+      {
+        "title": "5 Communication Services",
+        "anchor": "5-communication-services",
+        "level": 2
+      },
+      {
+        "title": "6 Customer Data and Instructions",
+        "anchor": "6-customer-data-and-instructions",
+        "level": 2
+      },
+      {
+        "title": "7 ToolOn Intellectual Property",
+        "anchor": "7-toolon-intellectual-property",
+        "level": 2
+      },
+      {
+        "title": "8 Plans Fees Taxes and Renewals",
+        "anchor": "8-plans-fees-taxes-and-renewals",
+        "level": 2
+      },
+      {
+        "title": "9 Cancellation Refunds and Delivery",
+        "anchor": "9-cancellation-refunds-and-delivery",
+        "level": 2
+      },
+      {
+        "title": "10 Third Party Services",
+        "anchor": "10-third-party-services",
+        "level": 2
+      },
+      {
+        "title": "11 Availability Changes and Support",
+        "anchor": "11-availability-changes-and-support",
+        "level": 2
+      },
+      {
+        "title": "12 Acceptable Use and Enforcement",
+        "anchor": "12-acceptable-use-and-enforcement",
+        "level": 2
+      },
+      {
+        "title": "13 Suspension and Termination",
+        "anchor": "13-suspension-and-termination",
+        "level": 2
+      },
+      {
+        "title": "14 Confidentiality",
+        "anchor": "14-confidentiality",
+        "level": 2
+      },
+      {
+        "title": "15 Disclaimers",
+        "anchor": "15-disclaimers",
+        "level": 2
+      },
+      {
+        "title": "16 Limitation of Liability",
+        "anchor": "16-limitation-of-liability",
+        "level": 2
+      },
+      {
+        "title": "17 Indemnity",
+        "anchor": "17-indemnity",
+        "level": 2
+      },
+      {
+        "title": "18 Governing Law and Disputes",
+        "anchor": "18-governing-law-and-disputes",
+        "level": 2
+      },
+      {
+        "title": "19 Changes and Notices",
+        "anchor": "19-changes-and-notices",
+        "level": 2
+      },
+      {
+        "title": "20 Contact",
+        "anchor": "20-contact",
+        "level": 2
+      }
+    ],
+    "html": "<p>These Terms of Service form a binding agreement between the person or organisation using ToolOn and Scriza Private Limited. By accessing ToolOn creating an account purchasing a plan using an API or submitting a campaign the user agrees to these Terms and the policies incorporated by reference.</p><h2 id=\"1-definitions\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Definitions</h2><ul><li>Account means a registered ToolOn customer account and any authorised users created under it.</li><li>Browser Tools means utilities identified as processing files or inputs locally within the user browser.</li><li>Communication Services means email delivery campaign template contact API reporting or related services that require server side processing.</li><li>Customer Data means content contacts recipient information templates files domains instructions and other data submitted by or for a customer.</li><li>Order means a subscription credit purchase add on or other paid service accepted by ToolOn.</li><li>Policies means the Privacy Policy Cookie Policy Refund and Cancellation Policy Delivery Policy Acceptable Use Policy Anti Spam Policy Data Processing Addendum and other notices linked from these Terms.</li></ul><h2 id=\"2-eligibility-and-authority\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Eligibility and Authority</h2><p>A person must be at least eighteen years old and legally competent to create a paid or Communication Services account. A person acting for a company represents that the person has authority to bind that company. ToolOn may request business identity tax domain ownership payment or sender verification information and may refuse activate restrict or terminate an account when verification is incomplete or inconsistent.</p><h2 id=\"3-accounts-and-security\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Accounts and Security</h2><p>The user must provide accurate current information keep credentials confidential use multi factor authentication where offered and promptly report suspected compromise. The account owner is responsible for activity performed by authorised users API keys and connected systems. Credentials API keys email provider keys and payment information must not be shared publicly or used outside the authorised account. ToolOn may require password reset key rotation or additional verification when risk is detected.</p><h2 id=\"4-browser-tools\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Browser Tools</h2><p>Browser Tools may process files locally where the relevant tool page expressly says so. The user must keep an original backup and verify output before relying on it. Conversion compression extraction protection or formatting may change quality metadata structure accessibility or appearance. ToolOn does not guarantee that every file format feature formula font image object macro password or layout will be preserved.</p><h2 id=\"5-communication-services\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Communication Services</h2><p>Communication Services may be used only for lawful permission based communications. The customer is the sender and remains responsible for the recipient list lawful basis consent notices message content sender identity physical address unsubscribe handling and compliance with laws applicable to each recipient. ToolOn acts as a technology provider and may use email infrastructure providers to transmit messages.</p><p>The customer must comply with the Anti Spam and Email Sending Policy. Purchased rented scraped harvested guessed appended or unlawfully obtained recipient lists are prohibited. ToolOn may inspect campaign metadata consent records delivery events and a limited sample of content when reasonably required to prevent abuse comply with law protect infrastructure or answer a complaint.</p><h2 id=\"6-customer-data-and-instructions\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 Customer Data and Instructions</h2><p>The customer retains ownership of Customer Data and grants ToolOn a limited non exclusive licence to host copy transmit format scan and otherwise process it only to provide secure support and improve the contracted service enforce policies and comply with law. The customer represents that it has all rights notices permissions and lawful bases required to submit and instruct processing of Customer Data. ToolOn does not sell customer recipient lists.</p><h2 id=\"7-toolon-intellectual-property\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">7 ToolOn Intellectual Property</h2><p>ToolOn the website software APIs documentation interface trademarks logos templates provided by ToolOn and related materials are owned by or licensed to Scriza Private Limited. Subject to payment and compliance ToolOn grants a limited revocable non transferable right to use the service for the customer internal lawful business purposes during the applicable term. No source code ownership resale sublicensing scraping reverse engineering circumvention or creation of a competing service is permitted except where applicable law does not allow the restriction.</p><h2 id=\"8-plans-fees-taxes-and-renewals\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">8 Plans Fees Taxes and Renewals</h2><p>Prices billing periods limits credit validity renewal terms and taxes are shown before checkout. Unless an order says otherwise subscriptions renew automatically for the same period using the authorised payment method until cancelled. The customer authorises the selected payment provider to collect amounts due. Charges may include applicable GST or other taxes as shown on the invoice. The customer must keep billing and tax information accurate.</p><p>Email credits usage limits and plan entitlements are service units only. They are not money stored value deposits or transferable financial instruments. Consumed credits cannot be restored after a message has been accepted for processing except where ToolOn confirms a duplicate platform charge or an internal service error.</p><h2 id=\"9-cancellation-refunds-and-delivery\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">9 Cancellation Refunds and Delivery</h2><p>Cancellation stops future renewal and does not normally reverse a completed billing period. Refund eligibility processing time and exceptions are governed by the Subscription Billing Refund and Cancellation Policy. Paid digital access and credits are delivered under the Shipping and Digital Delivery Policy. A customer must contact support promptly when access is not activated or a payment is duplicated.</p><h2 id=\"10-third-party-services\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">10 Third Party Services</h2><p>ToolOn may depend on hosting database analytics advertising payment email delivery identity domain or support providers. Their availability rules rate limits and acceptable use requirements may affect the service. ToolOn may replace or add providers when reasonably required. The Privacy Policy Cookie Policy Advertising Disclosure Data Processing Addendum and Subprocessor List explain relevant processing. Third party websites advertisements and integrations are governed by their own terms.</p><h2 id=\"11-availability-changes-and-support\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">11 Availability Changes and Support</h2><p>ToolOn may update add remove limit or discontinue features to improve security reliability compliance or commercial operation. Planned maintenance material changes and service incidents will be communicated through the website account or registered email where practical. No service level commitment applies unless a signed order expressly provides one. Support responses are provided during published business hours and severity is assessed by ToolOn.</p><h2 id=\"12-acceptable-use-and-enforcement\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">12 Acceptable Use and Enforcement</h2><p>The user must comply with the Acceptable Use Policy Anti Spam Policy and advertising traffic rules that apply to ToolOn. ToolOn may warn throttle quarantine reject suspend or terminate activity or an account when it reasonably believes there is abuse invalid traffic legal risk security risk payment default provider restriction or harm to advertiser sender or network reputation. Urgent action may occur without advance notice. ToolOn may preserve relevant records and cooperate with lawful requests.</p><h2 id=\"13-suspension-and-termination\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">13 Suspension and Termination</h2><p>The customer may close an account subject to outstanding charges and data export rules. ToolOn may terminate for material breach repeated complaints fraud unlawful conduct sanctions risk failure to verify payment default or conduct that may damage ToolOn or a third party network. On termination access ends and Customer Data is deleted or returned according to the Privacy Policy Data Processing Addendum order and applicable law. Suppression records may be retained to prevent further unwanted email.</p><h2 id=\"14-confidentiality\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">14 Confidentiality</h2><p>Each party must protect non public technical commercial security and customer information received from the other and use it only for the agreement. Confidentiality does not cover information already lawfully known independently developed publicly available without breach or lawfully received from another source. A party may disclose information when required by law after giving notice where legally permitted.</p><h2 id=\"15-disclaimers\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">15 Disclaimers</h2><p>The service is provided on an as available basis. To the extent permitted by law ToolOn disclaims implied warranties of uninterrupted operation merchantability fitness for a particular purpose and non infringement. ToolOn does not guarantee inbox placement delivery to every recipient preservation of every file characteristic achievement of marketing results or that automated outputs are free of error. Statutory consumer rights that cannot be excluded remain unaffected.</p><h2 id=\"16-limitation-of-liability\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">16 Limitation of Liability</h2><p>To the extent permitted by law neither party is liable for indirect incidental special punitive or consequential loss or for loss of profit revenue goodwill data opportunity or anticipated savings. ToolOn aggregate liability arising from the service will not exceed the fees paid by the customer to ToolOn for the affected service during the three months before the event giving rise to the claim. This limit does not apply where liability cannot lawfully be limited or to fraud wilful misconduct or obligations expressly stated as unlimited in a signed agreement.</p><h2 id=\"17-indemnity\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">17 Indemnity</h2><p>The customer will defend indemnify and hold Scriza Private Limited its directors employees and service providers harmless from third party claims penalties losses and reasonable costs arising from Customer Data recipient lists lack of consent message content sender identity unlawful use intellectual property infringement or breach of these Terms or applicable law. ToolOn will promptly notify the customer and allow reasonable control of the defence subject to ToolOn right to participate.</p><h2 id=\"18-governing-law-and-disputes\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">18 Governing Law and Disputes</h2><p>These Terms are governed by the laws of India. The parties will first attempt to resolve a dispute through written notice and good faith discussion for thirty days. If unresolved the dispute may be referred to arbitration by a sole arbitrator appointed by mutual agreement under the Arbitration and Conciliation Act 1996. The seat and venue will be Udaipur Rajasthan and proceedings will be in English. Courts at Udaipur Rajasthan will have jurisdiction for interim relief and matters not capable of arbitration. Consumer rights and statutory forums remain available where applicable.</p><h2 id=\"19-changes-and-notices\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">19 Changes and Notices</h2><p>ToolOn may update these Terms for legal security operational or product reasons. The current version and effective date will be posted on the website. Material changes affecting paid customers will be communicated by account notice or registered email before they take effect where reasonably possible. Continued use after the effective date constitutes acceptance except where law requires fresh consent.</p><h2 id=\"20-contact\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">20 Contact</h2><p>Questions about these Terms may be sent to sales@scriza.in. Legal notices and grievances may be sent to admin@scriza.in and to the corporate office stated on the Corporate Information page.</p>"
+  },
+  {
+    "id": "privacy",
+    "title": "Privacy Policy",
+    "route": "/privacy",
+    "start": 76626,
+    "end": 89850,
+    "headings": [
+      {
+        "title": "1 Scope",
+        "anchor": "1-scope",
+        "level": 2
+      },
+      {
+        "title": "2 Data We Collect",
+        "anchor": "2-data-we-collect",
+        "level": 2
+      },
+      {
+        "title": "3 How We Collect Data",
+        "anchor": "3-how-we-collect-data",
+        "level": 2
+      },
+      {
+        "title": "4 Purposes of Processing",
+        "anchor": "4-purposes-of-processing",
+        "level": 2
+      },
+      {
+        "title": "5 Lawful Basis and Consent",
+        "anchor": "5-lawful-basis-and-consent",
+        "level": 2
+      },
+      {
+        "title": "6 Customer Recipient Data",
+        "anchor": "6-customer-recipient-data",
+        "level": 2
+      },
+      {
+        "title": "7 Sharing and Subprocessors",
+        "anchor": "7-sharing-and-subprocessors",
+        "level": 2
+      },
+      {
+        "title": "8 Payment Information",
+        "anchor": "8-payment-information",
+        "level": 2
+      },
+      {
+        "title": "9 Cookies Analytics and Advertising",
+        "anchor": "9-cookies-analytics-and-advertising",
+        "level": 2
+      },
+      {
+        "title": "10 International Processing",
+        "anchor": "10-international-processing",
+        "level": 2
+      },
+      {
+        "title": "11 Retention",
+        "anchor": "11-retention",
+        "level": 2
+      },
+      {
+        "title": "12 Security",
+        "anchor": "12-security",
+        "level": 2
+      },
+      {
+        "title": "13 Personal Data Rights",
+        "anchor": "13-personal-data-rights",
+        "level": 2
+      },
+      {
+        "title": "14 Marketing Choices",
+        "anchor": "14-marketing-choices",
+        "level": 2
+      },
+      {
+        "title": "15 Children",
+        "anchor": "15-children",
+        "level": 2
+      },
+      {
+        "title": "16 Breach Notification",
+        "anchor": "16-breach-notification",
+        "level": 2
+      },
+      {
+        "title": "17 Changes to This Policy",
+        "anchor": "17-changes-to-this-policy",
+        "level": 2
+      },
+      {
+        "title": "18 Contact and Grievance Officer",
+        "anchor": "18-contact-and-grievance-officer",
+        "level": 2
+      }
+    ],
+    "html": "<p>This Privacy Policy explains how Scriza Private Limited operating ToolOn collects uses shares protects retains and deletes personal data. It also explains the different roles that apply when ToolOn processes a customer recipient list or campaign data on the customer instructions.</p><h2 id=\"1-scope\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Scope</h2><p>This Policy applies to www.toolon.in ToolOn accounts support payments browser tools Communication Services APIs and related communications. It does not govern a customer own privacy practices or third party websites linked from ToolOn. For recipient data submitted by a customer ToolOn generally acts as a processor or service provider and the customer remains the data fiduciary controller or responsible sender.</p><h2 id=\"2-data-we-collect\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Data We Collect</h2><ul><li>Account and business data including name work email phone company role address country password hash authorised users and account preferences.</li><li>Verification data including business registration tax details domain ownership sender identity and other information required to prevent abuse or satisfy a provider or legal requirement.</li><li>Order and billing data including plan order number invoice details tax information payment status refund status and transaction reference. ToolOn does not intentionally store full card UPI PIN CVV or online banking credentials.</li><li>Customer Data including contacts recipient email addresses custom fields segments templates subject lines message bodies attachments campaign instructions consent evidence suppression entries and API payloads.</li><li>Delivery and engagement data including submission delivery delay bounce block complaint unsubscribe open and click events where tracking is enabled. Some engagement measurements may be approximate because mailbox and privacy technologies can block or prefetch them.</li><li>File and tool data. A Browser Tool identified as local processes selected files in the browser and does not intentionally upload the file to ToolOn servers. A server based tool will display an upload and retention notice before processing.</li><li>Device usage and security data including IP address browser device identifiers timestamps referring pages diagnostic logs authentication events API activity and suspected abuse signals.</li><li>Cookies advertising and analytics data as described in the Cookie Policy and consent controls.</li><li>Support and communications including messages call records where disclosed attachments feedback and grievance history.</li></ul><h2 id=\"3-how-we-collect-data\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 How We Collect Data</h2><p>We collect data directly from users and customers through signup orders imports forms support and service use. We also receive data from payment providers identity or domain verification tools email delivery providers analytics services security systems and authorised customer integrations. Customers may submit recipient data and remain responsible for providing required notices and obtaining valid permission.</p><h2 id=\"4-purposes-of-processing\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Purposes of Processing</h2><ul><li>Create administer authenticate and secure accounts and authorised users.</li><li>Provide file tools email delivery APIs templates reporting support and contracted features.</li><li>Process orders issue invoices manage renewals apply credits and handle refunds disputes and tax records.</li><li>Verify customers domains sender identities consent evidence and permitted use.</li><li>Route messages measure delivery maintain suppression lists process bounces complaints and unsubscribes and protect sender reputation.</li><li>Detect investigate and prevent fraud spam phishing malware policy violations unauthorised access and service disruption.</li><li>Maintain improve troubleshoot and measure service performance and develop features using aggregated or de identified information where appropriate.</li><li>Display contextual or personalised advertising where permitted measure ad delivery and performance limit frequency detect invalid traffic and protect advertisers publishers and users.</li><li>Send service security billing and policy notices and send ToolOn marketing only where permitted with an opt out.</li><li>Comply with law lawful requests legal claims audits and provider obligations.</li></ul><h2 id=\"5-lawful-basis-and-consent\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Lawful Basis and Consent</h2><p>ToolOn processes personal data to perform a contract take requested pre contractual steps comply with legal obligations protect legitimate security and business interests and act on consent where required. Consent may be withdrawn through the stated mechanism without affecting prior lawful processing. Customers must determine and document the lawful basis for their recipients and must not rely on ToolOn to create consent retroactively.</p><h2 id=\"6-customer-recipient-data\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 Customer Recipient Data</h2><p>A customer determines why recipients are contacted and which recipient data campaign content and tracking settings are used. ToolOn processes that data only on documented instructions in the Terms order account settings and Data Processing Addendum unless law requires otherwise. ToolOn does not use customer recipient lists for ToolOn own independent marketing, website advertising audiences or ad personalisation and does not sell them. Advertising scripts must not be placed inside customer list management campaign composition or recipient level reporting areas unless a documented privacy and security review approves them. A recipient should normally contact the sender shown in the message for access correction deletion or marketing objections. ToolOn will assist the customer as required by the Data Processing Addendum.</p><h2 id=\"7-sharing-and-subprocessors\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">7 Sharing and Subprocessors</h2><p>We may share the minimum necessary data with hosting storage database security analytics advertising customer support identity and domain verification payment and email delivery providers. Advertising providers may receive website page URL IP address browser and device information cookie or similar identifiers consent signals approximate location derived from IP and information about ad impressions interactions and fraud signals. We may also share data with professional advisers group entities involved in service operation a buyer in a genuine corporate transaction and government or law enforcement authorities when legally required. Providers are required by contract or their service terms to protect data appropriate to their role. Current providers and processing locations must be published on the Subprocessor List before the relevant service launches.</p><h2 id=\"8-payment-information\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">8 Payment Information</h2><p>Payments are processed through the payment gateway displayed at checkout. The gateway may collect card bank UPI device and risk information under its own privacy notice. ToolOn receives identifiers status amount method category and limited payer details needed for reconciliation support fraud prevention and refunds. Customers should not send payment credentials through support or campaign content.</p><h2 id=\"9-cookies-analytics-and-advertising\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">9 Cookies Analytics and Advertising</h2><p>ToolOn intends to use Google AdSense or similar services to fund free website tools. Google and other authorised advertising partners may use cookies local storage pixels device or online identifiers and page and interaction data to select deliver limit measure and protect advertisements. Depending on region and user choice ads may be personalised using prior activity or non personalised using contextual information such as the current page and coarse location. Non personalised ads can still require limited storage or processing for frequency capping aggregated reporting security and fraud prevention. ToolOn will obtain consent before activating non essential advertising technologies where required and will use a Google certified consent management platform when required for serving personalised ads in the European Economic Area United Kingdom or Switzerland. Users can accept reject adjust or later withdraw non essential choices through the privacy control. More information appears in the Cookie Policy and Advertising Disclosure.</p><h2 id=\"10-international-processing\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">10 International Processing</h2><p>Service providers or recipients may be located outside the user country. Where personal data is transferred internationally ToolOn will use a lawful transfer mechanism and reasonable contractual technical and organisational safeguards as required by applicable law. Customers must ensure their instructions and recipient jurisdictions permit the transfer and email delivery.</p><h2 id=\"11-retention\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">11 Retention</h2><ul><li>Account profile and contract records are kept while the account is active and normally for up to three years after closure unless law or a dispute requires longer.</li><li>Invoices payment references and tax records are kept for up to eight years or the period required by applicable accounting and tax law.</li><li>Campaign content delivery events and contact data are kept according to the plan order or customer settings and by default for up to ninety days after the campaign unless the customer requests earlier deletion or a legal security or complaint hold applies.</li><li>Consent evidence complaint records and suppression entries may be retained while sending continues and afterward as reasonably necessary to demonstrate permission prevent repeat unwanted messages and comply with law.</li><li>Security authentication and API logs are normally kept for up to one hundred eighty days and may be retained longer when investigating an incident.</li><li>Support and grievance records are normally kept for three years after closure of the request.</li></ul><p>Data is deleted anonymised or isolated from routine use when the retention purpose ends. Backup copies are removed through scheduled rotation unless preservation is required by law.</p><h2 id=\"12-security\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">12 Security</h2><p>ToolOn uses access controls encryption in transit secret management logging backups vulnerability management provider review and incident procedures appropriate to the service and risk. No online service can guarantee absolute security. Customers must protect credentials restrict user access secure their integrations and avoid uploading unnecessary sensitive data. Security information and reporting instructions appear on the Security page.</p><h2 id=\"13-personal-data-rights\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">13 Personal Data Rights</h2><p>Depending on applicable law a person may request information about processing access correction completion updating deletion withdrawal of consent objection to direct marketing or grievance redressal. A request may be sent to admin@scriza.in with enough information to identify the person and the relevant account or sender. ToolOn may verify identity and may refuse or limit a request where law permits. ToolOn aims to respond within the period required by applicable law and in any event within ninety days unless a shorter legal period applies.</p><h2 id=\"14-marketing-choices\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">14 Marketing Choices</h2><p>A ToolOn account holder may opt out of non essential ToolOn marketing through the unsubscribe link or account settings. Service security billing legal and transactional notices may still be sent. Recipients of a customer campaign should use the unsubscribe link or contact the sender. ToolOn maintains suppression information to prevent future marketing sends through the platform.</p><p>Website visitors may change advertising and analytics choices through the privacy control. Google advertising personalisation may also be managed through Google My Ad Center or other controls Google provides. Browser deletion or blocking can remove a stored choice and cause the consent prompt to appear again.</p><h2 id=\"15-children\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">15 Children</h2><p>Paid accounts and Communication Services are not intended for persons under eighteen. ToolOn does not knowingly allow a child to operate a bulk email account or intentionally collect child data for behavioural advertising. If child data is submitted by a customer the customer must have lawful authority verifiable parental consent where required and suitable safeguards. Suspected unauthorised child data may be reported to admin@scriza.in.</p><h2 id=\"16-breach-notification\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">16 Breach Notification</h2><p>ToolOn will investigate a confirmed personal data breach and notify affected customers persons regulators or providers as required by applicable law and contract. A notification may describe the nature scope likely impact measures taken and recommended protective steps. Customers must promptly report suspected credential compromise or unauthorised recipient data disclosure.</p><h2 id=\"17-changes-to-this-policy\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">17 Changes to This Policy</h2><p>The current effective date will be shown at the top of the page. Material changes will be communicated through the website account or registered email where reasonably possible. Fresh consent will be requested when required by law for a new purpose.</p><h2 id=\"18-contact-and-grievance-officer\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">18 Contact and Grievance Officer</h2><p><strong>Grievance Officer  </strong>Laxman Singh Sonigara  Director</p><p><strong>Email  </strong>admin@scriza.in</p><p><strong>Telephone  </strong>+91 9116011899</p><p><strong>Address  </strong>Scriza Private Limited NX One T1 507 Tech Zone IV Amrapali Dream Valley Greater Noida Uttar Pradesh 201318 India</p><p>Privacy complaints will be acknowledged promptly and handled under the Grievance Redressal Policy and applicable law.</p>"
+  },
+  {
+    "id": "cookies",
+    "title": "Cookie Policy",
+    "route": "/cookies",
+    "start": 89850,
+    "end": 93769,
+    "headings": [
+      {
+        "title": "1 Cookie Categories",
+        "anchor": "1-cookie-categories",
+        "level": 2
+      },
+      {
+        "title": "2 Retention",
+        "anchor": "2-retention",
+        "level": 2
+      },
+      {
+        "title": "3 Managing Choices",
+        "anchor": "3-managing-choices",
+        "level": 2
+      },
+      {
+        "title": "4 Third Party Technologies",
+        "anchor": "4-third-party-technologies",
+        "level": 2
+      },
+      {
+        "title": "5 Google Advertising Choices",
+        "anchor": "5-google-advertising-choices",
+        "level": 2
+      },
+      {
+        "title": "6 Contact",
+        "anchor": "6-contact",
+        "level": 2
+      }
+    ],
+    "html": "<p>This Cookie Policy explains technologies used by ToolOn on the website and account service. A cookie is a small text record stored by a browser. Similar technologies include local storage pixels tags and software development kit identifiers.</p><h2 id=\"1-cookie-categories\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Cookie Categories</h2><table><thead><tr><th><p><strong>Category</strong></p></th><th><p><strong>Purpose</strong></p></th><th><p><strong>Choice</strong></p></th></tr></thead><tbody><tr><td><p>Strictly necessary</p></td><td><p>Authentication session security load balancing fraud prevention checkout and storing consent choices.</p></td><td><p>Required for the requested service and cannot be disabled through the ToolOn control.</p></td></tr><tr><td><p>Functional</p></td><td><p>Language interface saved settings recent tools and optional personalisation.</p></td><td><p>May be disabled but some preferences may not persist.</p></td></tr><tr><td><p>Analytics</p></td><td><p>Understand visits feature use performance errors and aggregate trends.</p></td><td><p>Used only with consent where required.</p></td></tr><tr><td><p>Advertising</p></td><td><p>Google AdSense or another disclosed provider may select deliver frequency cap measure and protect contextual or personalised ads.</p></td><td><p>Blocked until consent where required. Visitors can reject or later withdraw non essential choices.</p></td></tr><tr><td><p>Email measurement</p></td><td><p>Record delivery opens or clicks for customer campaigns when the customer enables tracking.</p></td><td><p>Controlled by the sending customer and subject to recipient law privacy controls and message disclosures.</p></td></tr></tbody></table><h2 id=\"2-retention\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Retention</h2><p>Session technologies expire when the session ends or after a short security period. Persistent preference analytics and advertising technologies remain for the duration stated in the live consent control or provider notice. ToolOn will maintain a cookie inventory showing provider name technology purpose category expiry and transfer information and will review it after every tag change and at least quarterly. Email event data follows the Privacy Policy customer settings and applicable contract.</p><h2 id=\"3-managing-choices\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Managing Choices</h2><p>Users can accept reject or adjust non essential categories through the ToolOn privacy control and may also delete or block cookies in browser settings. Where consent is required the control should present a clear reject option without loading advertising or analytics tags first, retain evidence of the choice, and provide an always available link to change or withdraw it. Blocking necessary technologies can prevent login checkout security and saved preferences. Withdrawal applies prospectively and does not make prior permitted processing unlawful.</p><h2 id=\"4-third-party-technologies\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Third Party Technologies</h2><p>ToolOn may use payment analytics advertising support or security providers that set or read technologies under their own notices. If Google AdSense is activated the live provider inventory must identify the applicable Google entity services purposes technologies retention information privacy notice and available controls. Every other active advertising technology provider must also be named. Generic descriptions alone are not sufficient for the final website.</p><h2 id=\"5-google-advertising-choices\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Google Advertising Choices</h2><p>Google may use advertising identifiers to show and measure ads subject to the visitor region consent and Google settings. Visitors can review Google advertising choices at https://myadcenter.google.com and information about Google use of data from partner sites at https://policies.google.com/technologies/partner-sites. These links do not replace the ToolOn consent control where local law requires prior consent.</p><h2 id=\"6-contact\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 Contact</h2><p>Questions or objections concerning cookies and tracking may be sent to admin@scriza.in.</p>"
+  },
+  {
+    "id": "refund-cancellation",
+    "title": "Subscription Billing, Refund and Cancellation Policy",
+    "route": "/refund-cancellation",
+    "start": 93769,
+    "end": 97644,
+    "headings": [
+      {
+        "title": "1 Free Services",
+        "anchor": "1-free-services",
+        "level": 2
+      },
+      {
+        "title": "2 Subscription Cancellation",
+        "anchor": "2-subscription-cancellation",
+        "level": 2
+      },
+      {
+        "title": "3 Refund Eligibility",
+        "anchor": "3-refund-eligibility",
+        "level": 2
+      },
+      {
+        "title": "4 Non Refundable Items",
+        "anchor": "4-non-refundable-items",
+        "level": 2
+      },
+      {
+        "title": "5 Refund Request Process",
+        "anchor": "5-refund-request-process",
+        "level": 2
+      },
+      {
+        "title": "6 Failed Pending and Chargeback Transactions",
+        "anchor": "6-failed-pending-and-chargeback-transactions",
+        "level": 2
+      },
+      {
+        "title": "7 Plan Downgrade and Unused Credits",
+        "anchor": "7-plan-downgrade-and-unused-credits",
+        "level": 2
+      }
+    ],
+    "html": "<p>This Policy applies to ToolOn subscriptions email credits add ons and other digital purchases. It should be read with the pricing page order summary and Terms of Service.</p><h2 id=\"1-free-services\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Free Services</h2><p>No refund applies to a Browser Tool or feature provided without charge. ToolOn may introduce fair usage limits or paid features after giving the notice required by the Terms.</p><h2 id=\"2-subscription-cancellation\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Subscription Cancellation</h2><p>A customer may cancel renewal through account billing settings or by contacting sales@scriza.in from the registered email. Cancellation stops the next automatic renewal. Access continues until the end of the current paid term unless the account is suspended for breach. No cancellation fee is charged by ToolOn. A payment provider or bank may apply its own charges.</p><h2 id=\"3-refund-eligibility\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Refund Eligibility</h2><ul><li>Duplicate charges or an amount collected after a confirmed cancellation will be refunded after verification.</li><li>A payment marked successful by the bank but not credited to the ToolOn order will be reconciled. If activation cannot be completed the collected amount will be refunded.</li><li>A first paid subscription may be refunded when the request is received within seven calendar days of purchase and the account has used less than ten percent of the included email credits and has not materially used a premium feature. Payment gateway charges and taxes will be treated as required by law and provider rules.</li><li>If ToolOn permanently discontinues a paid service during an active prepaid term ToolOn may provide a reasonable migration credit replacement service or pro rata refund for the unused period.</li><li>Any statutory consumer right that cannot be excluded will be honoured.</li></ul><h2 id=\"4-non-refundable-items\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Non Refundable Items</h2><ul><li>Consumed email credits messages accepted for processing usage based charges and completed add on usage.</li><li>Renewal charges where the customer did not cancel before renewal except where law requires otherwise or ToolOn confirms an error.</li><li>Accounts suspended or terminated for spam fraud phishing unlawful conduct chargeback abuse or material policy breach.</li><li>Loss caused by an unverified domain incorrect DNS customer content recipient list quality poor reputation mailbox filtering or a third party recipient system.</li><li>Credits promotional benefits coupons trials setup assistance and custom work expressly stated as non refundable before purchase.</li></ul><h2 id=\"5-refund-request-process\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Refund Request Process</h2><p>Send the registered account email order or invoice number payment date amount transaction reference reason and relevant evidence to sales@scriza.in. ToolOn may request identity or payment verification. A decision will normally be communicated within seven business days. Approved refunds are sent to the original payment method and may take five to ten business days after approval depending on the bank gateway and payment rail.</p><h2 id=\"6-failed-pending-and-chargeback-transactions\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 Failed Pending and Chargeback Transactions</h2><p>A pending or failed payment should not be paid repeatedly until status is checked. ToolOn will reconcile gateway records and either activate the order or allow the payment provider to reverse the amount. A customer should contact ToolOn before starting a chargeback so that duplication or service issues can be investigated. Fraudulent or abusive chargebacks may result in restriction and recovery of reasonable costs where permitted by law.</p><h2 id=\"7-plan-downgrade-and-unused-credits\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">7 Plan Downgrade and Unused Credits</h2><p>A downgrade takes effect at the next renewal unless the order says otherwise. Unused credits expire or roll over only as stated on the pricing page or order. Credits cannot be transferred between unrelated accounts redeemed for cash or treated as a wallet balance.</p>"
+  },
+  {
+    "id": "delivery",
+    "title": "Shipping and Digital Delivery Policy",
+    "route": "/delivery",
+    "start": 97644,
+    "end": 99394,
+    "headings": [
+      {
+        "title": "1 Delivery Method",
+        "anchor": "1-delivery-method",
+        "level": 2
+      },
+      {
+        "title": "2 Delivery Time",
+        "anchor": "2-delivery-time",
+        "level": 2
+      },
+      {
+        "title": "3 Delivery Problems",
+        "anchor": "3-delivery-problems",
+        "level": 2
+      },
+      {
+        "title": "4 Customer Requirements",
+        "anchor": "4-customer-requirements",
+        "level": 2
+      }
+    ],
+    "html": "<p>ToolOn sells digital services and does not ship physical goods unless a specific order expressly says otherwise. This page is the shipping and delivery disclosure for payment review and customers.</p><h2 id=\"1-delivery-method\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Delivery Method</h2><p>Free Browser Tools are available through the website. Paid plans digital credits and add ons are delivered electronically to the registered ToolOn account. Confirmation may be sent to the registered email with the order invoice and activation status.</p><h2 id=\"2-delivery-time\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Delivery Time</h2><p>Most successful paid orders are activated immediately. Verification risk review domain setup or gateway delay may require up to twenty four hours. Custom enterprise onboarding or dedicated infrastructure follows the timeline in the signed order. Email delivery to campaign recipients is not the same as order delivery and depends on recipient servers filters reputation provider availability and campaign compliance.</p><h2 id=\"3-delivery-problems\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Delivery Problems</h2><p>If a successful payment is not reflected within twenty four hours contact sales@scriza.in with the order number transaction reference amount date and screenshot that does not expose full payment credentials. ToolOn will verify whether to activate the order retry fulfilment or refund under the Refund and Cancellation Policy.</p><h2 id=\"4-customer-requirements\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Customer Requirements</h2><p>The customer must provide a valid email maintain access to the registered account complete requested verification and configure the sending domain. ToolOn is not responsible for delay caused by incorrect contact details incomplete verification unsupported DNS access recipient blocking or customer systems.</p>"
+  },
+  {
+    "id": "acceptable-use",
+    "title": "Acceptable Use Policy",
+    "route": "/acceptable-use",
+    "start": 99394,
+    "end": 103639,
+    "headings": [
+      {
+        "title": "1 Lawful and Authorised Use",
+        "anchor": "1-lawful-and-authorised-use",
+        "level": 2
+      },
+      {
+        "title": "2 Prohibited Conduct",
+        "anchor": "2-prohibited-conduct",
+        "level": 2
+      },
+      {
+        "title": "3 Resource and Automation Limits",
+        "anchor": "3-resource-and-automation-limits",
+        "level": 2
+      },
+      {
+        "title": "4 Regulated Content",
+        "anchor": "4-regulated-content",
+        "level": 2
+      },
+      {
+        "title": "5 Monitoring and Enforcement",
+        "anchor": "5-monitoring-and-enforcement",
+        "level": 2
+      },
+      {
+        "title": "6 Reporting",
+        "anchor": "6-reporting",
+        "level": 2
+      }
+    ],
+    "html": "<p>This Policy protects users recipients ToolOn and third party networks. It applies to Browser Tools accounts APIs Customer Data Communication Services integrations and content processed or transmitted through ToolOn.</p><h2 id=\"1-lawful-and-authorised-use\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Lawful and Authorised Use</h2><p>Users may use ToolOn only for lawful purposes and only with rights to the files data domains content and recipient information involved. Use must comply with the Terms Anti Spam Policy intellectual property privacy consumer protection cybersecurity export sanctions and sector rules applicable to the user and recipients.</p><h2 id=\"2-prohibited-conduct\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Prohibited Conduct</h2><ul><li>Spam unsolicited mass email email bombing list bombing purchased rented scraped harvested guessed or unlawfully appended contacts and repeated sending after opt out.</li><li>Phishing impersonation spoofing credential theft deceptive sender names misleading subjects fraudulent offers pyramid schemes or false claims.</li><li>Malware ransomware viruses spyware malicious macros exploit delivery command and control or attempts to interfere with a device network account or service.</li><li>Unauthorised access scanning penetration password cracking security bypass denial of service excessive automated requests or testing without written permission.</li><li>Content involving child sexual abuse exploitation non consensual intimate material trafficking violence terrorism illegal hate or unlawful discrimination.</li><li>Infringement of copyright trademark privacy publicity confidentiality or other rights including processing files or lists without permission.</li><li>Illegal regulated or high risk offers including unlawful gambling drugs weapons counterfeit goods unlicensed financial or lending services and deceptive cryptocurrency or investment promotions.</li><li>Use of shared infrastructure to damage IP or domain reputation evade blocks rotate identities conceal list sources or circumvent enforcement.</li><li>Resale white labelling credential sharing or providing service bureau access unless an order expressly permits it.</li><li>Uploading unnecessary sensitive personal data government identifiers medical records financial credentials biometric data or passwords when the feature does not require them.</li><li>Generating or distributing deceptive synthetic media fake documents forged certificates or content intended to mislead a person authority payment provider or regulator.</li><li>Ad fraud invalid traffic or manipulation including clicking ToolOn advertisements, asking or rewarding another person to click, automated impressions or clicks, bots click exchanges forced redirects hidden ads repeated artificial refreshes or purchasing traffic represented as genuine users when it is not.</li></ul><h2 id=\"3-resource-and-automation-limits\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Resource and Automation Limits</h2><p>Users must respect plan limits rate limits file limits API quotas concurrency and fair usage controls. ToolOn may throttle or reject requests that threaten availability cost security or other customers. Bypassing a control creating multiple accounts to evade limits or using bots to scrape the website is prohibited.</p><h2 id=\"4-regulated-content\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Regulated Content</h2><p>Campaigns for financial health political charitable gaming adult age restricted or other regulated categories require lawful authority and may require prior written approval. ToolOn may decline a category even when the customer believes it is lawful if a payment email hosting or security provider prohibits or restricts it.</p><h2 id=\"5-monitoring-and-enforcement\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Monitoring and Enforcement</h2><p>ToolOn may use automated and manual controls to detect unusual activity and may request evidence of permission identity content or business purpose. ToolOn may reject content remove access limit sending quarantine a campaign suspend an account or terminate service. ToolOn may notify affected providers recipients or authorities when required by law or reasonably necessary to prevent harm.</p><h2 id=\"6-reporting\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 Reporting</h2><p>Report suspected misuse to admin@scriza.in with the ToolOn customer or sender domain message headers campaign identifier date recipient address and a description. Do not send passwords or full payment credentials.</p>"
+  },
+  {
+    "id": "anti-spam",
+    "title": "Anti-Spam and Email Sending Policy",
+    "route": "/anti-spam",
+    "start": 103639,
+    "end": 110796,
+    "headings": [
+      {
+        "title": "1 Permission Standard",
+        "anchor": "1-permission-standard",
+        "level": 2
+      },
+      {
+        "title": "2 Prohibited List Sources",
+        "anchor": "2-prohibited-list-sources",
+        "level": 2
+      },
+      {
+        "title": "3 Required Consent Evidence",
+        "anchor": "3-required-consent-evidence",
+        "level": 2
+      },
+      {
+        "title": "4 Message Requirements",
+        "anchor": "4-message-requirements",
+        "level": 2
+      },
+      {
+        "title": "5 Unsubscribe and Suppression",
+        "anchor": "5-unsubscribe-and-suppression",
+        "level": 2
+      },
+      {
+        "title": "6 Sender Authentication",
+        "anchor": "6-sender-authentication",
+        "level": 2
+      },
+      {
+        "title": "7 Reputation Thresholds",
+        "anchor": "7-reputation-thresholds",
+        "level": 2
+      },
+      {
+        "title": "8 Transactional Email",
+        "anchor": "8-transactional-email",
+        "level": 2
+      },
+      {
+        "title": "9 Customer Monitoring Duties",
+        "anchor": "9-customer-monitoring-duties",
+        "level": 2
+      },
+      {
+        "title": "10 ToolOn Enforcement",
+        "anchor": "10-toolon-enforcement",
+        "level": 2
+      },
+      {
+        "title": "11 Abuse Reports",
+        "anchor": "11-abuse-reports",
+        "level": 2
+      }
+    ],
+    "html": "<p>ToolOn permits permission based email and lawful transactional communication. ToolOn does not permit unsolicited mass email. This Policy applies to every customer user sender domain list campaign template API message and integration using Communication Services.</p><h2 id=\"1-permission-standard\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Permission Standard</h2><p>Marketing email may be sent only when the sender can demonstrate that the recipient requested or reasonably agreed to receive that category of email from the identified sender or where another lawful basis is expressly permitted in the recipient jurisdiction and accepted by ToolOn and its infrastructure provider. Provider rules may be stricter than local law and the stricter rule applies to use of ToolOn.</p><p>Recommended practice is confirmed or double opt in. Consent must be specific informed freely given and recorded. A general business card public profile website listing directory membership or prior email exchange does not by itself authorise bulk marketing through ToolOn.</p><h2 id=\"2-prohibited-list-sources\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Prohibited List Sources</h2><ul><li>Purchased rented borrowed exchanged or broker supplied lists unless every recipient gave verifiable permission for the specific sender and campaign type and ToolOn approves the evidence in writing.</li><li>Addresses scraped or harvested from websites social networks public filings directories search results or third party databases.</li><li>Automatically generated guessed appended enriched or role addresses used without a lawful permission record.</li><li>Old dormant lists where permission scope and current recipient expectation cannot be shown.</li><li>Lists obtained through misleading pre checked bundled or forced consent or from another brand without a valid transfer notice and permission.</li><li>Any list containing recipients who opted out complained or hard bounced unless the message is a strictly necessary lawful transactional message unrelated to marketing.</li></ul><h2 id=\"3-required-consent-evidence\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Required Consent Evidence</h2><p>The customer must retain and provide on request the recipient address date and time of permission collection source URL event or form consent wording sender or brands named purpose categories privacy notice version IP address or other source evidence and confirmation event where double opt in is used. Imported lists must include source information. The customer must not fabricate or alter evidence.</p><h2 id=\"4-message-requirements\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Message Requirements</h2><ul><li>Use an accurate From name From address Reply To routing information subject line and originating domain that identify the sender and content.</li><li>Do not impersonate a person brand mailbox provider or prior conversation and do not use deceptive Re or Fwd subjects.</li><li>Identify commercial or promotional content where required and include the sender legal or trading name and valid physical postal address.</li><li>Include a clear visible functioning unsubscribe link in every marketing message and one click unsubscribe headers when required by mailbox provider standards.</li><li>Explain why the recipient is receiving the email or identify the subscription relationship where appropriate.</li><li>Do not conceal content manipulate filters use URL shorteners associated with abuse or include malicious misleading or prohibited links or attachments.</li><li>Keep transactional messages primarily transactional. Do not use a receipt OTP security notice or service alert as a disguise for marketing.</li></ul><h2 id=\"5-unsubscribe-and-suppression\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Unsubscribe and Suppression</h2><p>An unsubscribe must be free simple and usable without login. ToolOn will process a platform unsubscribe immediately or as soon as technically possible and in all cases within the period required by applicable law. A customer must honour direct opt out requests and upload them to suppression promptly. Suppressed recipients must not be re added through import sync API or another list. Suppression information may be retained to prevent further sends.</p><h2 id=\"6-sender-authentication\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 Sender Authentication</h2><ul><li>Verify every sending domain and authorised sender identity before production use.</li><li>Publish valid SPF and DKIM records and publish DMARC for bulk sending. The visible From domain must align with authenticated domains as required by recipient providers.</li><li>Use TLS and valid DNS. Dedicated IP users must configure forward and reverse DNS where applicable.</li><li>Use a separate subdomain and traffic stream for marketing and keep transactional messages operationally separate.</li><li>Warm new domains and IP addresses gradually and send first to recent engaged recipients.</li><li>Do not use free consumer mailbox addresses as bulk From identities or rotate domains to evade reputation controls.</li></ul><h2 id=\"7-reputation-thresholds\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">7 Reputation Thresholds</h2><p>ToolOn may apply stricter limits than a provider. Customers should maintain hard bounces below two percent complaints below zero point one percent and mailbox provider reported spam below zero point one percent and should never approach zero point three percent. ToolOn may warn or throttle when a hard bounce rate reaches two percent pause list imports or sending at three percent and suspend at five percent. ToolOn may suspend immediately when complaints reach zero point one percent a mailbox or infrastructure provider threshold is crossed or abuse is credible. Thresholds may be calculated over a representative volume rather than a fixed time period.</p><h2 id=\"8-transactional-email\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">8 Transactional Email</h2><p>Transactional email must relate to an action account purchase security event support request or service relationship expected by the recipient. It must use accurate routing information and may not contain substantial unrelated promotions. A marketing opt out does not prevent strictly necessary lawful transactional notices but it must prevent promotional content.</p><h2 id=\"9-customer-monitoring-duties\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">9 Customer Monitoring Duties</h2><p>The customer must monitor bounces complaints blocks unsubscribes domain reputation and provider responses remove invalid addresses stop campaigns when metrics deteriorate and cooperate with investigations. Customers must use test addresses or provider simulators for testing rather than sending repeated tests to inactive or invented addresses.</p><h2 id=\"10-toolon-enforcement\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">10 ToolOn Enforcement</h2><p>ToolOn may review consent evidence content sender authentication and reputation before or after a send. ToolOn may delay reject throttle quarantine disable tracking suspend a domain or account require remediation notify a provider or terminate access. Fees and unused credits may be non refundable when service is suspended for a material spam or abuse violation. ToolOn may retain evidence necessary to answer complaints protect infrastructure and comply with law.</p><h2 id=\"11-abuse-reports\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">11 Abuse Reports</h2><p>A recipient or provider can report unwanted email to admin@scriza.in with complete message headers sender address recipient address date campaign identifier and reason. Reports are acknowledged promptly and assessed under the Grievance Redressal Policy. ToolOn will not require the recipient to contact the alleged sender when doing so could create risk.</p>"
+  },
+  {
+    "id": "data-processing-addendum",
+    "title": "Data Processing Addendum",
+    "route": "/data-processing-addendum",
+    "start": 110796,
+    "end": 117311,
+    "headings": [
+      {
+        "title": "1 Processing Instructions",
+        "anchor": "1-processing-instructions",
+        "level": 2
+      },
+      {
+        "title": "2 Customer Responsibilities",
+        "anchor": "2-customer-responsibilities",
+        "level": 2
+      },
+      {
+        "title": "3 Confidentiality and Personnel",
+        "anchor": "3-confidentiality-and-personnel",
+        "level": 2
+      },
+      {
+        "title": "4 Security Measures",
+        "anchor": "4-security-measures",
+        "level": 2
+      },
+      {
+        "title": "5 Subprocessors",
+        "anchor": "5-subprocessors",
+        "level": 2
+      },
+      {
+        "title": "6 International Transfers",
+        "anchor": "6-international-transfers",
+        "level": 2
+      },
+      {
+        "title": "7 Rights Requests",
+        "anchor": "7-rights-requests",
+        "level": 2
+      },
+      {
+        "title": "8 Personal Data Breach",
+        "anchor": "8-personal-data-breach",
+        "level": 2
+      },
+      {
+        "title": "9 Deletion and Return",
+        "anchor": "9-deletion-and-return",
+        "level": 2
+      },
+      {
+        "title": "10 Audit Information",
+        "anchor": "10-audit-information",
+        "level": 2
+      },
+      {
+        "title": "11 Processing Details",
+        "anchor": "11-processing-details",
+        "level": 2
+      }
+    ],
+    "html": "<p>This Data Processing Addendum forms part of the Terms or signed order when ToolOn processes personal data on behalf of a customer. The customer is the data fiduciary controller or equivalent responsible party and Scriza Private Limited is the data processor service provider or equivalent unless the context requires otherwise.</p><h2 id=\"1-processing-instructions\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Processing Instructions</h2><p>ToolOn will process Customer Personal Data only to provide secure support maintain and improve the contracted service under the documented instructions in the Terms order account settings API requests and this Addendum. ToolOn will inform the customer if an instruction appears unlawful unless law prevents notice. ToolOn will not sell Customer Personal Data or use recipient lists for its own independent advertising.</p><h2 id=\"2-customer-responsibilities\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Customer Responsibilities</h2><p>The customer determines the lawful purpose means recipients content tracking and retention settings and must provide required notices obtain valid consent or another lawful basis answer rights requests and ensure that its instructions comply with applicable law. The customer must minimise data restrict sensitive information manage authorised users and protect credentials. The customer must not instruct ToolOn to send unlawful or unsolicited email.</p><h2 id=\"3-confidentiality-and-personnel\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Confidentiality and Personnel</h2><p>ToolOn will limit access to personnel and contractors who need it for authorised duties and who are bound by confidentiality obligations. Access will be reviewed and removed when no longer required.</p><h2 id=\"4-security-measures\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Security Measures</h2><ul><li>Access control based on role and least privilege with authentication and administrative access protection.</li><li>Encryption in transit and appropriate protection for stored data secrets and backups.</li><li>Logging monitoring abuse detection vulnerability remediation backup and incident response processes.</li><li>Separation of customer environments or logical tenant controls appropriate to the architecture.</li><li>Supplier review confidentiality and security commitments appropriate to each subprocessor role.</li><li>Business continuity recovery testing and secure deletion processes proportionate to the service.</li></ul><h2 id=\"5-subprocessors\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Subprocessors</h2><p>The customer gives general authorisation for ToolOn to use subprocessors needed for hosting storage database security analytics payment support and email delivery. ToolOn will publish the current Subprocessor List and provide notice of material new subprocessors through the website account or registered email where contractually required. A customer with a reasonable data protection objection must notify ToolOn during the stated notice period. If the parties cannot resolve the objection the customer may stop the affected service subject to the order and law.</p><h2 id=\"6-international-transfers\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 International Transfers</h2><p>ToolOn and the customer will use any transfer mechanism required by applicable law including contractual safeguards and supplementary security measures where appropriate. The customer authorises transfers necessary to reach recipients and use listed subprocessors subject to the order and published locations.</p><h2 id=\"7-rights-requests\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">7 Rights Requests</h2><p>ToolOn will provide reasonable assistance for access correction deletion consent withdrawal objection nomination and grievance requests relating to Customer Personal Data. If ToolOn receives a request directly it may refer the person to the customer and will not respond substantively except on customer instruction or where law requires. Assistance beyond standard product features may be chargeable when permitted and agreed.</p><h2 id=\"8-personal-data-breach\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">8 Personal Data Breach</h2><p>ToolOn will notify the affected customer without undue delay after confirming a Personal Data Breach involving Customer Personal Data. Available information may include the nature categories approximate scale likely consequences containment and contact route. ToolOn may provide updates as investigation continues. The customer remains responsible for its regulatory and individual notices unless law assigns the duty to ToolOn.</p><h2 id=\"9-deletion-and-return\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">9 Deletion and Return</h2><p>During the term the customer may export or delete supported Customer Personal Data using account features. After termination ToolOn will delete or return Customer Personal Data within the period in the order or Privacy Policy unless law requires retention. Backups are removed through normal rotation. ToolOn may retain suppression and complaint evidence only as necessary to prevent unwanted email protect rights or comply with law.</p><h2 id=\"10-audit-information\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">10 Audit Information</h2><p>ToolOn will provide reasonable information needed to demonstrate compliance such as policy security and subprocessor documentation. Where required by applicable law and not satisfied by existing assurance the customer may request a proportionate audit under confidentiality during business hours at its cost and without exposing other customers data or creating security risk.</p><h2 id=\"11-processing-details\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">11 Processing Details</h2><table><thead><tr><th><p><strong>Item</strong></p></th><th><p><strong>Description</strong></p></th></tr></thead><tbody><tr><td><p>Subject matter</p></td><td><p>Account hosting contact management permission based email delivery reporting API support security and related digital services.</p></td></tr><tr><td><p>Duration</p></td><td><p>For the service term and the deletion retention period stated in the order Privacy Policy or customer settings.</p></td></tr><tr><td><p>Nature</p></td><td><p>Collection recording organisation storage retrieval formatting transmission delivery measurement suppression deletion and security review.</p></td></tr><tr><td><p>Purpose</p></td><td><p>Provide the customer requested ToolOn service prevent abuse maintain security support users comply with law and process customer instructions.</p></td></tr><tr><td><p>Data subjects</p></td><td><p>Customer personnel authorised users campaign recipients contacts support users and persons included in Customer Data.</p></td></tr><tr><td><p>Data types</p></td><td><p>Names email addresses phone or business fields consent evidence message content engagement events device and delivery metadata support data and account identifiers.</p></td></tr><tr><td><p>Sensitive data</p></td><td><p>Not intended. Customer must not submit sensitive data unless expressly supported and lawfully authorised in a signed order.</p></td></tr></tbody></table>"
+  },
+  {
+    "id": "security",
+    "title": "Security Overview and Responsible Disclosure",
+    "route": "/security",
+    "start": 117311,
+    "end": 120764,
+    "headings": [
+      {
+        "title": "1 Security Governance",
+        "anchor": "1-security-governance",
+        "level": 2
+      },
+      {
+        "title": "2 Platform Measures",
+        "anchor": "2-platform-measures",
+        "level": 2
+      },
+      {
+        "title": "3 Customer Security Duties",
+        "anchor": "3-customer-security-duties",
+        "level": 2
+      },
+      {
+        "title": "4 Incident Reporting",
+        "anchor": "4-incident-reporting",
+        "level": 2
+      },
+      {
+        "title": "5 Responsible Disclosure Rules",
+        "anchor": "5-responsible-disclosure-rules",
+        "level": 2
+      },
+      {
+        "title": "6 Security Limitations",
+        "anchor": "6-security-limitations",
+        "level": 2
+      }
+    ],
+    "html": "<p>ToolOn uses administrative technical and organisational measures intended to protect accounts Customer Data and service availability. This page describes the security approach without disclosing controls that would increase risk.</p><h2 id=\"1-security-governance\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Security Governance</h2><p>Scriza Private Limited maintains information security governance with assigned responsibilities policies risk review access management incident response supplier review and employee confidentiality. Scriza maintains an ISO IEC 27001 2022 certified information security management system subject to the scope and validity stated on its certificate. Certification does not guarantee that an incident cannot occur.</p><h2 id=\"2-platform-measures\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Platform Measures</h2><ul><li>HTTPS and encryption in transit for supported production endpoints.</li><li>Role based access least privilege credential protection and multi factor authentication for sensitive administrative access where supported.</li><li>Environment separation secret management logging monitoring backups and recovery procedures appropriate to service risk.</li><li>Secure development review dependency and vulnerability management and change control.</li><li>Rate limits anti automation anti abuse sender verification and campaign reputation controls.</li><li>Payment processing through external payment providers so ToolOn does not intentionally collect full card or banking credentials.</li><li>Local browser processing for tools expressly identified as local. Communication Services necessarily use servers and email delivery providers.</li></ul><h2 id=\"3-customer-security-duties\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Customer Security Duties</h2><p>Customers must use unique strong credentials enable multi factor authentication protect API keys limit authorised users review activity secure integrations verify DNS changes maintain endpoint security and promptly revoke former users. Customers should not email credentials or upload data unrelated to the selected feature.</p><h2 id=\"4-incident-reporting\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Incident Reporting</h2><p>Report suspected unauthorised access data exposure phishing or abuse to admin@scriza.in with the subject ToolOn Security Report. Include the affected URL time account identifier impact and safe reproduction details. Do not include live malware unnecessary personal data or public disclosure before ToolOn has a reasonable opportunity to investigate.</p><h2 id=\"5-responsible-disclosure-rules\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Responsible Disclosure Rules</h2><ul><li>Test only accounts and data you own or have written permission to test.</li><li>Do not access alter delete download or disclose another person data.</li><li>Do not perform denial of service social engineering spam credential stuffing physical testing or destructive actions.</li><li>Stop testing and report immediately if sensitive data or active exploitation is discovered.</li><li>Provide a clear reproducible report and allow reasonable remediation time before disclosure.</li></ul><p>ToolOn does not promise a bounty. Good faith reports that follow these rules will be assessed and acknowledged. Testing outside these rules may be treated as unauthorised.</p><h2 id=\"6-security-limitations\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 Security Limitations</h2><p>No method of transmission storage or software operation is completely secure. ToolOn may change providers architecture and controls as risks and services evolve. Customers should maintain independent backups of original files and use their own risk controls for critical data.</p>"
+  },
+  {
+    "id": "grievance",
+    "title": "Grievance Redressal and Abuse Reporting",
+    "route": "/grievance",
+    "start": 120764,
+    "end": 123199,
+    "headings": [
+      {
+        "title": "1 Grievance Officer",
+        "anchor": "1-grievance-officer",
+        "level": 2
+      },
+      {
+        "title": "2 Information to Include",
+        "anchor": "2-information-to-include",
+        "level": 2
+      },
+      {
+        "title": "3 Response Process",
+        "anchor": "3-response-process",
+        "level": 2
+      },
+      {
+        "title": "4 Email Abuse Handling",
+        "anchor": "4-email-abuse-handling",
+        "level": 2
+      },
+      {
+        "title": "5 Appeals and External Remedies",
+        "anchor": "5-appeals-and-external-remedies",
+        "level": 2
+      }
+    ],
+    "html": "<p>This Policy provides a single route for customer consumer privacy content security and email abuse complaints. It does not limit statutory consumer remedies or reporting to a regulator or law enforcement authority.</p><h2 id=\"1-grievance-officer\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Grievance Officer</h2><p><strong>Name  </strong>Laxman Singh Sonigara</p><p><strong>Designation  </strong>Director and Grievance Officer</p><p><strong>Email  </strong>admin@scriza.in</p><p><strong>Telephone  </strong>+91 9116011899</p><p><strong>Postal address  </strong>Scriza Private Limited NX One T1 507 Tech Zone IV Amrapali Dream Valley Greater Noida Uttar Pradesh 201318 India</p><h2 id=\"2-information-to-include\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Information to Include</h2><ul><li>Name email and preferred contact route.</li><li>ToolOn account order invoice campaign or message identifier where relevant.</li><li>Clear description dates expected resolution and supporting evidence.</li><li>For unwanted email include full message headers sender recipient date and unsubscribe attempt.</li><li>For privacy requests identify the customer or sender and the data involved without sending extra identity documents unless requested securely.</li></ul><h2 id=\"3-response-process\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Response Process</h2><p>ToolOn aims to acknowledge a grievance within twenty four hours and resolve it within seven days where the Information Technology Rules apply. A consumer complaint will in any event be acknowledged within forty eight hours and addressed within one month where the Consumer Protection E Commerce Rules apply. Privacy rights requests will be completed within the applicable statutory period. Complex matters may require additional time and the complainant will be informed where permitted.</p><h2 id=\"4-email-abuse-handling\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Email Abuse Handling</h2><p>ToolOn may suppress the recipient inspect relevant consent and campaign evidence restrict further sending and ask the customer for a response. ToolOn may suspend immediately for credible phishing malware fraud or serious spam. ToolOn will share complaint data only as needed for investigation law or provider coordination.</p><h2 id=\"5-appeals-and-external-remedies\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Appeals and External Remedies</h2><p>A complainant dissatisfied with the response may reply to the grievance reference for review and may use any regulator appellate committee consumer commission court or other forum available under applicable law. Nothing in this Policy requires waiver of a statutory right.</p>"
+  },
+  {
+    "id": "disclaimer",
+    "title": "Service Disclaimer",
+    "route": "/disclaimer",
+    "start": 123199,
+    "end": 125442,
+    "headings": [
+      {
+        "title": "1 File and Conversion Tools",
+        "anchor": "1-file-and-conversion-tools",
+        "level": 2
+      },
+      {
+        "title": "2 Calculators and Generated Information",
+        "anchor": "2-calculators-and-generated-information",
+        "level": 2
+      },
+      {
+        "title": "3 Email Delivery and Marketing Results",
+        "anchor": "3-email-delivery-and-marketing-results",
+        "level": 2
+      },
+      {
+        "title": "4 Artificial Intelligence Features",
+        "anchor": "4-artificial-intelligence-features",
+        "level": 2
+      },
+      {
+        "title": "5 Third Party Links and Advertisements",
+        "anchor": "5-third-party-links-and-advertisements",
+        "level": 2
+      }
+    ],
+    "html": "<p>ToolOn provides automated digital utilities and communication infrastructure. Results and delivery depend on user inputs browser device file format network third party providers recipient systems and security controls.</p><h2 id=\"1-file-and-conversion-tools\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 File and Conversion Tools</h2><p>Users must keep original files and inspect every output. Compression conversion extraction merge split password and format operations may reduce quality remove metadata alter formulas fonts links accessibility macros signatures or layout and may fail on damaged protected or unsupported files. ToolOn is not a document archive backup or evidence preservation service unless a signed order expressly says so.</p><h2 id=\"2-calculators-and-generated-information\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Calculators and Generated Information</h2><p>Calculators templates resume tools age health finance tax legal and similar outputs are general informational aids and not professional advice certification or a government record. Users must verify important results with a qualified professional or authoritative source.</p><h2 id=\"3-email-delivery-and-marketing-results\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Email Delivery and Marketing Results</h2><p>ToolOn does not guarantee inbox placement open clicks leads sales revenue or delivery to every recipient. Mailbox filters recipient settings domain and IP reputation list quality content DNS provider outages and applicable law affect results. Delivery status generally means acceptance by a receiving server and not that a person read or acted on the message.</p><h2 id=\"4-artificial-intelligence-features\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Artificial Intelligence Features</h2><p>If ToolOn offers artificial intelligence features their outputs may be incomplete inaccurate outdated biased or similar to third party material. Users must review outputs before use and must not rely on them for high impact legal medical financial employment credit safety or regulatory decisions without qualified human review. The relevant feature page will disclose provider and data use information where required.</p><h2 id=\"5-third-party-links-and-advertisements\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Third Party Links and Advertisements</h2><p>Third party links advertisements and integrations are provided for convenience and are governed by third party terms. ToolOn does not control or endorse every external product claim security or privacy practice.</p>"
+  },
+  {
+    "id": "copyright",
+    "title": "Intellectual Property and Copyright Complaints",
+    "route": "/copyright",
+    "start": 125442,
+    "end": 126956,
+    "headings": [
+      {
+        "title": "1 User Responsibility",
+        "anchor": "1-user-responsibility",
+        "level": 2
+      },
+      {
+        "title": "2 Complaint Requirements",
+        "anchor": "2-complaint-requirements",
+        "level": 2
+      },
+      {
+        "title": "3 Repeat Violations",
+        "anchor": "3-repeat-violations",
+        "level": 2
+      }
+    ],
+    "html": "<p>Users must own or have permission to process and distribute content through ToolOn. ToolOn respects intellectual property and accepts notices concerning content or activity using its service.</p><h2 id=\"1-user-responsibility\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 User Responsibility</h2><p>A user may not upload convert distribute email or otherwise process content that infringes copyright trademark design database publicity privacy confidentiality or other rights. A tool technical ability to process a file does not grant permission to use it.</p><h2 id=\"2-complaint-requirements\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Complaint Requirements</h2><ul><li>Identification of the protected work mark or right and proof of authority to complain.</li><li>Identification of the allegedly infringing content sender URL account or campaign with enough detail to locate it.</li><li>Contact details and a statement that the complaint is accurate and made in good faith.</li><li>A signature or verifiable electronic submission and any statement required by applicable law.</li></ul><p>Send notices to admin@scriza.in with the subject ToolOn Intellectual Property Notice. ToolOn may request clarification notify the affected user restrict access preserve evidence or restore content after a valid counter notice where applicable.</p><h2 id=\"3-repeat-violations\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Repeat Violations</h2><p>ToolOn may suspend or terminate repeat or serious infringers and may reject campaigns or files associated with credible infringement or counterfeit activity.</p>"
+  },
+  {
+    "id": "advertising-disclosure",
+    "title": "Advertising and Third Party Ads Disclosure",
+    "route": "/advertising-disclosure",
+    "start": 126956,
+    "end": 131596,
+    "headings": [
+      {
+        "title": "1 Advertising Relationship",
+        "anchor": "1-advertising-relationship",
+        "level": 2
+      },
+      {
+        "title": "2 Google AdSense and Data",
+        "anchor": "2-google-adsense-and-data",
+        "level": 2
+      },
+      {
+        "title": "3 Consent and Regional Controls",
+        "anchor": "3-consent-and-regional-controls",
+        "level": 2
+      },
+      {
+        "title": "4 Placement and User Experience",
+        "anchor": "4-placement-and-user-experience",
+        "level": 2
+      },
+      {
+        "title": "5 Invalid Traffic Rules",
+        "anchor": "5-invalid-traffic-rules",
+        "level": 2
+      },
+      {
+        "title": "6 Traffic Acquisition",
+        "anchor": "6-traffic-acquisition",
+        "level": 2
+      },
+      {
+        "title": "7 Complaints and Controls",
+        "anchor": "7-complaints-and-controls",
+        "level": 2
+      }
+    ],
+    "html": "<p>ToolOn may display third party advertisements, including advertisements served through Google AdSense, to fund free Browser Tools. This Disclosure explains how advertising is separated from ToolOn functions, how data and consent are handled, and the conduct required to protect users and advertisers.</p><h2 id=\"1-advertising-relationship\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">1 Advertising Relationship</h2><p>Advertisers and advertising platforms may select and deliver advertisements based on contextual information, consented advertising signals and their own eligibility rules. Payment to ToolOn may depend on valid ad impressions clicks or other events. An advertisement does not mean that ToolOn endorses guarantees or has independently verified the advertiser product price availability security or claim. A visitor should review the advertiser terms and privacy notice before dealing with it.</p><h2 id=\"2-google-adsense-and-data\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">2 Google AdSense and Data</h2><p>Where Google AdSense is active Google and its advertising partners may process the current page URL IP address browser and device information cookie or similar identifiers approximate location consent signals and advertisement impression interaction and fraud prevention data. Depending on the visitor region and choice Google may serve personalised advertising or non personalised contextual advertising. Details and user controls appear in the Privacy Policy Cookie Policy live privacy control and Google own notices.</p><h2 id=\"3-consent-and-regional-controls\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">3 Consent and Regional Controls</h2><p>ToolOn will not intentionally activate non essential advertising storage or personalisation before obtaining consent where applicable law or Google policy requires it. For personalised ads served to users in the European Economic Area United Kingdom or Switzerland ToolOn will use a Google certified consent management platform where required. Visitors can reject non essential technologies or later change their selection through the privacy choices link. Advertising availability or relevance may change when consent is declined.</p><h2 id=\"4-placement-and-user-experience\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">4 Placement and User Experience</h2><ul><li>Advertisements will be visually distinguishable from ToolOn navigation tool inputs results download buttons and account actions.</li><li>ToolOn will not label ads as system messages downloads recommendations or tool results and will not place ads where a normal action is likely to cause an accidental click.</li><li>ToolOn will not modify the destination of a Google ad open it through a forced pop up or require an ad click to complete a basic tool action unless a separately approved rewarded format expressly permits it.</li><li>Advertising scripts will not receive uploaded local files customer recipient lists campaign bodies payment credentials or private account content merely because an advertisement appears elsewhere on ToolOn.</li><li>ToolOn may remove relocate limit or disable ads to protect safety accessibility performance provider compliance or the usability of a tool.</li></ul><h2 id=\"5-invalid-traffic-rules\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">5 Invalid Traffic Rules</h2><p>No owner employee contractor tester customer or visitor may click or view ads to increase ToolOn earnings, ask another person to click, use automated or incentivised traffic, conceal the true referral source, repeatedly refresh pages for impressions or interfere with advertising measurement. ToolOn may exclude internal and suspicious traffic, withhold incentives, block sources, preserve logs and report activity to an advertising provider. Advertising revenue is never guaranteed and may be adjusted withheld or disabled by the provider.</p><h2 id=\"6-traffic-acquisition\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">6 Traffic Acquisition</h2><p>ToolOn may promote its genuine tools through lawful search social referral or paid campaigns, but traffic suppliers must be documented and monitored. Paid traffic must lead to useful original content and real user intent rather than pages designed mainly to generate ad impressions. Traffic sellers offering guaranteed clicks impressions visits or engagement should not be used. Campaign parameters source reports bot signals and unusual click through patterns should be retained for investigation.</p><h2 id=\"7-complaints-and-controls\" class=\"scroll-mt-24 font-bold text-slate-900 mt-8 mb-3 text-lg\">7 Complaints and Controls</h2><p>A visitor can report an advertisement that appears deceptive unsafe offensive or incorrectly placed to admin@scriza.in with the page URL date screenshot and any visible advertiser information. Do not click a suspicious advertisement merely to investigate it. ToolOn may restrict the placement and notify the advertising provider but cannot guarantee that every advertisement will be permanently removed across the provider network.</p>"
+  },
+  {
+    "id": "subprocessors",
+    "title": "Subprocessor List",
+    "route": "/subprocessors",
+    "start": 131596,
+    "end": 134096,
+    "headings": [],
+    "html": "<p>This page must be completed with actual providers before Communication Services and paid checkout go live. A subprocessor is a provider that processes personal data for ToolOn while supporting customer services. Do not publish unverified names or locations.</p><table><thead><tr><th><p><strong>Service category</strong></p></th><th><p><strong>Provider and legal entity</strong></p></th><th><p><strong>Purpose</strong></p></th><th><p><strong>Processing location and link</strong></p></th></tr></thead><tbody><tr><td><p>Cloud hosting and content delivery</p></td><td><p>Insert selected provider</p></td><td><p>Application hosting traffic delivery backups and logs</p></td><td><p>Insert region and privacy link</p></td></tr><tr><td><p>Database and object storage</p></td><td><p>Insert selected provider</p></td><td><p>Account Customer Data campaigns files and backups where applicable</p></td><td><p>Insert region and privacy link</p></td></tr><tr><td><p>Email delivery infrastructure</p></td><td><p>Insert every active provider</p></td><td><p>Message transmission delivery events bounces complaints and suppression</p></td><td><p>Insert region and provider policy links</p></td></tr><tr><td><p>Payment gateway</p></td><td><p>Insert selected provider</p></td><td><p>Checkout payment status refunds risk and reconciliation</p></td><td><p>India or applicable region and privacy link</p></td></tr><tr><td><p>Analytics</p></td><td><p>Insert every active provider</p></td><td><p>Usage measurement performance diagnostics and aggregated trends subject to consent</p></td><td><p>Insert location retention and privacy link</p></td></tr><tr><td><p>Advertising</p></td><td><p>Google entity shown in the AdSense account and every other active provider</p></td><td><p>Ad selection delivery measurement frequency control consent signalling and invalid traffic prevention</p></td><td><p>Insert contracting entity location privacy link and user controls</p></td></tr><tr><td><p>Customer support and monitoring</p></td><td><p>Insert every active provider</p></td><td><p>Support tickets alerts diagnostics and incident response</p></td><td><p>Insert location and privacy link</p></td></tr><tr><td><p>Identity and domain verification</p></td><td><p>Insert every active provider</p></td><td><p>KYC business domain sender and abuse verification</p></td><td><p>Insert location and privacy link</p></td></tr></tbody></table>"
+  }
+]

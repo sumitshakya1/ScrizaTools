@@ -7,7 +7,7 @@ export function FullScreenPromoModal() {
       {/* Hidden checkbox to toggle modal purely with CSS (Zero 'use client') */}
       <input
         type="checkbox"
-        id="scriza-fullscreen-modal-toggle"
+        id="toolon-fullscreen-modal-toggle"
         className="peer sr-only"
         defaultChecked={false}
       />
@@ -15,7 +15,7 @@ export function FullScreenPromoModal() {
       {/* Floating Trigger Button (Bottom right) for user to inspect or test full-screen popups anytime */}
       <div className="fixed bottom-5 right-5 z-40">
         <label
-          htmlFor="scriza-fullscreen-modal-toggle"
+          htmlFor="toolon-fullscreen-modal-toggle"
           className="group flex cursor-pointer items-center gap-2 rounded-full bg-gradient-brand px-4 py-2.5 text-xs font-bold text-white shadow-xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all"
         >
           <Sparkles className="h-4 w-4 fill-current animate-pulse" />
@@ -32,7 +32,7 @@ export function FullScreenPromoModal() {
           
           {/* Close Button via label */}
           <label
-            htmlFor="scriza-fullscreen-modal-toggle"
+            htmlFor="toolon-fullscreen-modal-toggle"
             className="absolute top-5 right-5 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-surface-low text-tertiary hover:bg-primary-fixed hover:text-primary transition-colors focus:outline-none"
             aria-label="Close modal"
           >
@@ -42,15 +42,15 @@ export function FullScreenPromoModal() {
           {/* Modal Header */}
           <div className="inline-flex items-center gap-2 rounded-full bg-primary-fixed px-3 py-1 text-xs font-bold text-primary mb-4">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>Exclusive Scriza Launch Deal</span>
+            <span>Exclusive ToolOn Launch Deal</span>
           </div>
 
           <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-on-surface">
-            Unlock Unlimited Tools &amp; Pro Image Engine
+            Unlock Unlimited Tools &amp; Pro Processing Engine
           </h3>
 
           <p className="mt-3 text-sm sm:text-base text-tertiary leading-relaxed">
-            Get unlimited high-speed bulk image processing, priority queue execution, lossless batch compression, and zero ads across the entire platform.
+            Get unlimited high-speed bulk processing, priority queue execution, lossless batch compression, and zero ads across the entire platform.
           </p>
 
           {/* Benefits Grid */}
@@ -64,7 +64,7 @@ export function FullScreenPromoModal() {
             <div className="flex items-center gap-2.5 rounded-xl bg-surface-low p-3 border border-surface-dim">
               <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
               <span className="text-xs font-semibold text-on-surface">
-                Unlimited Bulk Image Conversion
+                Unlimited Bulk Conversion
               </span>
             </div>
             <div className="flex items-center gap-2.5 rounded-xl bg-surface-low p-3 border border-surface-dim">
@@ -87,11 +87,11 @@ export function FullScreenPromoModal() {
               href="/pricing"
               className="inline-flex w-full sm:w-auto flex-1 items-center justify-center gap-2 rounded-button bg-gradient-brand py-3.5 px-6 text-sm font-bold text-white shadow-md hover:opacity-95 transition-all"
             >
-              <span>Get Scriza Pro — 50% Off</span>
+              <span>Get ToolOn Pro — 50% Off</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
             <label
-              htmlFor="scriza-fullscreen-modal-toggle"
+              htmlFor="toolon-fullscreen-modal-toggle"
               className="inline-flex w-full sm:w-auto cursor-pointer items-center justify-center rounded-button border border-surface-dim py-3.5 px-5 text-sm font-semibold text-tertiary hover:bg-surface-low hover:text-on-surface transition-colors"
             >
               Maybe Later

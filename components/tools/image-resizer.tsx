@@ -33,9 +33,9 @@ import {
 
 const RESIZER_FAQS: FAQItem[] = [
   {
-    question: "How do I resize an image without losing quality?",
+    question: "How do I resize an image without losing quality or stretching?",
     answer:
-      "Scriza Image Resizer uses multi-step downsampling and high-fidelity bilinear/bicubic interpolation filters to preserve edge sharpness and fine details. Simply keep 'Lock Aspect Ratio' checked so your image dimensions scale proportionally without stretching or distortion.",
+      "ToolOn Image Resizer uses multi-step downsampling and high-fidelity bilinear/bicubic interpolation filters to preserve edge sharpness and fine details. Simply keep 'Lock Aspect Ratio' checked so your image dimensions scale proportionally without stretching or distortion.",
   },
   {
     question: "Are my uploaded photos safe and private?",

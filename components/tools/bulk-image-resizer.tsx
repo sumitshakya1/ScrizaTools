@@ -171,9 +171,9 @@ export function BulkImageResizerTool() {
 
   const handleDownloadZip = () => {
     if (!zipBlob) return;
-    const isPro = typeof window !== "undefined" && localStorage.getItem("scriza_pro_active") === "true";
+    const isPro = typeof window !== "undefined" && localStorage.getItem("toolon_pro_active") === "true";
     if (isPro) {
-      triggerFileDownload(zipBlob, "scriza-resized-images.zip");
+      triggerFileDownload(zipBlob, "toolon-resized-images.zip");
     } else {
       setShowCountdown(true);
     }
@@ -181,7 +181,7 @@ export function BulkImageResizerTool() {
 
   const handleCountdownComplete = () => {
     if (zipBlob) {
-      triggerFileDownload(zipBlob, "scriza-resized-images.zip");
+      triggerFileDownload(zipBlob, "toolon-resized-images.zip");
     }
   };
 
@@ -457,7 +457,7 @@ export function BulkImageResizerTool() {
           <DownloadCountdownModal
             isOpen={showCountdown}
             durationSeconds={30}
-            fileName="scriza-resized-images.zip"
+            fileName="toolon-resized-images.zip"
             onComplete={handleCountdownComplete}
             onClose={() => setShowCountdown(false)}
           />

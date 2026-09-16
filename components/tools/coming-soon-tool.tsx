@@ -17,7 +17,7 @@ export function ComingSoonTool({ toolId }: ComingSoonToolProps) {
     id: toolId,
     name: toolId.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" "),
     description: "This tool is currently in active development and will be released very soon.",
-    features: ["100% Client-Side Privacy", "Zero Server Uploads", "Fast Browser Processing"],
+    features: ["Browser-Based Processing", "Secure Client Execution", "Zero File Retention"],
     bulletPoints: [],
   };
 
@@ -27,12 +27,12 @@ export function ComingSoonTool({ toolId }: ComingSoonToolProps) {
     {
       question: `When will ${currentTool.name} be available?`,
       answer:
-        "Our engineering team is actively building and optimizing this tool for 100% client-side execution in your browser. It will be launched in an upcoming weekly release.",
+        "Our engineering team is actively building and optimizing this tool for high-performance execution directly in your browser. It will be launched in an upcoming weekly release.",
     },
     {
       question: "Will this tool be free to use?",
       answer:
-        "Yes! All tools on Scriza are 100% free with unlimited conversions and zero file retention.",
+        "Yes! Core Browser Tools may be used without an account, subject to fair usage. Paid Communication Services require an account and plan.",
     },
     {
       question: "Which tools can I use right now?",

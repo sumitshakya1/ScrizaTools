@@ -408,7 +408,7 @@ export const valueHighlights = [
   },
 ];
 
-export const whyScrizaItems = [
+export const whyToolOnItems = [
   {
     iconName: "Zap",
     title: "Fast",
@@ -434,3 +434,5 @@ export const whyScrizaItems = [
     highlight: "100% client-side",
   },
 ];
+
+export const whyScrizaItems = whyToolOnItems;

@@ -33,7 +33,7 @@ const COMPRESSOR_FAQS: FAQItem[] = [
   {
     question: "How does the Image Compressor reduce file size?",
     answer:
-      "Scriza Image Compressor uses advanced browser-native encoding algorithms to optimize color quantization, remove redundant EXIF metadata, and adjust compression factors without degrading perceptible visual sharpness.",
+      "ToolOn Image Compressor uses advanced browser-native encoding algorithms to optimize color quantization, remove redundant EXIF metadata, and adjust compression factors without degrading perceptible visual sharpness.",
   },
   {
     question: "Can I specify an exact target size in KB or MB?",

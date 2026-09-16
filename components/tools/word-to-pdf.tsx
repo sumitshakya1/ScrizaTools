@@ -32,7 +32,7 @@ export function WordToPdfTool() {
       const result = await convertWordToPdf(file);
       const blob = new Blob([result as any], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
-      const name = `scriza-${file.name.replace(/\.(docx?|doc)$/i, "")}.pdf`;
+      const name = `toolon-${file.name.replace(/\.(docx?|doc)$/i, "")}.pdf`;
       setPendingDownload({ url, name });
       setShowCountdown(true);
     } catch (err: any) {

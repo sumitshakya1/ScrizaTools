@@ -59,7 +59,7 @@ export function PdfProtectTool() {
     if (!pendingUrl) return;
     const a = document.createElement("a");
     a.href = pendingUrl;
-    a.download = `scriza-protected-${file?.name || "document.pdf"}`;
+    a.download = `toolon-protected-${file?.name || "document.pdf"}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -188,7 +188,7 @@ export function PdfProtectTool() {
         <FAQSection toolName="PDF Password Protect" items={FAQS} />
       </div>
 
-      <DownloadCountdownModal isOpen={showCountdown} fileName={`scriza-protected-${file?.name || "document.pdf"}`} onComplete={triggerDownload} onClose={() => setShowCountdown(false)} />
+      <DownloadCountdownModal isOpen={showCountdown} fileName={`toolon-protected-${file?.name || "document.pdf"}`} onComplete={triggerDownload} onClose={() => setShowCountdown(false)} />
     </ToolPageLayout>
   );
 }

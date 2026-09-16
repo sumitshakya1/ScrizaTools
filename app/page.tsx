@@ -2,7 +2,6 @@ import { Navbar } from "@/components/navbar";
 import { ToolSection, PdfToolSection } from "@/components/tool-section";
 import { Footer } from "@/components/footer";
 import { AdSlot } from "@/components/ad-slot";
-import { GoogleVignetteModal } from "@/components/google-vignette-modal";
 import { imageTools, convertToPdfTools, convertFromPdfTools, pdfUtilityTools } from "@/data/tools";
 
 export default function Home() {
@@ -13,7 +12,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Main Content Area with Right-Side Sticky Ad Rail */}
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6 pb-12 sm:pt-8 sm:pb-16">
+        <div className="mx-auto max-w-[1536px] px-6 sm:px-8 lg:px-12 pt-6 pb-12 sm:pt-8 sm:pb-16">
           <div className="flex flex-col lg:flex-row gap-8 xl:gap-10 items-stretch">
             
             {/* Left Primary Tool Directory Column */}
@@ -46,9 +45,6 @@ export default function Home() {
 
       {/* Global Footer */}
       <Footer />
-
-      {/* Google Vignette Interstitial Ad Modal */}
-      <GoogleVignetteModal />
     </div>
   );
 }

@@ -101,7 +101,7 @@ export function JpgToPdfTool() {
     if (!pendingUrl) return;
     const a = document.createElement("a");
     a.href = pendingUrl;
-    a.download = "scriza-jpg-to-pdf.pdf";
+    a.download = "toolon-jpg-to-pdf.pdf";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -156,7 +156,7 @@ export function JpgToPdfTool() {
         <FAQSection toolName="JPG to PDF" items={FAQS} />
       </div>
 
-      <DownloadCountdownModal isOpen={showCountdown} fileName="scriza-jpg-to-pdf.pdf" onComplete={triggerDownload} onClose={() => setShowCountdown(false)} />
+      <DownloadCountdownModal isOpen={showCountdown} fileName="toolon-jpg-to-pdf.pdf" onComplete={triggerDownload} onClose={() => setShowCountdown(false)} />
     </ToolPageLayout>
   );
 }

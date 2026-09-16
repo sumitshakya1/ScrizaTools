@@ -51,7 +51,7 @@ export function PdfCompressorTool() {
     if (!result) return;
     const a = document.createElement("a");
     a.href = result.url;
-    a.download = `scriza-compressed-${file?.name || "document.pdf"}`;
+    a.download = `toolon-compressed-${file?.name || "document.pdf"}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -168,7 +168,7 @@ export function PdfCompressorTool() {
         <FAQSection toolName="PDF Compressor" items={FAQS} />
       </div>
 
-      <DownloadCountdownModal isOpen={showCountdown} fileName={`scriza-compressed-${file?.name || "document.pdf"}`} onComplete={triggerDownload} onClose={() => setShowCountdown(false)} />
+      <DownloadCountdownModal isOpen={showCountdown} fileName={`toolon-compressed-${file?.name || "document.pdf"}`} onComplete={triggerDownload} onClose={() => setShowCountdown(false)} />
     </ToolPageLayout>
   );
 }

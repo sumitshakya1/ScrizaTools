@@ -32,7 +32,7 @@ export function PptxToPdfTool() {
       const result = await convertPptxToPdf(file);
       const blob = new Blob([result as any], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
-      const name = `scriza-${file.name.replace(/\.pptx$/i, "")}.pdf`;
+      const name = `toolon-${file.name.replace(/\.pptx$/i, "")}.pdf`;
       setPendingDownload({ url, name });
       setShowCountdown(true);
     } catch (err: any) {
