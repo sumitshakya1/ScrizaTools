@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   Maximize2,
@@ -137,7 +137,11 @@ export function ImageMegaMenu({
   onMouseEnter,
   onMouseLeave,
 }: ImageMegaMenuProps) {
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+
   if (!isOpen) return null;
+
+  const activeCategory = IMAGE_MEGA_MENU_CATEGORIES[activeCategoryIndex];
 
   return (
     <div
@@ -146,98 +150,123 @@ export function ImageMegaMenu({
       className="absolute top-full left-0 right-0 z-50 pt-2 pointer-events-auto animate-in fade-in slide-in-from-top-2 duration-150"
     >
       <div className="mx-auto max-w-[1024px] px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-slate-200/90 bg-white shadow-2xl shadow-slate-900/12 overflow-hidden backdrop-blur-xl">
+        <div className="rounded-2xl border border-slate-200/90 bg-white shadow-2xl shadow-slate-900/12 overflow-hidden backdrop-blur-xl flex flex-col md:flex-row">
           
-          {/* Main Grid Layout */}
-          <div className="p-6 lg:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-4 xl:gap-6 bg-gradient-to-b from-slate-50/60 to-white">
-            {IMAGE_MEGA_MENU_CATEGORIES.map((category) => (
-              <div key={category.title} className="flex flex-col space-y-3 min-w-0">
-                
-                {/* Column Category Title */}
-                <div className="pb-2 border-b border-slate-100 flex items-center justify-between">
-                  <h4 className="text-[11px] font-black tracking-wider text-slate-500 uppercase">
-                    {category.title}
-                  </h4>
-                </div>
-
-                {/* Column Items */}
-                <ul className="space-y-1">
-                  {category.tools.map((tool) => {
-                    const IconComponent = tool.icon;
-                    return (
-                      <li key={tool.href}>
-                        <Link
-                          href={tool.href}
-                          onClick={onClose}
-                          className={`group flex items-start gap-2.5 p-2 rounded-xl transition-all ${category.color.hoverBg}`}
-                        >
-                          {/* Vibrant Icon Box */}
-                          <div
-                            className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition-colors duration-150 ${category.color.iconBg}`}
-                          >
-                            <IconComponent className="h-3.5 w-3.5" />
-                          </div>
-
-                          {/* Tool Name and Details */}
-                          <div className="min-w-0 flex-1">
-                            <div className="flex items-center gap-1.5 flex-wrap">
-                              <span className="text-[13px] font-bold text-slate-800 group-hover:text-primary transition-colors leading-tight">
-                                {tool.name}
-                              </span>
-                              {tool.badge && (
-                                <span
-                                  className={`text-[9.5px] font-extrabold uppercase px-1.5 py-0.2 rounded-full ${
-                                    tool.badge === "Popular"
-                                      ? "bg-amber-100 text-amber-800"
-                                      : tool.badge === "Fast"
-                                      ? "bg-emerald-100 text-emerald-800"
-                                      : tool.badge === "Bulk"
-                                      ? "bg-blue-100 text-blue-800"
-                                      : "bg-slate-100 text-slate-600"
-                                  }`}
-                                >
-                                  {tool.badge}
-                                </span>
-                              )}
-                            </div>
-                            {tool.desc && (
-                              <p className="text-[11px] text-slate-600 line-clamp-1 mt-0.5 leading-snug">
-                                {tool.desc}
-                              </p>
-                            )}
-                          </div>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
+          {/* Left Pane: Categories Sidebar */}
+          <div className="w-full md:w-64 lg:w-72 bg-slate-50/80 border-r border-slate-100 p-4 lg:p-6 flex flex-col gap-2 shrink-0">
+            <h4 className="text-[11px] font-black tracking-wider text-slate-500 uppercase mb-2 px-3">
+              Categories
+            </h4>
+            <div className="flex flex-col gap-1">
+              {IMAGE_MEGA_MENU_CATEGORIES.map((category, index) => {
+                const isActive = activeCategoryIndex === index;
+                return (
+                  <button
+                    key={category.title}
+                    type="button"
+                    onMouseEnter={() => setActiveCategoryIndex(index)}
+                    className={`flex items-center justify-between px-3 py-2.5 rounded-xl transition-all cursor-default text-left ${
+                      isActive
+                        ? "bg-white shadow-sm border border-slate-200/60"
+                        : "hover:bg-slate-100/60 border border-transparent"
+                    }`}
+                  >
+                    <span
+                      className={`text-sm font-bold ${
+                        isActive ? "text-primary" : "text-slate-600"
+                      }`}
+                    >
+                      {category.title}
+                    </span>
+                    {isActive && (
+                      <ArrowRight className="h-4 w-4 text-primary" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Bottom Feature Strip */}
-          <div className="bg-slate-50/90 border-t border-slate-100 px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-            <div className="flex items-center gap-2">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
-                <Shield className="h-3 w-3" />
-              </span>
-              <span className="font-medium text-slate-700">
-                100% Client-Side Processing • Fast & Secure Editing
-              </span>
+          {/* Right Pane: Tools Grid */}
+          <div className="flex-1 bg-white p-6 lg:p-8 flex flex-col justify-between">
+            <div>
+              <div className="mb-6 flex items-center justify-between border-b border-slate-100 pb-4">
+                <h3 className="text-xl font-extrabold text-slate-800 capitalize tracking-tight">
+                  {activeCategory.title.toLowerCase()}
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 xl:gap-6">
+                {activeCategory.tools.map((tool) => {
+                  const IconComponent = tool.icon;
+                  return (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      onClick={onClose}
+                      className={`group flex items-start gap-4 p-4 rounded-2xl border border-slate-100 transition-all shadow-sm ${activeCategory.color.hoverBg} hover:shadow-md hover:border-transparent`}
+                    >
+                      {/* Icon */}
+                      <div
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-colors duration-200 ${activeCategory.color.iconBg}`}
+                      >
+                        <IconComponent className="h-5 w-5" />
+                      </div>
+
+                      {/* Tool Info */}
+                      <div className="min-w-0 flex-1 flex flex-col">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="text-sm font-bold text-slate-800 group-hover:text-primary transition-colors leading-tight">
+                            {tool.name}
+                          </span>
+                          {tool.badge && (
+                            <span
+                              className={`text-[9px] font-extrabold uppercase px-1.5 py-0.5 rounded-md ${
+                                tool.badge === "Popular"
+                                  ? "bg-amber-100 text-amber-800"
+                                  : tool.badge === "Fast"
+                                  ? "bg-emerald-100 text-emerald-800"
+                                  : tool.badge === "Bulk"
+                                  ? "bg-blue-100 text-blue-800"
+                                  : "bg-slate-100 text-slate-600"
+                              }`}
+                            >
+                              {tool.badge}
+                            </span>
+                          )}
+                        </div>
+                        {tool.desc && (
+                          <p className="text-xs text-slate-500 leading-snug">
+                            {tool.desc}
+                          </p>
+                        )}
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            {/* Bottom Strip of Right Pane */}
+            <div className="mt-8 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5 text-xs">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                  <Shield className="h-3.5 w-3.5" />
+                </span>
+                <span className="font-semibold text-slate-600">
+                  100% Client-Side Processing • Fast & Secure Editing
+                </span>
+              </div>
               <Link
                 href="/#image-tools"
                 onClick={onClose}
-                className="inline-flex items-center gap-1 font-bold text-primary hover:underline"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-primary bg-primary/5 hover:bg-primary/10 rounded-lg transition-colors"
               >
                 <span>View All In Workspace</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           </div>
-
         </div>
       </div>
     </div>
