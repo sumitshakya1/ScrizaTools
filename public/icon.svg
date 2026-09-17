@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 0 92 98" width="100%" height="100%">
+  <!-- Top Orange Radiant Rays -->
+  <g fill="#ff9900">
+    <!-- Left ray -->
+    <rect x="16" y="7" width="10.5" height="18" rx="5.25" transform="rotate(-30 21 16)" />
+    <!-- Center ray -->
+    <rect x="44.5" y="0" width="11" height="19" rx="5.5" />
+    <!-- Right ray -->
+    <rect x="73.5" y="7" width="10.5" height="18" rx="5.25" transform="rotate(30 79 16)" />
+  </g>
+
+  <!-- Blue Power On Switch -->
+  <g fill="#0070f3">
+    <!-- Outer Arc / Open Circle -->
+    <path
+      d="M 28 44 A 31 31 0 1 0 72 44"
+      fill="none"
+      stroke="#0070f3"
+      stroke-width="16"
+      stroke-linecap="round"
+    />
+    <!-- Center Vertical Switch Bar -->
+    <rect x="42" y="22" width="16" height="34" rx="8" />
+  </g>
+</svg>
