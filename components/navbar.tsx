@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -16,6 +16,8 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/config";
+import { PdfMegaMenu, PDF_MEGA_MENU_CATEGORIES } from "./pdf-mega-menu";
+import { ImageMegaMenu, IMAGE_MEGA_MENU_CATEGORIES } from "./image-mega-menu";
 
 interface UserProfile {
   id?: string;
@@ -29,6 +31,46 @@ interface UserProfile {
 export function Navbar() {
   const [user, setUser] = useState<UserProfile | null>(null);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isPdfMenuOpen, setIsPdfMenuOpen] = useState(false);
+  const [isImageMenuOpen, setIsImageMenuOpen] = useState(false);
+  const [isMobilePdfOpen, setIsMobilePdfOpen] = useState(false);
+  const [isMobileImageOpen, setIsMobileImageOpen] = useState(false);
+  const pdfMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const imageMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handlePdfMouseEnter = () => {
+    if (pdfMenuTimeoutRef.current) {
+      clearTimeout(pdfMenuTimeoutRef.current);
+      pdfMenuTimeoutRef.current = null;
+    }
+    setIsPdfMenuOpen(true);
+  };
+
+  const handlePdfMouseLeave = () => {
+    if (pdfMenuTimeoutRef.current) {
+      clearTimeout(pdfMenuTimeoutRef.current);
+    }
+    pdfMenuTimeoutRef.current = setTimeout(() => {
+      setIsPdfMenuOpen(false);
+    }, 180);
+  };
+
+  const handleImageMouseEnter = () => {
+    if (imageMenuTimeoutRef.current) {
+      clearTimeout(imageMenuTimeoutRef.current);
+      imageMenuTimeoutRef.current = null;
+    }
+    setIsImageMenuOpen(true);
+  };
+
+  const handleImageMouseLeave = () => {
+    if (imageMenuTimeoutRef.current) {
+      clearTimeout(imageMenuTimeoutRef.current);
+    }
+    imageMenuTimeoutRef.current = setTimeout(() => {
+      setIsImageMenuOpen(false);
+    }, 180);
+  };
 
   // Sync authentication state from localStorage
   const checkAuth = () => {
@@ -128,20 +170,55 @@ export function Navbar() {
           {/* Desktop Navigation Links */}
           <nav
             aria-label="Main Navigation"
-            className="hidden md:flex items-center gap-1 lg:gap-2"
+            className="hidden md:flex items-center gap-1.5 lg:gap-2"
           >
-            <Link
-              href="/#image-tools"
-              className="px-3 py-1.5 text-sm font-medium text-tertiary hover:text-on-surface hover:bg-surface-low rounded-button transition-colors"
+            {/* Image Tools Mega Menu Hover Trigger */}
+            <div
+              className="relative py-2"
+              onMouseEnter={handleImageMouseEnter}
+              onMouseLeave={handleImageMouseLeave}
             >
-              Image Tools
-            </Link>
-            <Link
-              href="/#pdf-tools"
-              className="px-3 py-1.5 text-sm font-medium text-tertiary hover:text-on-surface hover:bg-surface-low rounded-button transition-colors"
+              <Link
+                href="/#image-tools"
+                onClick={() => setIsImageMenuOpen(false)}
+                className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-all ${
+                  isImageMenuOpen
+                    ? "text-primary bg-primary/10 shadow-xs"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/80"
+                }`}
+              >
+                <span>Image Tools</span>
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    isImageMenuOpen ? "rotate-180 text-primary" : "text-slate-400"
+                  }`}
+                />
+              </Link>
+            </div>
+
+            {/* PDF Tools Mega Menu Hover Trigger */}
+            <div
+              className="relative py-2"
+              onMouseEnter={handlePdfMouseEnter}
+              onMouseLeave={handlePdfMouseLeave}
             >
-              PDF Tools
-            </Link>
+              <Link
+                href="/#pdf-tools"
+                onClick={() => setIsPdfMenuOpen(false)}
+                className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-all ${
+                  isPdfMenuOpen
+                    ? "text-primary bg-primary/10 shadow-xs"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/80"
+                }`}
+              >
+                <span>PDF Tools</span>
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    isPdfMenuOpen ? "rotate-180 text-primary" : "text-slate-400"
+                  }`}
+                />
+              </Link>
+            </div>
           </nav>
         </div>
 
@@ -255,20 +332,92 @@ export function Navbar() {
               )}
 
               <div className="flex flex-col gap-1 pb-3 border-b border-surface-dim">
-                <Link
-                  href="/#image-tools"
-                  className="flex items-center justify-between px-3 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-low rounded-lg transition-colors"
-                >
-                  <span>Image Tools</span>
-                  <ChevronRight className="h-4 w-4 text-tertiary" />
-                </Link>
-                <Link
-                  href="/#pdf-tools"
-                  className="flex items-center justify-between px-3 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-low rounded-lg transition-colors"
-                >
-                  <span>PDF Tools</span>
-                  <ChevronRight className="h-4 w-4 text-tertiary" />
-                </Link>
+                {/* Mobile Image Tools Expandable Accordion */}
+                <div className="rounded-lg overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileImageOpen(!isMobileImageOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-low rounded-lg transition-colors cursor-pointer"
+                  >
+                    <span className="font-semibold text-slate-800">Image Tools</span>
+                    <ChevronDown
+                      className={`h-4 w-4 text-tertiary transition-transform duration-200 ${
+                        isMobileImageOpen ? "rotate-180 text-primary" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {isMobileImageOpen && (
+                    <div className="pl-3 pr-1 py-2 space-y-3 max-h-72 overflow-y-auto border-l-2 border-primary/30 ml-3 my-1">
+                      {IMAGE_MEGA_MENU_CATEGORIES.map((category) => (
+                        <div key={category.title} className="space-y-1">
+                          <p className="text-[10px] font-black uppercase text-slate-400 tracking-wider">
+                            {category.title}
+                          </p>
+                          <div className="grid grid-cols-1 gap-1">
+                            {category.tools.map((tool) => (
+                              <Link
+                                key={tool.href}
+                                href={tool.href}
+                                className="flex items-center justify-between py-1 px-2 text-xs text-slate-700 hover:text-primary hover:bg-slate-50 rounded transition-colors"
+                              >
+                                <span className="font-medium">{tool.name}</span>
+                                {tool.badge && (
+                                  <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-600 font-bold">
+                                    {tool.badge}
+                                  </span>
+                                )}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {/* Mobile PDF Tools Expandable Accordion */}
+                <div className="rounded-lg overflow-hidden">
+                  <button
+                    type="button"
+                    onClick={() => setIsMobilePdfOpen(!isMobilePdfOpen)}
+                    className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-on-surface hover:bg-surface-low rounded-lg transition-colors cursor-pointer"
+                  >
+                    <span className="font-semibold text-slate-800">PDF Tools</span>
+                    <ChevronDown
+                      className={`h-4 w-4 text-tertiary transition-transform duration-200 ${
+                        isMobilePdfOpen ? "rotate-180 text-primary" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {isMobilePdfOpen && (
+                    <div className="pl-3 pr-1 py-2 space-y-3 max-h-72 overflow-y-auto border-l-2 border-primary/30 ml-3 my-1">
+                      {PDF_MEGA_MENU_CATEGORIES.map((category) => (
+                        <div key={category.title} className="space-y-1">
+                          <p className="text-[10px] font-black uppercase text-slate-400 tracking-wider">
+                            {category.title}
+                          </p>
+                          <div className="grid grid-cols-1 gap-1">
+                            {category.tools.map((tool) => (
+                              <Link
+                                key={tool.href}
+                                href={tool.href}
+                                className="flex items-center justify-between py-1 px-2 text-xs text-slate-700 hover:text-primary hover:bg-slate-50 rounded transition-colors"
+                              >
+                                <span className="font-medium">{tool.name}</span>
+                                {tool.badge && (
+                                  <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-600 font-bold">
+                                    {tool.badge}
+                                  </span>
+                                )}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="pt-3 flex flex-col gap-2">
@@ -276,7 +425,7 @@ export function Navbar() {
                   <button
                     type="button"
                     onClick={handleLogout}
-                    className="w-full text-center px-3 py-2 text-sm font-medium text-rose-600 hover:bg-rose-50 rounded-button"
+                    className="w-full text-center px-3 py-2 text-sm font-medium text-rose-600 hover:bg-rose-50 rounded-button cursor-pointer"
                   >
                     Sign Out
                   </button>
@@ -303,6 +452,22 @@ export function Navbar() {
           </details>
         </div>
       </div>
+
+      {/* Image Tools Mega Menu Floating Dropdown */}
+      <ImageMegaMenu
+        isOpen={isImageMenuOpen}
+        onClose={() => setIsImageMenuOpen(false)}
+        onMouseEnter={handleImageMouseEnter}
+        onMouseLeave={handleImageMouseLeave}
+      />
+
+      {/* PDF Tools Mega Menu Floating Dropdown */}
+      <PdfMegaMenu
+        isOpen={isPdfMenuOpen}
+        onClose={() => setIsPdfMenuOpen(false)}
+        onMouseEnter={handlePdfMouseEnter}
+        onMouseLeave={handlePdfMouseLeave}
+      />
     </header>
   );
 }
