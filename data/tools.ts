@@ -589,6 +589,7 @@ export const pdfUtilityTools: Tool[] = [
       "Makes archived scanned documents fully searchable.",
     ],
   },
+  /*
   {
     id: "pdf-ai-summarizer",
     name: "AI Summarizer",
@@ -634,6 +635,7 @@ export const pdfUtilityTools: Tool[] = [
       "Perfect for documentation, wikis, and developer workflows.",
     ],
   },
+  */
 ];
 
 // Combined PDF tools array for routing and navigation

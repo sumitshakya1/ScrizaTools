@@ -358,6 +358,7 @@ export const PDF_MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
       },
     ],
   },
+  /*
   {
     title: "PDF INTELLIGENCE",
     color: {
@@ -392,6 +393,7 @@ export const PDF_MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
       },
     ],
   },
+  */
 ];
 
 interface PdfMegaMenuProps {
@@ -409,9 +411,12 @@ export function PdfMegaMenu({
 }: PdfMegaMenuProps) {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
 
-  if (!isOpen) return null;
+  if (!isOpen || PDF_MEGA_MENU_CATEGORIES.length === 0) return null;
 
-  const activeCategory = PDF_MEGA_MENU_CATEGORIES[activeCategoryIndex];
+  const safeIndex = Math.min(Math.max(0, activeCategoryIndex), PDF_MEGA_MENU_CATEGORIES.length - 1);
+  const activeCategory = PDF_MEGA_MENU_CATEGORIES[safeIndex] || PDF_MEGA_MENU_CATEGORIES[0];
+
+  if (!activeCategory) return null;
 
   return (
     <div

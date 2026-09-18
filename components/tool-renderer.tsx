@@ -26,36 +26,36 @@ const PptxToPdfTool = dynamic(() => import("@/components/tools/pptx-to-pdf").the
 const ExcelToPdfTool = dynamic(() => import("@/components/tools/excel-to-pdf").then(m => ({ default: m.ExcelToPdfTool })), { loading: ToolLoading });
 
 // ── Convert FROM PDF ──
-const PdfToImageTool = dynamic(() => import("@/components/tools/pdf-to-image").then(m => ({ default: m.PdfToImageTool })), { loading: ToolLoading });
-const PdfToWordTool = dynamic(() => import("@/components/tools/pdf-to-word").then(m => ({ default: m.PdfToWordTool })), { loading: ToolLoading });
-const PdfToPptxTool = dynamic(() => import("@/components/tools/pdf-to-pptx").then(m => ({ default: m.PdfToPptxTool })), { loading: ToolLoading });
-const PdfToExcelTool = dynamic(() => import("@/components/tools/pdf-to-excel").then(m => ({ default: m.PdfToExcelTool })), { loading: ToolLoading });
+const PdfToImageTool = dynamic(() => import("@/components/tools/pdf-to-image").then(m => ({ default: m.PdfToImageTool })), { loading: ToolLoading, ssr: false });
+const PdfToWordTool = dynamic(() => import("@/components/tools/pdf-to-word").then(m => ({ default: m.PdfToWordTool })), { loading: ToolLoading, ssr: false });
+const PdfToPptxTool = dynamic(() => import("@/components/tools/pdf-to-pptx").then(m => ({ default: m.PdfToPptxTool })), { loading: ToolLoading, ssr: false });
+const PdfToExcelTool = dynamic(() => import("@/components/tools/pdf-to-excel").then(m => ({ default: m.PdfToExcelTool })), { loading: ToolLoading, ssr: false });
 
 // ── PDF Utilities ──
-const PdfMergerTool = dynamic(() => import("@/components/tools/pdf-merger").then(m => ({ default: m.PdfMergerTool })), { loading: ToolLoading });
-const PdfCompressorTool = dynamic(() => import("@/components/tools/pdf-compressor").then(m => ({ default: m.PdfCompressorTool })), { loading: ToolLoading });
-const PdfProtectTool = dynamic(() => import("@/components/tools/pdf-protect").then(m => ({ default: m.PdfProtectTool })), { loading: ToolLoading });
-const SplitPdfTool = dynamic(() => import("@/components/tools/split-pdf").then(m => ({ default: m.SplitPdfTool })), { loading: ToolLoading });
-const RemovePdfPagesTool = dynamic(() => import("@/components/tools/remove-pdf-pages").then(m => ({ default: m.RemovePdfPagesTool })), { loading: ToolLoading });
-const ExtractPdfPagesTool = dynamic(() => import("@/components/tools/extract-pdf-pages").then(m => ({ default: m.ExtractPdfPagesTool })), { loading: ToolLoading });
-const RotatePdfTool = dynamic(() => import("@/components/tools/rotate-pdf").then(m => ({ default: m.RotatePdfTool })), { loading: ToolLoading });
-const UnlockPdfTool = dynamic(() => import("@/components/tools/unlock-pdf").then(m => ({ default: m.UnlockPdfTool })), { loading: ToolLoading });
-const PdfWatermarkTool = dynamic(() => import("@/components/tools/pdf-watermark").then(m => ({ default: m.PdfWatermarkTool })), { loading: ToolLoading });
-const AddPageNumbersTool = dynamic(() => import("@/components/tools/add-page-numbers").then(m => ({ default: m.AddPageNumbersTool })), { loading: ToolLoading });
-const OrganizePdfTool = dynamic(() => import("@/components/tools/organize-pdf").then(m => ({ default: m.OrganizePdfTool })), { loading: ToolLoading });
-const SignPdfTool = dynamic(() => import("@/components/tools/sign-pdf").then(m => ({ default: m.SignPdfTool })), { loading: ToolLoading });
-const CropPdfTool = dynamic(() => import("@/components/tools/crop-pdf").then(m => ({ default: m.CropPdfTool })), { loading: ToolLoading });
-const PdfToPdfATool = dynamic(() => import("@/components/tools/pdf-to-pdfa").then(m => ({ default: m.PdfToPdfATool })), { loading: ToolLoading });
-const ScanToPdfTool = dynamic(() => import("@/components/tools/scan-to-pdf").then(m => ({ default: m.ScanToPdfTool })), { loading: ToolLoading });
-const RepairPdfTool = dynamic(() => import("@/components/tools/repair-pdf").then(m => ({ default: m.RepairPdfTool })), { loading: ToolLoading });
-const ComparePdfTool = dynamic(() => import("@/components/tools/compare-pdf").then(m => ({ default: m.ComparePdfTool })), { loading: ToolLoading });
+const PdfMergerTool = dynamic(() => import("@/components/tools/pdf-merger").then(m => ({ default: m.PdfMergerTool })), { loading: ToolLoading, ssr: false });
+const PdfCompressorTool = dynamic(() => import("@/components/tools/pdf-compressor").then(m => ({ default: m.PdfCompressorTool })), { loading: ToolLoading, ssr: false });
+const PdfProtectTool = dynamic(() => import("@/components/tools/pdf-protect").then(m => ({ default: m.PdfProtectTool })), { loading: ToolLoading, ssr: false });
+const SplitPdfTool = dynamic(() => import("@/components/tools/split-pdf").then(m => ({ default: m.SplitPdfTool })), { loading: ToolLoading, ssr: false });
+const RemovePdfPagesTool = dynamic(() => import("@/components/tools/remove-pdf-pages").then(m => ({ default: m.RemovePdfPagesTool })), { loading: ToolLoading, ssr: false });
+const ExtractPdfPagesTool = dynamic(() => import("@/components/tools/extract-pdf-pages").then(m => ({ default: m.ExtractPdfPagesTool })), { loading: ToolLoading, ssr: false });
+const RotatePdfTool = dynamic(() => import("@/components/tools/rotate-pdf").then(m => ({ default: m.RotatePdfTool })), { loading: ToolLoading, ssr: false });
+const UnlockPdfTool = dynamic(() => import("@/components/tools/unlock-pdf").then(m => ({ default: m.UnlockPdfTool })), { loading: ToolLoading, ssr: false });
+const PdfWatermarkTool = dynamic(() => import("@/components/tools/pdf-watermark").then(m => ({ default: m.PdfWatermarkTool })), { loading: ToolLoading, ssr: false });
+const AddPageNumbersTool = dynamic(() => import("@/components/tools/add-page-numbers").then(m => ({ default: m.AddPageNumbersTool })), { loading: ToolLoading, ssr: false });
+const OrganizePdfTool = dynamic(() => import("@/components/tools/organize-pdf").then(m => ({ default: m.OrganizePdfTool })), { loading: ToolLoading, ssr: false });
+const SignPdfTool = dynamic(() => import("@/components/tools/sign-pdf").then(m => ({ default: m.SignPdfTool })), { loading: ToolLoading, ssr: false });
+const CropPdfTool = dynamic(() => import("@/components/tools/crop-pdf").then(m => ({ default: m.CropPdfTool })), { loading: ToolLoading, ssr: false });
+const PdfToPdfATool = dynamic(() => import("@/components/tools/pdf-to-pdfa").then(m => ({ default: m.PdfToPdfATool })), { loading: ToolLoading, ssr: false });
+const ScanToPdfTool = dynamic(() => import("@/components/tools/scan-to-pdf").then(m => ({ default: m.ScanToPdfTool })), { loading: ToolLoading, ssr: false });
+const RepairPdfTool = dynamic(() => import("@/components/tools/repair-pdf").then(m => ({ default: m.RepairPdfTool })), { loading: ToolLoading, ssr: false });
+const ComparePdfTool = dynamic(() => import("@/components/tools/compare-pdf").then(m => ({ default: m.ComparePdfTool })), { loading: ToolLoading, ssr: false });
 const EditPdfTool = dynamic(() => import("@/components/tools/edit-pdf").then(m => ({ default: m.EditPdfTool })), { loading: ToolLoading, ssr: false });
-const OcrPdfTool = dynamic(() => import("@/components/tools/ocr-pdf").then(m => ({ default: m.OcrPdfTool })), { loading: ToolLoading });
-const RedactPdfTool = dynamic(() => import("@/components/tools/redact-pdf").then(m => ({ default: m.RedactPdfTool })), { loading: ToolLoading });
-const PdfAiSummarizerTool = dynamic(() => import("@/components/tools/pdf-ai-summarizer").then(m => ({ default: m.PdfAiSummarizerTool })), { loading: ToolLoading });
-const TranslatePdfTool = dynamic(() => import("@/components/tools/translate-pdf").then(m => ({ default: m.TranslatePdfTool })), { loading: ToolLoading });
-const PdfToMarkdownTool = dynamic(() => import("@/components/tools/pdf-to-markdown").then(m => ({ default: m.PdfToMarkdownTool })), { loading: ToolLoading });
-const ComingSoonTool = dynamic(() => import("@/components/tools/coming-soon-tool").then(m => ({ default: m.ComingSoonTool })), { loading: ToolLoading });
+const OcrPdfTool = dynamic(() => import("@/components/tools/ocr-pdf").then(m => ({ default: m.OcrPdfTool })), { loading: ToolLoading, ssr: false });
+const RedactPdfTool = dynamic(() => import("@/components/tools/redact-pdf").then(m => ({ default: m.RedactPdfTool })), { loading: ToolLoading, ssr: false });
+const PdfAiSummarizerTool = dynamic(() => import("@/components/tools/pdf-ai-summarizer").then(m => ({ default: m.PdfAiSummarizerTool })), { loading: ToolLoading, ssr: false });
+const TranslatePdfTool = dynamic(() => import("@/components/tools/translate-pdf").then(m => ({ default: m.TranslatePdfTool })), { loading: ToolLoading, ssr: false });
+const PdfToMarkdownTool = dynamic(() => import("@/components/tools/pdf-to-markdown").then(m => ({ default: m.PdfToMarkdownTool })), { loading: ToolLoading, ssr: false });
+const ComingSoonTool = dynamic(() => import("@/components/tools/coming-soon-tool").then(m => ({ default: m.ComingSoonTool })), { loading: ToolLoading, ssr: false });
 
 interface ToolRendererProps {
   slug: string;

@@ -1388,34 +1388,98 @@ export async function organizePdfPages(file: File, newOrder: number[]): Promise<
   return await newPdf.save();
 }
 
-export async function signPdf(file: File, signatureFile: File): Promise<Uint8Array> {
+export interface SignPdfOptions {
+  pageNumber?: number; // 1-indexed (default is last page)
+  allPages?: boolean;  // apply to all pages if true
+  xPercent?: number;   // 0 to 100 percentage from left of page
+  yPercent?: number;   // 0 to 100 percentage from top of page
+  widthPercent?: number; // percentage of page width (e.g. 25)
+}
+
+export async function signPdf(
+  file: File,
+  signatureSource: File | Blob | string,
+  options?: SignPdfOptions
+): Promise<Uint8Array> {
   const { PDFDocument } = await import("pdf-lib");
   const pdfBytes = await file.arrayBuffer();
   const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
   
-  const sigBytes = await signatureFile.arrayBuffer();
-  let image;
-  if (signatureFile.type === "image/png") {
-    image = await pdfDoc.embedPng(sigBytes);
-  } else if (signatureFile.type === "image/jpeg" || signatureFile.type === "image/jpg") {
-    image = await pdfDoc.embedJpg(sigBytes);
+  let sigArrayBuffer: ArrayBuffer;
+  let isPng = true;
+
+  if (typeof signatureSource === "string") {
+    // Data URL
+    const res = await fetch(signatureSource);
+    const blob = await res.blob();
+    isPng = blob.type !== "image/jpeg" && blob.type !== "image/jpg";
+    sigArrayBuffer = await blob.arrayBuffer();
   } else {
-    throw new Error("Unsupported signature image format. Please use PNG or JPG.");
+    isPng = (signatureSource as any).type !== "image/jpeg" && (signatureSource as any).type !== "image/jpg";
+    sigArrayBuffer = await signatureSource.arrayBuffer();
+  }
+  
+  let image;
+  try {
+    if (isPng) {
+      image = await pdfDoc.embedPng(sigArrayBuffer);
+    } else {
+      image = await pdfDoc.embedJpg(sigArrayBuffer);
+    }
+  } catch {
+    try {
+      image = await pdfDoc.embedPng(sigArrayBuffer);
+    } catch {
+      image = await pdfDoc.embedJpg(sigArrayBuffer);
+    }
   }
   
   const pages = pdfDoc.getPages();
-  const lastPage = pages[pages.length - 1];
-  const { width } = lastPage.getSize();
+  const totalPages = pages.length;
+
+  const targetPages: number[] = [];
+  if (options?.allPages) {
+    for (let i = 0; i < totalPages; i++) targetPages.push(i);
+  } else {
+    const pNum = options?.pageNumber && options.pageNumber > 0 && options.pageNumber <= totalPages
+      ? options.pageNumber - 1
+      : totalPages - 1;
+    targetPages.push(pNum);
+  }
   
-  // Scale signature to fit reasonably (e.g., max 150px wide)
-  const dims = image.scaleToFit(150, 150);
-  
-  lastPage.drawImage(image, {
-    x: width - dims.width - 50, // 50px from right edge
-    y: 50, // 50px from bottom edge
-    width: dims.width,
-    height: dims.height,
-  });
+  for (const pageIdx of targetPages) {
+    const page = pages[pageIdx];
+    const { width: pageWidth, height: pageHeight } = page.getSize();
+    
+    const widthPct = options?.widthPercent ?? 25;
+    const targetWidth = Math.max(30, (widthPct / 100) * pageWidth);
+    const aspect = image.height / image.width;
+    const targetHeight = targetWidth * aspect;
+
+    let targetX: number;
+    let targetY: number;
+
+    if (options?.xPercent !== undefined && options?.yPercent !== undefined) {
+      targetX = (options.xPercent / 100) * pageWidth;
+      // Convert top-left CSS coordinates (0% top) to bottom-left PDF coordinates
+      targetY = pageHeight - ((options.yPercent / 100) * pageHeight) - targetHeight;
+    } else {
+      // Default: Bottom-right corner
+      targetX = pageWidth - targetWidth - 40;
+      targetY = 40;
+    }
+
+    // Keep inside page bounds
+    targetX = Math.max(0, Math.min(pageWidth - targetWidth, targetX));
+    targetY = Math.max(0, Math.min(pageHeight - targetHeight, targetY));
+    
+    page.drawImage(image, {
+      x: targetX,
+      y: targetY,
+      width: targetWidth,
+      height: targetHeight,
+    });
+  }
   
   return await pdfDoc.save();
 }
