@@ -233,16 +233,24 @@ export function AdSlot({
                 href="https://www.godaddy.com"
                 target="_blank"
                 rel="noopener noreferrer sponsored"
-                className="block relative w-full h-full bg-white focus:outline-none"
+                className="block w-full h-full bg-white focus:outline-none overflow-hidden"
+                style={{ width: "300px", height: "600px", maxWidth: "300px", maxHeight: "600px" }}
                 title="GoDaddy - Build, brand, and back your business"
               >
-                <Image
+                <img
                   src="/images/godaddy-ad-unit.png"
                   alt="GoDaddy - Build, brand, and back your business"
-                  fill
-                  sizes="300px"
-                  className="object-fill"
-                  priority
+                  width={300}
+                  height={600}
+                  style={{
+                    width: "300px",
+                    height: "600px",
+                    maxWidth: "300px",
+                    maxHeight: "600px",
+                    objectFit: "fill",
+                    display: "block",
+                  }}
+                  loading="eager"
                 />
               </a>
             </div>

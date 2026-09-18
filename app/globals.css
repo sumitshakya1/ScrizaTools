@@ -22,6 +22,11 @@ body {
   box-sizing: border-box;
 }
 
+img, svg, video, canvas {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Neutralize aggressive Chrome autofill styling */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 

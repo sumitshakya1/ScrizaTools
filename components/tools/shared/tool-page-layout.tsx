@@ -15,6 +15,7 @@ interface ToolPageLayoutProps {
   description: string;
   children: React.ReactNode;
   faqComponent?: React.ReactNode;
+  fullWidth?: boolean;
 }
 
 export function ToolPageLayout({
@@ -23,6 +24,7 @@ export function ToolPageLayout({
   description,
   children,
   faqComponent,
+  fullWidth = false,
 }: ToolPageLayoutProps) {
   const isPdfTool = pdfTools.some((t) => t.id === toolId);
   const otherTools = allTools.filter((t) => t.id !== toolId);
@@ -74,27 +76,32 @@ export function ToolPageLayout({
           </div>
         </div>
 
-        {/* 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* Main Controls */}
-          <div className="lg:col-span-8 space-y-6">
+        {fullWidth ? (
+          <div className="space-y-6">
             {children}
-
             {faqComponent}
           </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* Main Controls */}
+            <div className="lg:col-span-8 space-y-6">
+              {children}
+              {faqComponent}
+            </div>
 
-          {/* Right Rail */}
-          <aside className="lg:col-span-4 space-y-6 sticky top-20">
-            <AdSlot
-              placement="sticky-rail"
-              format="skyscraper"
-              adUnitId="tool-sidebar-skyscraper-1"
-            />
+            {/* Right Rail */}
+            <aside className="lg:col-span-4 space-y-6 sticky top-20">
+              <AdSlot
+                placement="sticky-rail"
+                format="skyscraper"
+                adUnitId="tool-sidebar-skyscraper-1"
+              />
 
-            {/* Compact Quick Tool Switcher — only active category expanded */}
-            <QuickToolSwitcher toolId={toolId} isPdfTool={isPdfTool} />
-          </aside>
-        </div>
+              {/* Compact Quick Tool Switcher — only active category expanded */}
+              <QuickToolSwitcher toolId={toolId} isPdfTool={isPdfTool} />
+            </aside>
+          </div>
+        )}
 
         {/* Bottom Ad removed — sidebar ad already provides REMOVE ADS option */}
       </main>

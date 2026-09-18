@@ -28,8 +28,8 @@ interface MergeFileItem {
   pageCount: number;
 }
 
-export function PdfMergerTool() {
-  const [mode, setMode] = useState<"merge" | "split">("merge");
+export function PdfMergerTool({ initialMode = "merge" }: { initialMode?: "merge" | "split" }) {
+  const [mode, setMode] = useState<"merge" | "split">(initialMode);
   const [files, setFiles] = useState<MergeFileItem[]>([]);
   const [splitFile, setSplitFile] = useState<MergeFileItem | null>(null);
   const [pageRangeInput, setPageRangeInput] = useState<string>("1");

@@ -232,7 +232,7 @@ export async function convertPdfToImages(
   const pdfjsLib = await import("pdfjs-dist");
 
   // Set worker source — use CDN for reliability
-  pdfjsLib.GlobalWorkerOptions.workerSrc = `https:https:https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
 
   const arrayBuffer = await readFileAsArrayBuffer(file);
   const pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
@@ -1017,7 +1017,7 @@ export async function convertPdfToPptx(file: File): Promise<Blob> {
   const pdfjsLib = await import("pdfjs-dist");
 
   if (typeof window !== "undefined") {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `https:https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
   }
 
   const arrayBuffer = await readFileAsArrayBuffer(file);
@@ -1068,7 +1068,7 @@ export async function convertPdfToExcel(file: File): Promise<Blob> {
   const pdfjsLib = await import("pdfjs-dist");
 
   if (typeof window !== "undefined") {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `https:https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
   }
 
   const arrayBuffer = await readFileAsArrayBuffer(file);
@@ -1125,5 +1125,547 @@ export async function convertPdfToExcel(file: File): Promise<Blob> {
   const xlsxArrayBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
   return new Blob([xlsxArrayBuffer], {
     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  });
+}
+
+// ── BATCH 1: PDF ORGANIZATION TOOLS ────────────────────────
+
+export async function extractPdfPages(file: File, pagesToExtract: number[]): Promise<Uint8Array> {
+  const { PDFDocument } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  const newPdf = await PDFDocument.create();
+  // PDF-lib pages are 0-indexed, pagesToExtract is 1-indexed.
+  const indices = pagesToExtract.map(p => p - 1).filter(i => i >= 0 && i < pdfDoc.getPageCount());
+  
+  const copiedPages = await newPdf.copyPages(pdfDoc, indices);
+  copiedPages.forEach((page) => newPdf.addPage(page));
+  
+  return await newPdf.save();
+}
+
+export async function removePdfPages(file: File, pagesToRemove: number[]): Promise<Uint8Array> {
+  const { PDFDocument } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  // Sort descending so removing pages doesn't shift indices of subsequent removals
+  const indices = pagesToRemove
+    .map(p => p - 1)
+    .filter(i => i >= 0 && i < pdfDoc.getPageCount())
+    .sort((a, b) => b - a);
+    
+  for (const index of indices) {
+    pdfDoc.removePage(index);
+  }
+  
+  return await pdfDoc.save();
+}
+
+export async function rotatePdfPages(file: File, rotationDegrees: number = 90, specificPages?: number[]): Promise<Uint8Array> {
+  const { PDFDocument, degrees } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  const totalPages = pdfDoc.getPageCount();
+  const pagesToRotate = specificPages 
+    ? specificPages.map(p => p - 1).filter(i => i >= 0 && i < totalPages)
+    : Array.from({ length: totalPages }, (_, i) => i);
+  
+  for (const index of pagesToRotate) {
+    const page = pdfDoc.getPage(index);
+    const currentRotation = page.getRotation().angle;
+    page.setRotation(degrees(currentRotation + rotationDegrees));
+  }
+  
+  return await pdfDoc.save();
+}
+
+// ── BATCH 2: PDF SECURITY & WATERMARKS ─────────────────────
+
+export async function unlockPdf(file: File, password: string): Promise<Uint8Array> {
+  if (typeof window === "undefined") {
+    throw new Error("PDF unlocking must run on the client");
+  }
+
+  // Step 1: Use pdfjs-dist to open the encrypted PDF (it supports AES-256 decryption)
+  const pdfjsLib = await import("pdfjs-dist");
+  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+
+  const arrayBuffer = await file.arrayBuffer();
+
+  let pdfDoc;
+  try {
+    pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer, password }).promise;
+  } catch (err: any) {
+    if (err?.name === "PasswordException" || (err?.message && err.message.toLowerCase().includes("password"))) {
+      throw new Error("Incorrect password. Please check and try again.");
+    }
+    throw err;
+  }
+
+  const totalPages = pdfDoc.numPages;
+
+  // Step 2: Render every page at high DPI to preserve quality
+  const DPI_SCALE = 3; // 216 DPI — sharp text
+  const pageImages: { jpgBytes: Uint8Array; width: number; height: number }[] = [];
+
+  for (let i = 1; i <= totalPages; i++) {
+    const page = await pdfDoc.getPage(i);
+    const viewport = page.getViewport({ scale: DPI_SCALE });
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.floor(viewport.width);
+    canvas.height = Math.floor(viewport.height);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("Canvas context unavailable");
+
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    // Convert to JPEG bytes
+    const jpegDataUrl = canvas.toDataURL("image/jpeg", 0.95);
+    const base64 = jpegDataUrl.split(",")[1];
+    const binaryString = atob(base64);
+    const jpgBytes = new Uint8Array(binaryString.length);
+    for (let j = 0; j < binaryString.length; j++) {
+      jpgBytes[j] = binaryString.charCodeAt(j);
+    }
+
+    pageImages.push({
+      jpgBytes,
+      width: viewport.width / DPI_SCALE,  // original PDF points
+      height: viewport.height / DPI_SCALE,
+    });
+
+    // Cleanup canvas memory
+    canvas.width = 0;
+    canvas.height = 0;
+  }
+
+  // Step 3: Build a new, unprotected PDF with pdf-lib
+  const { PDFDocument: PdfLibDoc } = await import("pdf-lib");
+  const newPdf = await PdfLibDoc.create();
+
+  for (const img of pageImages) {
+    const embedded = await newPdf.embedJpg(img.jpgBytes);
+    const page = newPdf.addPage([img.width, img.height]);
+    page.drawImage(embedded, { x: 0, y: 0, width: img.width, height: img.height });
+  }
+
+  return await newPdf.save();
+}
+
+export interface WatermarkOptions {
+  position: "top-left" | "top-center" | "top-right" | "center-left" | "center" | "center-right" | "bottom-left" | "bottom-center" | "bottom-right";
+  layout: "horizontal" | "diagonal";
+  size: number;
+  opacity: number;
+}
+
+export async function addPdfWatermark(file: File, watermarkText: string, options?: WatermarkOptions): Promise<Uint8Array> {
+  const { PDFDocument, rgb, degrees, StandardFonts } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  const font = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+  const pages = pdfDoc.getPages();
+  
+  const opts = options || { position: "center", layout: "diagonal", size: 60, opacity: 0.5 };
+  
+  for (const page of pages) {
+    const { width, height } = page.getSize();
+    const textWidth = font.widthOfTextAtSize(watermarkText, opts.size);
+    const textHeight = font.heightAtSize(opts.size);
+    
+    let x = 0;
+    let y = 0;
+    
+    // Horizontal positions
+    if (opts.position.includes("left")) x = 50;
+    else if (opts.position.includes("right")) x = width - textWidth - 50;
+    else x = width / 2 - textWidth / 2; // center
+    
+    // Vertical positions
+    if (opts.position.includes("top")) y = height - textHeight - 50;
+    else if (opts.position.includes("bottom")) y = 50;
+    else y = height / 2 - textHeight / 2; // center
+    
+    const rotate = opts.layout === "diagonal" ? degrees(45) : degrees(0);
+    
+    // If diagonal and center, we might need to adjust (x,y) because rotation is around the bottom-left corner of the text.
+    // For simplicity, if diagonal and centered, we can adjust x, y so the center of the text is at the center of the page.
+    if (opts.layout === "diagonal") {
+      if (opts.position === "center") {
+         x = width / 2 - textWidth / 2 + (textHeight / 2);
+         y = height / 2 - textWidth / 2 - (textHeight / 2);
+      }
+    }
+    
+    page.drawText(watermarkText, {
+      x,
+      y,
+      size: opts.size,
+      font,
+      color: rgb(0.8, 0.8, 0.8), // light gray
+      opacity: opts.opacity,
+      rotate,
+    });
+  }
+  
+  return await pdfDoc.save();
+}
+
+export async function addPdfPageNumbers(file: File): Promise<Uint8Array> {
+  const { PDFDocument, rgb, StandardFonts } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const pages = pdfDoc.getPages();
+  
+  for (let i = 0; i < pages.length; i++) {
+    const page = pages[i];
+    const { width } = page.getSize();
+    const text = `${i + 1} / ${pages.length}`;
+    const textWidth = font.widthOfTextAtSize(text, 12);
+    
+    page.drawText(text, {
+      x: width / 2 - textWidth / 2,
+      y: 20, // 20 points from the bottom
+      size: 12,
+      font,
+      color: rgb(0, 0, 0),
+    });
+  }
+  
+  return await pdfDoc.save();
+}
+
+// ── BATCH 3: ORGANIZE & EDIT PDF ────────────────────────────
+
+export async function organizePdfPages(file: File, newOrder: number[]): Promise<Uint8Array> {
+  const { PDFDocument } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  const newPdf = await PDFDocument.create();
+  // newOrder is 1-indexed, pdf-lib is 0-indexed.
+  const indices = newOrder.map(p => p - 1).filter(i => i >= 0 && i < pdfDoc.getPageCount());
+  
+  const copiedPages = await newPdf.copyPages(pdfDoc, indices);
+  copiedPages.forEach((page) => newPdf.addPage(page));
+  
+  return await newPdf.save();
+}
+
+export async function signPdf(file: File, signatureFile: File): Promise<Uint8Array> {
+  const { PDFDocument } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  const sigBytes = await signatureFile.arrayBuffer();
+  let image;
+  if (signatureFile.type === "image/png") {
+    image = await pdfDoc.embedPng(sigBytes);
+  } else if (signatureFile.type === "image/jpeg" || signatureFile.type === "image/jpg") {
+    image = await pdfDoc.embedJpg(sigBytes);
+  } else {
+    throw new Error("Unsupported signature image format. Please use PNG or JPG.");
+  }
+  
+  const pages = pdfDoc.getPages();
+  const lastPage = pages[pages.length - 1];
+  const { width } = lastPage.getSize();
+  
+  // Scale signature to fit reasonably (e.g., max 150px wide)
+  const dims = image.scaleToFit(150, 150);
+  
+  lastPage.drawImage(image, {
+    x: width - dims.width - 50, // 50px from right edge
+    y: 50, // 50px from bottom edge
+    width: dims.width,
+    height: dims.height,
+  });
+  
+  return await pdfDoc.save();
+}
+
+export async function cropPdf(file: File, margins: { top: number, bottom: number, left: number, right: number }): Promise<Uint8Array> {
+  const { PDFDocument } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  const pages = pdfDoc.getPages();
+  for (const page of pages) {
+    const { width, height } = page.getSize();
+    
+    // The CropBox determines the visible region. (x, y) is bottom-left.
+    page.setCropBox(
+      margins.left, 
+      margins.bottom, 
+      width - margins.left - margins.right, 
+      height - margins.bottom - margins.top
+    );
+  }
+  
+  return await pdfDoc.save();
+}
+
+export async function convertToPdfA(file: File): Promise<Uint8Array> {
+  const { PDFDocument } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+  
+  // Note: True PDF/A conversion requires color profile embedding and specific metadata tags (e.g., PDF/A identification).
+  // pdf-lib does not support true PDF/A validation directly.
+  // We simulate "flattening" and standardizing metadata as a "Lite" conversion.
+  pdfDoc.setTitle("PDF/A Compatible Document");
+  pdfDoc.setAuthor("ToolOn");
+  pdfDoc.setCreator("ToolOn PDF Engine");
+  pdfDoc.setModificationDate(new Date());
+  
+  return await pdfDoc.save({ useObjectStreams: false });
+}
+
+// ── BATCH 4: FINAL TOOLS & AI MOCKS ──────────────────────────
+
+export async function scanToPdf(imageFiles: File[]): Promise<Uint8Array> {
+  const { PDFDocument } = await import("pdf-lib");
+  const pdfDoc = await PDFDocument.create();
+  
+  for (const file of imageFiles) {
+    const bytes = await file.arrayBuffer();
+    let image;
+    if (file.type === "image/png") {
+      image = await pdfDoc.embedPng(bytes);
+    } else if (file.type === "image/jpeg" || file.type === "image/jpg") {
+      image = await pdfDoc.embedJpg(bytes);
+    } else {
+      continue;
+    }
+    
+    // Create page matching image dimensions
+    const dims = image.scale(1);
+    const page = pdfDoc.addPage([dims.width, dims.height]);
+    page.drawImage(image, {
+      x: 0,
+      y: 0,
+      width: dims.width,
+      height: dims.height,
+    });
+  }
+  
+  return await pdfDoc.save();
+}
+
+export async function repairPdf(file: File): Promise<Uint8Array> {
+  const { PDFDocument } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  // By loading and saving with ignoreEncryption and throwOnInvalidObject false, 
+  // pdf-lib attempts to parse corrupted catalogs and repair structure.
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true, throwOnInvalidObject: false });
+  return await pdfDoc.save();
+}
+
+export interface PdfEditElement {
+  id: string;
+  type: "text" | "image" | "shape" | "draw";
+  pageIndex: number; // 0-based
+  x: number; // percentage (0 to 100) or canvas normalized
+  y: number; // percentage (0 to 100)
+  width?: number; // percentage
+  height?: number; // percentage
+  content?: string; // text string or image base64 dataUrl
+  fontSize?: number;
+  fontFamily?: "Helvetica" | "TimesRoman" | "Courier";
+  color?: string; // hex
+  backgroundColor?: string;
+  isBold?: boolean;
+  isItalic?: boolean;
+  opacity?: number;
+  shapeType?: "rectangle" | "circle" | "line";
+  points?: { x: number; y: number }[]; // for freehand drawings
+  strokeWidth?: number;
+}
+
+export async function editPdfWithElements(
+  file: File,
+  elements: PdfEditElement[]
+): Promise<Uint8Array> {
+  const { PDFDocument, rgb, StandardFonts } = await import("pdf-lib");
+  const pdfBytes = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(pdfBytes, { ignoreEncryption: true });
+
+  const fontHelvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
+  const fontHelveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+  const fontHelveticaOblique = await pdfDoc.embedFont(StandardFonts.HelveticaOblique);
+  const fontHelveticaBoldOblique = await pdfDoc.embedFont(StandardFonts.HelveticaBoldOblique);
+  const fontTimes = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+  const fontTimesBold = await pdfDoc.embedFont(StandardFonts.TimesRomanBold);
+  const fontCourier = await pdfDoc.embedFont(StandardFonts.Courier);
+  const fontCourierBold = await pdfDoc.embedFont(StandardFonts.CourierBold);
+
+  const pages = pdfDoc.getPages();
+
+  for (const el of elements) {
+    if (el.pageIndex >= pages.length || el.pageIndex < 0) continue;
+    const page = pages[el.pageIndex];
+    const { width: pageWidth, height: pageHeight } = page.getSize();
+
+    // Convert percentage x, y to points (pdf-lib coordinate system has (0,0) at bottom-left)
+    const targetX = (el.x / 100) * pageWidth;
+    const targetY = pageHeight - (el.y / 100) * pageHeight; // invert Y from top-left to bottom-left
+
+    const hex = (el.color || "#000000").replace("#", "");
+    const r = (parseInt(hex.substring(0, 2) || "0", 16) || 0) / 255;
+    const g = (parseInt(hex.substring(2, 4) || "0", 16) || 0) / 255;
+    const b = (parseInt(hex.substring(4, 6) || "0", 16) || 0) / 255;
+    const colorRgb = rgb(r, g, b);
+    const opacity = el.opacity !== undefined ? el.opacity : 1;
+
+    if (el.type === "text" && el.content) {
+      let chosenFont = fontHelvetica;
+      if (el.fontFamily === "TimesRoman") {
+        chosenFont = el.isBold ? fontTimesBold : fontTimes;
+      } else if (el.fontFamily === "Courier") {
+        chosenFont = el.isBold ? fontCourierBold : fontCourier;
+      } else {
+        if (el.isBold && el.isItalic) chosenFont = fontHelveticaBoldOblique;
+        else if (el.isBold) chosenFont = fontHelveticaBold;
+        else if (el.isItalic) chosenFont = fontHelveticaOblique;
+        else chosenFont = fontHelvetica;
+      }
+
+      const size = el.fontSize || 16;
+      
+      // If element is an inline replacement or has a background fill, draw a whiteout background
+      if (el.backgroundColor || el.width) {
+        const bgWidth = el.width ? (el.width / 100) * pageWidth : chosenFont.widthOfTextAtSize(el.content, size) + 4;
+        const bgHeight = el.height ? (el.height / 100) * pageHeight : size * 1.25;
+        
+        let bgRgb = rgb(1, 1, 1); // default white
+        if (el.backgroundColor && el.backgroundColor !== "#ffffff" && el.backgroundColor !== "transparent") {
+          const bgHex = el.backgroundColor.replace("#", "");
+          const br = (parseInt(bgHex.substring(0, 2) || "ff", 16) || 255) / 255;
+          const bg_g = (parseInt(bgHex.substring(2, 4) || "ff", 16) || 255) / 255;
+          const bb = (parseInt(bgHex.substring(4, 6) || "ff", 16) || 255) / 255;
+          bgRgb = rgb(br, bg_g, bb);
+        }
+
+        page.drawRectangle({
+          x: targetX - 2,
+          y: Math.max(0, targetY - bgHeight + 2),
+          width: bgWidth + 4,
+          height: bgHeight,
+          color: bgRgb,
+          opacity: 1,
+        });
+      }
+
+      // In PDF coordinate system, text baseline is targetY - size
+      page.drawText(el.content, {
+        x: targetX,
+        y: Math.max(0, targetY - size),
+        size,
+        font: chosenFont,
+        color: colorRgb,
+        opacity,
+      });
+    } else if (el.type === "image" && el.content) {
+      try {
+        let embeddedImage;
+        if (el.content.startsWith("data:image/png")) {
+          const base64Data = el.content.split(",")[1];
+          const imageBytes = Uint8Array.from(atob(base64Data), (c) => c.charCodeAt(0));
+          embeddedImage = await pdfDoc.embedPng(imageBytes);
+        } else {
+          const base64Data = el.content.split(",")[1] || el.content;
+          const imageBytes = Uint8Array.from(atob(base64Data), (c) => c.charCodeAt(0));
+          embeddedImage = await pdfDoc.embedJpg(imageBytes);
+        }
+
+        const imgWidth = el.width ? (el.width / 100) * pageWidth : 120;
+        const imgHeight = el.height ? (el.height / 100) * pageHeight : 120;
+
+        page.drawImage(embeddedImage, {
+          x: targetX,
+          y: Math.max(0, targetY - imgHeight),
+          width: imgWidth,
+          height: imgHeight,
+          opacity,
+        });
+      } catch (err) {
+        console.error("Failed to embed image in PDF:", err);
+      }
+    } else if (el.type === "shape") {
+      const shapeWidth = el.width ? (el.width / 100) * pageWidth : 80;
+      const shapeHeight = el.height ? (el.height / 100) * pageHeight : 60;
+
+      if (el.shapeType === "circle") {
+        const radius = Math.min(shapeWidth, shapeHeight) / 2;
+        page.drawCircle({
+          x: targetX + radius,
+          y: targetY - radius,
+          size: radius,
+          borderColor: colorRgb,
+          borderWidth: el.strokeWidth || 2,
+          opacity,
+        });
+      } else {
+        page.drawRectangle({
+          x: targetX,
+          y: Math.max(0, targetY - shapeHeight),
+          width: shapeWidth,
+          height: shapeHeight,
+          borderColor: colorRgb,
+          borderWidth: el.strokeWidth || 2,
+          opacity,
+        });
+      }
+    } else if (el.type === "draw" && el.points && el.points.length > 1) {
+      for (let i = 0; i < el.points.length - 1; i++) {
+        const p1 = el.points[i];
+        const p2 = el.points[i + 1];
+        const x1 = (p1.x / 100) * pageWidth;
+        const y1 = pageHeight - (p1.y / 100) * pageHeight;
+        const x2 = (p2.x / 100) * pageWidth;
+        const y2 = pageHeight - (p2.y / 100) * pageHeight;
+
+        page.drawLine({
+          start: { x: x1, y: y1 },
+          end: { x: x2, y: y2 },
+          thickness: el.strokeWidth || 2,
+          color: colorRgb,
+          opacity,
+        });
+      }
+    }
+  }
+
+  return await pdfDoc.save();
+}
+
+export async function editPdf(file: File, text: string, colorHex: string): Promise<Uint8Array> {
+  return editPdfWithElements(file, [
+    {
+      id: "default-1",
+      type: "text",
+      pageIndex: 0,
+      x: 8,
+      y: 12,
+      content: text,
+      color: colorHex,
+      fontSize: 20,
+      isBold: true,
+    },
+  ]);
+}
+
+// Mock function for simulating heavy backend OCR/AI processing
+export async function simulateAiProcess(file: File, delayMs: number = 2000): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("This is a simulated AI response. Please connect a backend API to process real PDF text extraction, summarization, and translation.");
+    }, delayMs);
   });
 }
