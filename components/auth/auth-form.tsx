@@ -872,7 +872,8 @@ export function AuthForm({ initialMode = "signin" }: AuthFormProps) {
                   )}
                 </button>
 
-                {/* Divider */}
+                {/* Social Login Button (Google) - Hidden for now */}
+                {/* 
                 <div className="relative my-4">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-slate-200" />
@@ -884,7 +885,6 @@ export function AuthForm({ initialMode = "signin" }: AuthFormProps) {
                   </div>
                 </div>
 
-                {/* Social Login Button (Google) */}
                 <button
                   type="button"
                   onClick={() => {
@@ -917,6 +917,7 @@ export function AuthForm({ initialMode = "signin" }: AuthFormProps) {
                   </svg>
                   <span>Continue with Google</span>
                 </button>
+                */}
               </form>
             )}
 
