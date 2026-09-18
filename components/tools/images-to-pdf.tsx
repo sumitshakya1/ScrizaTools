@@ -22,6 +22,7 @@ import { ToolPageLayout } from "./shared/tool-page-layout";
 import { ToolSectionCard } from "./shared/tool-section-card";
 import { FAQSection, FAQItem } from "./shared/faq-section";
 import { DownloadCountdownModal } from "./shared/download-countdown-modal";
+import { ProcessingProgress } from "./shared/processing-progress";
 import {
   generatePdfFromImages,
   PDFImageItem,
@@ -56,6 +57,8 @@ export function ImagesToPdfTool() {
   const [items, setItems] = useState<PDFImageItem[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [progressPct, setProgressPct] = useState(0);
+  const [progressStatus, setProgressStatus] = useState("");
   const [outputFileName, setOutputFileName] = useState("toolon-document.pdf");
   
   // PDF Options
@@ -111,7 +114,7 @@ export function ImagesToPdfTool() {
           size: file.size,
         });
       } catch (err) {
-        console.error("Error loading image file:", err);
+        console.error("Error reading file:", file.name, err);
       }
     }
 
@@ -145,15 +148,24 @@ export function ImagesToPdfTool() {
   const handleStartDownload = async () => {
     if (items.length === 0) return;
     setIsGenerating(true);
+    setProgressPct(5);
+    setProgressStatus("Preparing images...");
 
     try {
-      const pdfBytes = await generatePdfFromImages(items, {
-        pageSize,
-        orientation,
-        margin,
-        quality,
-        grayscale,
-      });
+      const pdfBytes = await generatePdfFromImages(
+        items,
+        {
+          pageSize,
+          orientation,
+          margin,
+          quality,
+          grayscale,
+        },
+        (pct, msg) => {
+          setProgressPct(pct);
+          setProgressStatus(msg);
+        }
+      );
 
       const blob = new Blob([new Uint8Array(pdfBytes) as any], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
@@ -166,6 +178,7 @@ export function ImagesToPdfTool() {
       alert("Failed to compile PDF. Please check that images are valid.");
     } finally {
       setIsGenerating(false);
+      setProgressPct(0);
     }
   };
 
@@ -506,7 +519,7 @@ export function ImagesToPdfTool() {
               >
                 {isGenerating ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" /> Compiling PDF...
+                    <Loader2 className="h-4 w-4 animate-spin" /> Compiling ({progressPct}%)...
                   </>
                 ) : (
                   <>
@@ -516,6 +529,17 @@ export function ImagesToPdfTool() {
               </button>
             </div>
           </div>
+
+          {isGenerating && (
+            <ProcessingProgress
+              progress={progressPct}
+              statusText={progressStatus}
+              stepName="Compiling PDF Document"
+              completedItems={Math.round((progressPct / 100) * items.length)}
+              totalItems={items.length}
+              className="mt-5"
+            />
+          )}
 
           {items.length === 0 && (
             <p className="mt-4 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3">

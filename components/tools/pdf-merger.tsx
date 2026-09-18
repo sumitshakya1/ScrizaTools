@@ -18,6 +18,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { DownloadCountdownModal } from "./shared/download-countdown-modal";
+import { ProcessingProgress } from "./shared/processing-progress";
 import { mergePdfs, splitPdf, getPdfPageCount, PageRange } from "@/lib/pdf-engine";
 
 interface MergeFileItem {
@@ -34,6 +35,8 @@ export function PdfMergerTool({ initialMode = "merge" }: { initialMode?: "merge"
   const [splitFile, setSplitFile] = useState<MergeFileItem | null>(null);
   const [pageRangeInput, setPageRangeInput] = useState<string>("1");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [progressPct, setProgressPct] = useState(0);
+  const [progressStatus, setProgressStatus] = useState("");
   const [showCountdown, setShowCountdown] = useState(false);
   const [pendingDownload, setPendingDownload] = useState<{ url: string; name: string } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -102,8 +105,16 @@ export function PdfMergerTool({ initialMode = "merge" }: { initialMode?: "merge"
     }
 
     setIsProcessing(true);
+    setProgressPct(5);
+    setProgressStatus("Preparing documents for merging...");
     try {
-      const result = await mergePdfs(files.map((f) => f.file));
+      const result = await mergePdfs(
+        files.map((f) => f.file),
+        (pct, msg) => {
+          setProgressPct(pct);
+          setProgressStatus(msg);
+        }
+      );
       const blob = new Blob([new Uint8Array(result) as BlobPart], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       const downloadName = `toolon-merged-${Date.now()}.pdf`;
@@ -113,6 +124,7 @@ export function PdfMergerTool({ initialMode = "merge" }: { initialMode?: "merge"
       alert("Error: " + (err.message || "Merge failed"));
     } finally {
       setIsProcessing(false);
+      setProgressPct(0);
     }
   };
 
@@ -129,8 +141,17 @@ export function PdfMergerTool({ initialMode = "merge" }: { initialMode?: "merge"
     }
 
     setIsProcessing(true);
+    setProgressPct(10);
+    setProgressStatus("Reading pages from document...");
     try {
-      const result = await splitPdf(splitFile.file, ranges);
+      const result = await splitPdf(
+        splitFile.file,
+        ranges,
+        (pct, msg) => {
+          setProgressPct(pct);
+          setProgressStatus(msg);
+        }
+      );
       const blob = new Blob([new Uint8Array(result) as BlobPart], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       const downloadName = `toolon-split-${splitFile.name.replace(/\.pdf$/i, "")}-pages.pdf`;
@@ -140,6 +161,7 @@ export function PdfMergerTool({ initialMode = "merge" }: { initialMode?: "merge"
       alert("Error: " + (err.message || "Split failed"));
     } finally {
       setIsProcessing(false);
+      setProgressPct(0);
     }
   };
 
@@ -211,9 +233,21 @@ export function PdfMergerTool({ initialMode = "merge" }: { initialMode?: "merge"
                   </div>
                 </div>
               ))}
-              <button onClick={handleMerge} disabled={isProcessing || files.length < 2} className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-primary/90 disabled:opacity-50 transition-all cursor-pointer">
-                {isProcessing ? <><Loader2 className="h-4 w-4 animate-spin" /> Merging...</> : <><Sparkles className="h-4 w-4" /> Merge {files.length} PDFs</>}
-              </button>
+              {isProcessing && (
+                <ProcessingProgress
+                  progress={progressPct}
+                  statusText={progressStatus}
+                  stepName="Merging PDF Documents"
+                  completedItems={Math.round((progressPct / 100) * files.length)}
+                  totalItems={files.length}
+                  className="mt-3"
+                />
+              )}
+              {!isProcessing && (
+                <button onClick={handleMerge} disabled={files.length < 2} className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-primary/90 disabled:opacity-50 transition-all cursor-pointer">
+                  <Sparkles className="h-4 w-4" /> Merge {files.length} PDFs
+                </button>
+              )}
             </div>
           )}
 
@@ -235,9 +269,19 @@ export function PdfMergerTool({ initialMode = "merge" }: { initialMode?: "merge"
                 <input type="text" value={pageRangeInput} onChange={(e) => setPageRangeInput(e.target.value)} placeholder="1-3, 5, 7-10" className="w-full rounded-lg border border-surface-dim px-3 py-2 text-sm bg-white focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none" />
                 <p className="text-xs text-tertiary mt-1">Total pages in document: {splitFile.pageCount}</p>
               </div>
-              <button onClick={handleSplit} disabled={isProcessing} className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-primary/90 disabled:opacity-50 transition-all cursor-pointer">
-                {isProcessing ? <><Loader2 className="h-4 w-4 animate-spin" /> Splitting...</> : <><Scissors className="h-4 w-4" /> Extract Pages</>}
-              </button>
+              {isProcessing && (
+                <ProcessingProgress
+                  progress={progressPct}
+                  statusText={progressStatus}
+                  stepName="Splitting PDF Document"
+                  className="mt-3"
+                />
+              )}
+              {!isProcessing && (
+                <button onClick={handleSplit} className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-md hover:bg-primary/90 disabled:opacity-50 transition-all cursor-pointer">
+                  <Scissors className="h-4 w-4" /> Extract Pages
+                </button>
+              )}
             </div>
           )}
         </ToolSectionCard>

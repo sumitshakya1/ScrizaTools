@@ -36,7 +36,7 @@ export default function Home() {
 
             </div>
 
-            {/* Right-Hand Sticky Ad Slot */}
+            {/* Right-Hand Sticky Ad Slot for AdSense */}
             <AdSlot placement="sticky-rail" format="skyscraper" enabled={true} className="hidden lg:flex" />
 
           </div>

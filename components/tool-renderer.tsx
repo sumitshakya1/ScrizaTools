@@ -2,16 +2,11 @@
 
 import React from "react";
 import dynamic from "next/dynamic";
-import { Loader2 } from "lucide-react";
+import { ToolSkeleton } from "@/components/tools/shared/tool-skeleton";
 
 // Loading fallback
 function ToolLoading() {
-  return (
-    <div className="flex min-h-[50vh] flex-col items-center justify-center gap-3">
-      <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      <p className="text-sm text-tertiary font-medium">Loading tool...</p>
-    </div>
-  );
+  return <ToolSkeleton />;
 }
 
 // ── Image Tools ──

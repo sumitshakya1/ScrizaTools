@@ -17,6 +17,7 @@ import { ToolPageLayout } from "./shared/tool-page-layout";
 import { ToolSectionCard } from "./shared/tool-section-card";
 import { FAQSection, FAQItem } from "./shared/faq-section";
 import { DownloadCountdownModal } from "./shared/download-countdown-modal";
+import { ProcessingProgress } from "./shared/processing-progress";
 import {
   loadImage,
   inspectImageFile,
@@ -63,6 +64,8 @@ export function BulkImageResizerTool() {
   const [targetFormat, setTargetFormat] = useState<string>("image/jpeg");
   const [quality, setQuality] = useState<number>(85);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const [processedCount, setProcessedCount] = useState<number>(0);
+  const [currentFileName, setCurrentFileName] = useState<string>("");
   const [zipBlob, setZipBlob] = useState<Blob | null>(null);
 
   const handleFilesSelected = async (files: File[]) => {
@@ -107,6 +110,8 @@ export function BulkImageResizerTool() {
   const handleProcessBatch = async () => {
     if (items.length === 0) return;
     setIsProcessing(true);
+    setProcessedCount(0);
+    setCurrentFileName("Starting batch...");
     setZipBlob(null);
 
     const processedFiles: { name: string; blob: Blob }[] = [];
@@ -114,6 +119,7 @@ export function BulkImageResizerTool() {
 
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
+      setCurrentFileName(`Resizing "${item.file.name}"...`);
       setItems((prev) =>
         prev.map((it) => (it.id === item.id ? { ...it, status: "processing" } : it))
       );
@@ -142,6 +148,7 @@ export function BulkImageResizerTool() {
         const fileName = `${item.outputName}${ext}`;
         processedFiles.push({ name: fileName, blob });
 
+        setProcessedCount(i + 1);
         setItems((prev) =>
           prev.map((it) =>
             it.id === item.id
@@ -158,6 +165,7 @@ export function BulkImageResizerTool() {
     }
 
     try {
+      setCurrentFileName("Creating ZIP archive...");
       const zip = await createZipArchive(processedFiles);
       setZipBlob(zip);
     } catch (err) {
@@ -413,6 +421,18 @@ export function BulkImageResizerTool() {
               ))}
             </div>
 
+            {/* Progress Display */}
+            {isProcessing && (
+              <ProcessingProgress
+                progress={items.length > 0 ? (processedCount / items.length) * 100 : 0}
+                statusText={currentFileName}
+                stepName="Batch Resizing Images"
+                completedItems={processedCount}
+                totalItems={items.length}
+                className="mt-4"
+              />
+            )}
+
             {/* Action Bar */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-surface-dim mt-4">
               <span className="text-xs text-tertiary">
@@ -430,7 +450,7 @@ export function BulkImageResizerTool() {
                     {isProcessing ? (
                       <>
                         <Loader2 className="h-4 w-4 animate-spin" />
-                        <span>PROCESSING BATCH...</span>
+                        <span>PROCESSING ({processedCount}/{items.length})...</span>
                       </>
                     ) : (
                       <>

@@ -135,18 +135,25 @@ function dataUrlToBlob(dataUrl: string): Blob {
 
 export async function generatePdfFromImages(
   items: PDFImageItem[],
-  options: PDFExportOptions
+  options: PDFExportOptions,
+  onProgress?: (progress: number, message: string) => void
 ): Promise<Uint8Array> {
   if (items.length === 0) {
     throw new Error("No images provided to generate PDF");
   }
 
+  if (onProgress) onProgress(10, "Initializing PDF compiler...");
   const { PDFDocument, PageSizes } = await import("pdf-lib");
 
   const pdfDoc = await PDFDocument.create();
   const margin = getMarginPoints(options.margin);
 
-  for (const item of items) {
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (onProgress) {
+      const pct = 10 + Math.round(((i + 0.3) / items.length) * 80);
+      onProgress(pct, `Processing image ${i + 1} of ${items.length}: "${item.name}"...`);
+    }
     const { bytes } = await prepareImageBytes(item, options.quality, options.grayscale);
     const embeddedImage = await pdfDoc.embedJpg(bytes);
 
@@ -211,7 +218,9 @@ export async function generatePdfFromImages(
     });
   }
 
+  if (onProgress) onProgress(95, "Finalizing and assembling PDF file...");
   const pdfBytes = await pdfDoc.save();
+  if (onProgress) onProgress(100, "Done!");
   return pdfBytes;
 }
 
@@ -284,25 +293,40 @@ export async function convertPdfToImages(
 // 3. PDF MERGE
 // ═══════════════════════════════════════════════════════════
 
-export async function mergePdfs(files: File[]): Promise<Uint8Array> {
+export async function mergePdfs(
+  files: File[],
+  onProgress?: (progress: number, message: string) => void
+): Promise<Uint8Array> {
   if (files.length === 0) throw new Error("No PDF files provided");
 
   const { PDFDocument } = await import("pdf-lib");
   const mergedDoc = await PDFDocument.create();
 
-  for (const file of files) {
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (onProgress) {
+      const pct = Math.round(((i + 0.2) / files.length) * 85);
+      onProgress(pct, `Reading and parsing "${file.name}" (${i + 1}/${files.length})...`);
+    }
     const arrayBuffer = await readFileAsArrayBuffer(file);
     try {
       const srcDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
       const copiedPages = await mergedDoc.copyPages(srcDoc, srcDoc.getPageIndices());
       copiedPages.forEach((page) => mergedDoc.addPage(page));
+      if (onProgress) {
+        const pct = Math.round(((i + 1) / files.length) * 85);
+        onProgress(pct, `Appended pages from "${file.name}" (${i + 1}/${files.length})`);
+      }
     } catch (err) {
       console.warn(`Skipping unreadable PDF: ${file.name}`, err);
       throw new Error(`Failed to process "${file.name}". The file may be corrupted or password-protected.`);
     }
   }
 
-  return mergedDoc.save();
+  if (onProgress) onProgress(92, "Encoding merged PDF streams...");
+  const saved = await mergedDoc.save();
+  if (onProgress) onProgress(100, "Done!");
+  return saved;
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -311,10 +335,12 @@ export async function mergePdfs(files: File[]): Promise<Uint8Array> {
 
 export async function splitPdf(
   file: File,
-  ranges: PageRange[]
+  ranges: PageRange[],
+  onProgress?: (progress: number, message: string) => void
 ): Promise<Uint8Array> {
   if (ranges.length === 0) throw new Error("No page ranges specified");
 
+  if (onProgress) onProgress(15, "Loading source PDF document...");
   const { PDFDocument } = await import("pdf-lib");
   const arrayBuffer = await readFileAsArrayBuffer(file);
   const srcDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
@@ -338,10 +364,14 @@ export async function splitPdf(
     throw new Error("No valid pages in the specified ranges");
   }
 
+  if (onProgress) onProgress(45, `Extracting ${sortedIndices.length} selected pages...`);
   const copiedPages = await newDoc.copyPages(srcDoc, sortedIndices);
   copiedPages.forEach((page) => newDoc.addPage(page));
 
-  return newDoc.save();
+  if (onProgress) onProgress(90, "Assembling extracted PDF...");
+  const saved = await newDoc.save();
+  if (onProgress) onProgress(100, "Done!");
+  return saved;
 }
 
 /** Get page count of a PDF file */
